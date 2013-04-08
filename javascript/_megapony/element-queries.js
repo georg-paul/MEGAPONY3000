@@ -5,7 +5,83 @@
     "use strict";
 
     $(document).ready(function () {
+		var avoidLayoutBreak = (function () {
 
+			var init = function () {
+					checkForCollision();
+					$(window).bind('resize', checkForCollision);
+				},
+				checkForCollision = function () {
+					$('[class*="megapony-object"]').each(function () {
+						var $megaponyObj = $(this),
+							classNames = $megaponyObj.attr('class').split(/\s+/),
+							objType = '';
+
+						for (var i = 0; i < classNames.length; i++) {
+							objType = classNames[i].split('megapony-object-')[1];
+							if (objType === 'halign' || objType === 'valign-middle') {
+								halign($megaponyObj);
+							} else if (objType === 'media') {
+								media($megaponyObj);
+							} else if (objType === 'hnav') {
+								hnav($megaponyObj);
+							}
+						}
+					});
+				},
+
+				halign = function ($megaponyObj) {
+					var $left = $megaponyObj.find('> .left'),
+						$center = $megaponyObj.find('> .center'),
+						$right = $megaponyObj.find('> .right'),
+						leftWidth = 0,
+						centerWidth = 0,
+						rightWidth = 0;
+
+					if ($left.length || $right.length) {
+						$left.each(function () {
+							leftWidth += $(this).outerWidth(true);
+						});
+						$center.each(function () {
+							centerWidth += $(this).outerWidth(true);
+						});
+						$right.each(function () {
+							rightWidth += $(this).outerWidth(true);
+						});
+
+						if (leftWidth + centerWidth + rightWidth > $megaponyObj.width()) {
+							$megaponyObj.addClass('no-side-by-side');
+						}
+					}
+				},
+
+				media = function ($megaponyObj) {
+					var $img = $megaponyObj.find('.img'),
+						$content = $megaponyObj.find('.bd');
+
+					if ($img.height() * 1.8 < $content.height()) {
+						$content.addClass('in-text');
+					}
+				},
+
+				hnav = function ($megaponyObj) {
+					var $rootUL = $megaponyObj.find('> ul'),
+						totalWidth = 0;
+
+					$rootUL.find('> li').each(function () {
+						totalWidth += $(this).outerWidth(true);
+					});
+
+					// rounding bug?!
+					if (totalWidth > $rootUL.width() + 5) {
+						$megaponyObj.addClass('breakpoint-small');
+					}
+
+				};
+
+			return { init: init };
+		}());
+		
         var elementQueries = (function () {
 
             var init = function () {
@@ -120,84 +196,6 @@
         }());
 
         elementQueries.init();
-
-
-		var avoidLayoutBreak = (function () {
-
-			var init = function () {
-					checkForCollision();
-					$(window).bind('resize', checkForCollision);
-				},
-				checkForCollision = function () {
-					$('[class*="megapony-object"]').each(function () {
-						var $megaponyObj = $(this),
-							classNames = $megaponyObj.attr('class').split(/\s+/),
-							objType = '';
-
-						for (var i = 0; i < classNames.length; i++) {
-							objType = classNames[i].split('megapony-object-')[1];
-							if (objType === 'halign' || objType === 'valign-middle') {
-								halign($megaponyObj);
-							} else if (objType === 'media') {
-								media($megaponyObj);
-							} else if (objType === 'hnav') {
-								hnav($megaponyObj);
-							}
-						}
-					});
-				},
-
-				halign = function ($megaponyObj) {
-					var $left = $megaponyObj.find('> .left'),
-						$center = $megaponyObj.find('> .center'),
-						$right = $megaponyObj.find('> .right'),
-						leftWidth = 0,
-						centerWidth = 0,
-						rightWidth = 0;
-
-					if ($left.length || $right.length) {
-						$left.each(function () {
-							leftWidth += $(this).outerWidth(true);
-						});
-						$center.each(function () {
-							centerWidth += $(this).outerWidth(true);
-						});
-						$right.each(function () {
-							rightWidth += $(this).outerWidth(true);
-						});
-
-						if (leftWidth + centerWidth + rightWidth > $megaponyObj.width()) {
-							$megaponyObj.addClass('no-side-by-side');
-						}
-					}
-				},
-
-				media = function ($megaponyObj) {
-					var $img = $megaponyObj.find('.img'),
-						$content = $megaponyObj.find('.bd');
-
-					if ($img.height() * 1.8 < $content.height()) {
-						$content.addClass('in-text');
-					}
-				},
-
-				hnav = function ($megaponyObj) {
-					var $rootUL = $megaponyObj.find('> ul'),
-						totalWidth = 0;
-
-					$rootUL.find('> li').each(function () {
-						totalWidth += $(this).outerWidth(true);
-					});
-
-					// rounding bug?!
-					if (totalWidth > $rootUL.width() + 5) {
-						$megaponyObj.addClass('breakpoint-small');
-					}
-
-				};
-
-			return { init: init };
-		}());
 
     });
 }());
