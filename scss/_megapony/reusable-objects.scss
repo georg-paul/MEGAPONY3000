@@ -1,0 +1,159 @@
+
+// hnav object
+.megapony-object-hnav {
+	ul {
+		@include clear-after;
+		margin-bottom: 0;
+		li {
+			position: relative;
+			&:hover {
+				ul {
+					display: block;
+					left: 0;
+					right: 0;
+				}
+			}
+			a {
+				display: block;
+				line-height: 1em;
+			}
+		}
+	}
+	> ul {
+		> li {
+			float: left;
+			height: 100%;
+			list-style: none;
+			line-height: 1em;
+			@if $default-styling-hnav {
+				margin-right: rem($hnav-margin);
+				&:last-child {
+					margin-right: 0;
+				}
+			}
+			> a {
+
+			}
+			ul {
+				display: none;
+				position: absolute;
+				top: 100%;
+			}
+		}
+	}
+	&.breakpoint-small {
+		> ul > li {
+			width: 100%;
+			@include box-sizing(border-box);
+			margin-right: 0;
+			padding-left: 0 !important;
+			padding-right: 0 !important;
+			margin-bottom: rem(10);
+			&:hover {
+				padding-bottom: 0;
+				ul {
+					position: static;
+				}
+			}
+		}
+	}
+	//&.align-right ul { float: right; }
+}
+
+
+// media object
+//http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/
+.megapony-object-media {
+	overflow: hidden;
+	_overflow: visible;
+	zoom: 1;
+	.img {
+		float: left;
+		margin-right: 10px;
+		img {
+			display: block;
+		}
+	}
+	.imgExt {
+		float: right;
+		margin-left: 10px;
+	}
+	.bd {
+		overflow: hidden;
+		_overflow: visible;
+		zoom: 1;
+		&.in-text {
+			overflow: visible;
+		}
+	}
+}
+
+
+// halign object
+.megapony-object-halign {
+	text-align: center;
+	@include clear-after;
+	> * { text-align: left; }
+
+	.center {
+		display: inline-block;
+		text-align: left;
+		float: none;
+		&.text-align-center { text-align: center; }
+	}
+	.left {
+		float: left;
+		@if $default-styling-halign {
+			margin-right: rem($halign-margin/2);
+		}
+	}
+	.right {
+		float: right;
+		@if $default-styling-halign {
+			margin-left: rem($halign-margin/2);
+		}
+	}
+
+	&.no-side-by-side {
+		&.megapony-object-valign-middle { display: block; }
+		.left, .center, .right {
+			float: none;
+			margin: 0;
+			margin-bottom: rem(20);
+			width: auto;
+			max-width: 100%;
+			&:last-child { margin-bottom: 0; }
+		}
+		.left { margin-right: 0; }
+		.right { margin-left: 0; }
+	}
+}
+
+// halign object
+.megapony-object-valign-middle {
+	text-align: left;
+	display: table;
+	width: 100%;
+	.left, .center, .right {
+		float: none;
+		display: table-cell;
+		vertical-align: middle;
+	}
+	.right > * { float: right; }
+}
+
+
+// grid object
+// http://dbushell.com/2013/03/19/on-responsive-layout-and-grids/
+$whitespace: 1.5em;
+.grid {
+	@include clear-after;
+	margin-left: $whitespace * -1;
+	.grid-unit {
+		@include box-sizing(border-box);
+		display: block;
+		float: left;
+		padding: 0 $whitespace;
+		width: 100%;
+	}
+}

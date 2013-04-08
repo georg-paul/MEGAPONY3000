@@ -1,0 +1,23 @@
+TODO
+============
+
+[BUGFIX]
+-------------------------
+* Avoid duplicate element queries for same object: .megapony-min-width-760 > ul > li + .megapony-min-width-760 > ul > li > a
+* firefox rounding bug for calculating with of child elements?! (hnav)
+* solution for specifity of selectors: ".megapony-object-hnav.breakpoint-small > ul > li { padding: x }" vs. ".l-cssobjects #demo-object-hnav li { padding: y }"
+* -> !important is not nice
+* /* */ comments breaks CSS parser
+
+
+[TASK]
+-------------------------
+* Improve Framework Design
+* Use Framework in the wild for a real world project
+* Refactoring
+
+
+[FEATURE]
+-------------------------
+* Integration Tests
+* Add a few basic UI Components like forms and buttons

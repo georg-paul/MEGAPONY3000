@@ -1,0 +1,56 @@
+@mixin mq-width($breakpoint) {
+	@if $breakpoint == medium {
+		@media screen and (max-width: em(720)) { @content; }
+	}
+	@else if $breakpoint == small {
+		@media screen and (max-width: em(320)) { @content; }
+	}
+}
+
+
+@mixin clear-after {
+	&:after {
+		content: ".";
+		display: block;
+		height: 0;
+		clear: both;
+		visibility: hidden;
+	}
+}
+
+
+@mixin box-sizing($type) {
+	box-sizing: $type;
+	-moz-box-sizing: $type;
+	-webkit-box-sizing: $type;
+	-ms-box-sizing: $type;
+}
+
+@mixin adaptive-image {
+	max-width: 100% !important;
+	height: auto;
+	display: block;
+}
+
+@mixin collapse-margins($total-margin) {
+	margin-bottom: $total-margin;
+	+ * {
+		margin-top: 0;
+	}
+}
+
+@mixin clear-common-last-child-styles {
+	border-bottom: 0 none;
+	margin-bottom: 0;
+	padding-bottom: 0;;
+}
+
+@mixin reset-styles {
+	float: none;
+	display: inherit;
+	width: auto;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	border: 0 none;
+}

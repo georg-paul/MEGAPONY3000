@@ -1,0 +1,80 @@
+p, pre, blockquote, ul, ol, dl, figure, table, fieldset, .css-object {
+	margin-bottom: rem($text-flow-margin);
+}
+
+h1, h2, h3, h4, h5 {
+	line-height: 1.1em;
+	margin: 0;
+}
+
+h1 {
+	font: {
+		size: rem(nth($headline-sizes, 1));
+		//family: $font-stack-2;
+		weight: 700;
+	}
+	text-transform: uppercase;
+	@if $headline-default-margins {
+		margin-bottom: 0.5em;
+	}
+	//@include collapse-margins(rem(15));
+}
+
+h2 {
+	font-size: rem(nth($headline-sizes, 2));
+	font-weight: 700;
+	@if $headline-default-margins {
+		margin-bottom: rem(18);
+	}
+}
+
+h3 {
+	font-size: rem(nth($headline-sizes, 3));
+	font-weight: 700;
+	@if $headline-default-margins {
+		margin-bottom: 0.5em;
+	}
+}
+
+h4 {
+	font-size: rem(nth($headline-sizes, 4));
+	font-weight: 400;
+	@if $headline-default-margins {
+		margin-bottom: 0.5em;
+	}
+}
+
+h5 {
+	font-size: rem(nth($headline-sizes, 5));
+	font-weight: 400;
+	text-transform: uppercase;
+	margin-bottom: 0.5em;
+}
+
+
+.leader {
+	font-family: $font-stack-3;
+	font-size: rem(32);
+	line-height: rem(42);
+	margin-bottom: 1.5em;
+}
+
+a {
+	color: $linkColor;
+	&:visited {
+		//color: $linkColorVisited;
+	}
+	&:link, &:visited {
+		text-decoration: none;
+	}
+	&:hover, &:focus, &:active {
+		text-decoration: underline;
+	}
+}
+
+
+code {
+	white-space: normal;
+	font-weight: bold;
+	color: #000;
+}
