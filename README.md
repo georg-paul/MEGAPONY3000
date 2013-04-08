@@ -15,6 +15,7 @@ Important Notices
 Special thanks to
 -------------------------
 * the guys who made the contributed stuff I use in this repo.
+* Clearleft - I used most of their styleguide content (http://clearleft.com/styleguide/)
 * the unknown copyright owner of the horse image I use.
 
 
