@@ -7,8 +7,9 @@ A Responsive Frontend Framework with lots of resuable CSS Objects, responsive pa
 
 Important Notices
 -------------------------
-* This Repo is on an EARLY ALPHA state and no proper testing was made (bugs are expected)
-* You may NOT have /* */ comments in your css output files. The css parser will stop working otherwise.
+* This Repo is not even on an EARLY ALPHA state and no proper testing was made (bugs are expected)
+* You may NOT have /* */ comments in your css output files. The css parser will probably stop working otherwise.
+* http://stackoverflow.com/questions/4208530/xmlhttprequest-origin-null-is-not-allowed-access-control-access-allow-for-file
 * Responsive Resizing will NOT work for few cases. Reload the page please, resizing is no real-world issue. Orientation change event should fire (not tested yet)
 
 
