@@ -54,6 +54,12 @@ table {
 .l-banner {
 	background: #2E3230;
 	padding: rem(30) 0;
+	> .megapony-object-halign {
+		min-height: 0; // test
+		&.megapony-max-width-420 {
+			h1 { font-size: rem(35); }
+		}
+	}
 	h1 {
 		color: #fff;
 		margin-bottom: 0;

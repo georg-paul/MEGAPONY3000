@@ -81,7 +81,7 @@
 
 			return { init: init };
 		}());
-		
+
         var elementQueries = (function () {
 
             var init = function () {
@@ -123,6 +123,7 @@
 							//console.log(selectorText);
 
 							if (selectorText.indexOf('.megapony-max-width-') !== -1 && selectorText.indexOf('.megapony-min-width-') === -1) { // only max-width
+								//console.log($(elementsObject[i]));
 								$element = $(elementsObject[i - 1].selectorText());
 								maxWidthStr = '.megapony-max-width-';
 								maxWidthStartPos = selectorText.indexOf(maxWidthStr) + maxWidthStr.length;

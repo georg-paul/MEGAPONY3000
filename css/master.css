@@ -559,6 +559,10 @@ table {
 .l-banner {
   background: #2E3230;
   padding: 1.875rem 0; }
+  .l-banner > .megapony-object-halign {
+    min-height: 0; }
+    .l-banner > .megapony-object-halign.megapony-max-width-420 h1 {
+      font-size: 2.1875rem; }
   .l-banner h1 {
     color: #fff;
     margin-bottom: 0;
