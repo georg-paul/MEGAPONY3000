@@ -1,2 +1,45 @@
+html {
+	font-size: 100%;
+}
+
+body {
+	background: nth($colors, 2);
+	color: nth($colors, 4);
+	font: {
+		size: rem($base-font-size);
+		family: $font-stack-1;
+	}
+	line-height: 1.5em;
+	&.megapony-max-width-600 {
+		.l-banner {
+			//background: #194460;
+			padding-top: rem(20);
+			padding-bottom: rem(20);
+			.toggle {
+				top: rem(30)
+			}
+		}
+	}
+}
+
+#page {
+	@include box-sizing(border-box);
+}
+
+.megapony-delimiter {
+	max-width: rem($container-max-width);
+	margin: 0 auto;
+	padding: 0 rem($container-side-space);
+
+	.javascript-is-disabled & {
+		width: rem($container-max-width);
+	}
+}
+
+img {
+	@include adaptive-image;
+}
+
+
 .text-align-center { text-align: center }
 .text-align-right { text-align: right }

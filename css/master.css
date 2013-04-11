@@ -211,6 +211,39 @@ input, select {
 [class*="megapony-object-columns-12"] > [class*="megapony-object-column"] {
   width: 8.33333%; }
 
+html {
+  font-size: 100%; }
+
+body {
+  background: white;
+  color: #3b3b3b;
+  font-size: 1rem;
+  font-family: "Open Sans", Arial, sans-serif;
+  line-height: 1.5em; }
+  body.megapony-max-width-600 .l-banner {
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem; }
+    body.megapony-max-width-600 .l-banner .toggle {
+      top: 1.875rem; }
+
+#page {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box; }
+
+.megapony-delimiter {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1.875rem; }
+  .javascript-is-disabled .megapony-delimiter {
+    width: 80rem; }
+
+img {
+  max-width: 100% !important;
+  height: auto;
+  display: block; }
+
 .text-align-center {
   text-align: center; }
 
@@ -370,49 +403,6 @@ input, select {
     padding: 0 1.5em;
     width: 100%; }
 
-html {
-  font-size: 100%; }
-
-body {
-  background: white;
-  color: #3b3b3b;
-  font-size: 1rem;
-  font-family: "Open Sans", Arial, sans-serif;
-  line-height: 1.5em; }
-  body.megapony-max-width-600 .l-banner {
-    padding-top: 1.25rem;
-    padding-bottom: 1.25rem; }
-    body.megapony-max-width-600 .l-banner .toggle {
-      top: 1.875rem; }
-
-#page {
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -ms-box-sizing: border-box; }
-
-.megapony-delimiter {
-  max-width: 80rem;
-  margin: 0 auto;
-  padding: 0 1.875rem; }
-
-img {
-  max-width: 100% !important;
-  height: auto;
-  display: block; }
-
-table {
-  width: 100%; }
-  table th {
-    background: #eeeeee;
-    text-align: left;
-    padding: 7px 8px; }
-  table td {
-    text-align: left;
-    padding: 5px 8px; }
-  table tr:nth-child(odd) td {
-    background: whitesmoke; }
-
 .l-banner {
   background: #2E3230;
   padding: 1.875rem 0; }
@@ -502,8 +492,28 @@ table {
   padding: 0;
   border: 0 none; }
 
+table {
+  width: 100%; }
+  table th {
+    background: #eeeeee;
+    text-align: left;
+    padding: 7px 8px; }
+  table td {
+    text-align: left;
+    padding: 5px 8px; }
+  table tr:nth-child(odd) td {
+    background: whitesmoke; }
+
 p, pre, blockquote, ul, ol, dl, figure, table, fieldset, .css-object {
   margin-bottom: 1.5rem; }
+  p.megapony-max-width-480, pre.megapony-max-width-480, blockquote.megapony-max-width-480, ul.megapony-max-width-480, ol.megapony-max-width-480, dl.megapony-max-width-480, figure.megapony-max-width-480, table.megapony-max-width-480, fieldset.megapony-max-width-480, .css-object.megapony-max-width-480 {
+    -ms-word-break: break-all;
+    word-break: break-all;
+    /* Non standard for webkit */
+    word-break: break-word;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    hyphens: auto; }
 
 h1, h2, h3, h4, h5 {
   line-height: 1.1em;

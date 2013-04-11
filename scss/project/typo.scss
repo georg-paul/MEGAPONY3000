@@ -1,5 +1,8 @@
 p, pre, blockquote, ul, ol, dl, figure, table, fieldset, .css-object {
 	margin-bottom: rem($text-flow-margin);
+	&.megapony-max-width-480 {
+		@include word-break;
+	}
 }
 
 h1, h2, h3, h4, h5 {

@@ -1,60 +1,3 @@
-html {
-	font-size: 100%;
-}
-
-body {
-	background: nth($colors, 2);
-	color: nth($colors, 4);
-	font: {
-		size: rem($base-font-size);
-		family: $font-stack-1;
-	}
-	line-height: 1.5em;
-	&.megapony-max-width-600 {
-		.l-banner {
-			//background: #194460;
-			padding-top: rem(20);
-			padding-bottom: rem(20);
-			.toggle {
-				top: rem(30)
-			}
-		}
-	}
-}
-
-#page {
-	@include box-sizing(border-box);
-}
-
-.megapony-delimiter {
-	max-width: rem($container-max-width);
-	margin: 0 auto;
-	padding: 0 rem($container-side-space);
-}
-
-img {
-	@include adaptive-image;
-}
-
-table {
-	width: 100%;
-	th {
-		background: nth($colors, 3);
-		text-align: left;
-		padding: 7px 8px;
-	}
-	td {
-		text-align: left;
-		padding: 5px 8px;
-	}
-	tr:nth-child(odd) td {
-		background: nth($colors, 1);
-	}
-}
-
-
-
-
 // project code goes here
 .l-banner {
 	background: #2E3230;
@@ -205,5 +148,22 @@ table {
 				@include reset-styles;
 			}
 		}
+	}
+}
+
+
+table {
+	width: 100%;
+	th {
+		background: nth($colors, 3);
+		text-align: left;
+		padding: 7px 8px;
+	}
+	td {
+		text-align: left;
+		padding: 5px 8px;
+	}
+	tr:nth-child(odd) td {
+		background: nth($colors, 1);
 	}
 }
