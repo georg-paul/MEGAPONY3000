@@ -457,11 +457,11 @@ img {
   padding: 2.1875rem 0; }
   .l-intro .leader {
     margin-bottom: 0; }
+    .l-intro .leader.megapony-min-width-1100.megapony-max-width-1200 {
+      color: red; }
     .l-intro .leader.megapony-max-width-500 {
       font-size: 1.625rem;
       line-height: 2.125rem; }
-    .l-intro .leader.megapony-min-width-1100.megapony-max-width-1200 {
-      color: red; }
 
 .l-hero {
   padding: 2.5rem 0;
@@ -506,14 +506,6 @@ table {
 
 p, pre, blockquote, ul, ol, dl, figure, table, fieldset, .css-object {
   margin-bottom: 1.5rem; }
-  p.megapony-max-width-480, pre.megapony-max-width-480, blockquote.megapony-max-width-480, ul.megapony-max-width-480, ol.megapony-max-width-480, dl.megapony-max-width-480, figure.megapony-max-width-480, table.megapony-max-width-480, fieldset.megapony-max-width-480, .css-object.megapony-max-width-480 {
-    -ms-word-break: break-all;
-    word-break: break-all;
-    /* Non standard for webkit */
-    word-break: break-word;
-    -webkit-hyphens: auto;
-    -moz-hyphens: auto;
-    hyphens: auto; }
 
 h1, h2, h3, h4, h5 {
   line-height: 1.1em;

@@ -94,12 +94,12 @@
 	padding: rem(35) 0;
 	.leader {
 		margin-bottom: 0;
+		&.megapony-min-width-1100.megapony-max-width-1200 {
+			color: red;
+		}
 		&.megapony-max-width-500 {
 			font-size: rem(26);
 			line-height: rem(34);
-		}
-		&.megapony-min-width-1100.megapony-max-width-1200 {
-			color: red;
 		}
 	}
 }

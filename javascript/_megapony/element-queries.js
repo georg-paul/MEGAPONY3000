@@ -2,9 +2,9 @@
 /*global $, jQuery, Modernizr */
 
 (function () {
-    "use strict";
+	"use strict";
 
-    $(document).ready(function () {
+	$(document).ready(function () {
 		var avoidLayoutBreak = (function () {
 
 			var init = function () {
@@ -78,7 +78,6 @@
 						totalWidth += $(this).outerWidth(true);
 					});
 
-
 					// rounding bug?!
 					if (totalWidth > $rootUL.width() + 3) {
 						$megaponyObj.addClass('breakpoint-small');
@@ -86,129 +85,92 @@
 							$rootUL.slideToggle();
 						});
 					}
-
 				};
 
 			return { init: init };
 		}());
 
-        var elementQueries = (function () {
 
-            var init = function () {
-                    $.ajax({
-                        url: 'css/master.css',
-                        dataType: 'text',
-                        success: function (response) {
-                            var parser = new CSSParser(),
-                                sheet = parser.parse(response, false, true),
-                                medium = 'screen';
 
-                            if (sheet) {
-                                sheet.resolveVariables(medium);
+		var elementQueries = (function () {
+
+			var init = function () {
+					$.ajax({
+						url: window.megapony3000.cssPath,
+						dataType: 'text',
+						success: function (response) {
+							var parser = new CSSParser(),
+								sheet = parser.parse(response, false, true),
+								medium = 'screen';
+
+							if (sheet) {
+								sheet.resolveVariables(medium);
 								checkElementBreakpoints(sheet.cssRules);
 								$(window).bind('orientationchange', function () {
 									checkElementBreakpoints(sheet.cssRules);
 								});
-                            }
+							}
 
 							avoidLayoutBreak.init();
-                        }
-                    });
-                },
+						}
+					});
+				},
 
 				checkElementBreakpoints = function (elementsObject) {
 					for (var i = 0; i < elementsObject.length; i++) {
-						var selectorText = (elementsObject[i].mSelectorText) !== undefined ? (elementsObject[i].mSelectorText) : '',
-							//selectorText = elementsObject[i].selectorText(),
-							$element = null,
-							maxWidth = 0,
-							minWidth = 0,
-							maxWidthStr,
-							minWidthStr,
-							maxWidthStartPos,
-							minWidthStartPos,
-							maxWidthEndPos,
-							minWidthEndPos;
+						var selectorText = (elementsObject[i].mSelectorText) !== undefined ? (elementsObject[i].mSelectorText) : '';
 
 						if (selectorText.indexOf('.megapony-max-width-') !== -1 || selectorText.indexOf('.megapony-min-width-') !== -1) {
-							//console.log(selectorText);
+							var targetSelector = elementsObject[i].selectorText().split('.megapony-max')[0].split('.megapony-min')[0],
+								storedSelector,
+								maxWidthStr = '.megapony-max-width-',
+								minWidthStr = '.megapony-min-width-',
+								maxWidthStartPos = selectorText.indexOf(maxWidthStr) + maxWidthStr.length,
+								minWidthStartPos = selectorText.indexOf(minWidthStr) + minWidthStr.length,
+								maxWidthEndPos = selectorText.indexOf(maxWidthStr) + maxWidthStr.length + 4,
+								minWidthEndPos = selectorText.indexOf(minWidthStr) + minWidthStr.length + 4,
+								maxWidth = parseInt(selectorText.slice(maxWidthStartPos, maxWidthEndPos), 10),
+								minWidth = parseInt(selectorText.slice(minWidthStartPos, minWidthEndPos), 10),
+								values = {
+									maxW: (maxWidth > 0) ? maxWidth : false,
+									minW: (minWidth > 0) ? minWidth : false
+								};
 
-							if (selectorText.indexOf('.megapony-max-width-') !== -1 && selectorText.indexOf('.megapony-min-width-') === -1) { // only max-width
-								//console.log($(elementsObject[i]));
-								$element = $(elementsObject[i - 1].selectorText());
-								maxWidthStr = '.megapony-max-width-';
-								maxWidthStartPos = selectorText.indexOf(maxWidthStr) + maxWidthStr.length;
-								maxWidthEndPos = selectorText.indexOf(maxWidthStr) + maxWidthStr.length + 4;
-								maxWidth = parseInt(selectorText.slice(maxWidthStartPos, maxWidthEndPos), 10);
-
-								//console.log(elementsObject[i - 1].selectorText(), maxWidth);
-
-								if (maxWidthReached($element, maxWidth)) {
-									$element.addClass('megapony-max-width-' + maxWidth);
-								}
-							} else if (selectorText.indexOf('.megapony-min-width-') !== -1 && selectorText.indexOf('.megapony-max-width-') === -1) { // only min-width
-								$element = $(elementsObject[i - 1].selectorText());
-								minWidthStr = '.megapony-min-width-';
-								minWidthStartPos = selectorText.indexOf(minWidthStr) + minWidthStr.length;
-								minWidthEndPos = selectorText.indexOf(minWidthStr) + minWidthStr.length + 4;
-								maxWidth = parseInt(selectorText.slice(maxWidthStartPos, maxWidthEndPos), 10);
-								minWidth = parseInt(selectorText.slice(minWidthStartPos, minWidthEndPos), 10);
-
-								//console.log(minWidth);
-
-								if (minWidthReached($element, minWidth)) {
-									$element.addClass('megapony-min-width-' + minWidth);
-								}
-
-							} else { // min-width AND max-width
-								var temp = elementsObject[i].selectorText().split('.megapony-max')[0];
-								temp = temp.split('.megapony-min')[0];
-								$element = $(temp);
-								maxWidthStr = '.megapony-max-width-';
-								maxWidthStartPos = selectorText.indexOf(maxWidthStr) + maxWidthStr.length;
-								maxWidthEndPos = selectorText.indexOf(maxWidthStr) + maxWidthStr.length + 4;
-								minWidthStr = '.megapony-min-width-';
-								minWidthStartPos = selectorText.indexOf(minWidthStr) + minWidthStr.length;
-								minWidthEndPos = selectorText.indexOf(minWidthStr) + minWidthStr.length + 4;
-								maxWidth = parseInt(selectorText.slice(maxWidthStartPos, maxWidthEndPos), 10);
-								minWidth = parseInt(selectorText.slice(minWidthStartPos, minWidthEndPos), 10);
-
-								//console.log($element, maxWidth, minWidth);
-
-								if (maxAndMinWidthReached($element, maxWidth, minWidth)) {
-									$element.addClass('megapony-max-width-' + maxWidth);
-									$element.addClass('megapony-min-width-' + minWidth);
-								}
+							if (targetSelector !== storedSelector) {
+								storedSelector = targetSelector;
+								applyElementQueries($(targetSelector), values);
 							}
 						}
 					}
 				},
 
-				maxWidthReached = function ($element, value) {
-					//console.log($element);
-					if ($element.width() < value) {
-						return true;
-					}
-				},
+				applyElementQueries = function ($element, values) {
 
-				minWidthReached = function ($element, value) {
-					//console.log($element.width(), value);
-					if ($element.width() > value) {
-						return true;
+					// max width
+					if (values.maxW > 0 && !values.minW) {
+						if ($element.width() < values.maxW) {
+							$element.addClass('megapony-max-width-' + values.maxW);
+						}
 					}
-				},
-
-				maxAndMinWidthReached = function ($element, maxWidthValue, minWidthValue) {
-					//console.log($element.width(), maxWidthValue, minWidthValue);
-					if ($element.width() < maxWidthValue && $element.width() > minWidthValue) {
-						return true;
+					// min width
+					if (values.minW > 0 && !values.maxW) {
+						if ($element.width() > values.minW) {
+							$element.addClass('megapony-min-width-' + values.minW);
+						}
+					}
+					// max and min width
+					if (values.maxW > 0 && values.minW > 0) {
+						if ($element.width() < values.maxW && $element.width() > values.minW) {
+							$element.addClass('megapony-max-width-' + values.maxW);
+							$element.addClass('megapony-min-width-' + values.minW);
+						}
 					}
 				};
 
-                return { init: init };
-        }());
+			return { init: init };
+		}());
 
-        elementQueries.init();
+		elementQueries.init();
 
-    });
+	});
 }());
