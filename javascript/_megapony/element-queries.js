@@ -9,7 +9,7 @@
 
 			var init = function () {
 					checkForCollision();
-					$(window).bind('resize', checkForCollision);
+					//$(window).bind('resize', checkForCollision);
 				},
 				checkForCollision = function () {
 					$('[class*="megapony-object"]').each(function () {
@@ -72,9 +72,13 @@
 						totalWidth += $(this).outerWidth(true);
 					});
 
+
 					// rounding bug?!
-					if (totalWidth > $rootUL.width() + 5) {
+					if (totalWidth > $rootUL.width() + 3) {
 						$megaponyObj.addClass('breakpoint-small');
+						$megaponyObj.find('.toggle').bind('click', function () {
+							$rootUL.slideToggle();
+						});
 					}
 
 				};
@@ -108,7 +112,8 @@
 
 				checkElementBreakpoints = function (elementsObject) {
 					for (var i = 0; i < elementsObject.length; i++) {
-						var selectorText = elementsObject[i].selectorText(),
+						var selectorText = (elementsObject[i].mSelectorText) !== undefined ? (elementsObject[i].mSelectorText) : '',
+							//selectorText = elementsObject[i].selectorText(),
 							$element = null,
 							maxWidth = 0,
 							minWidth = 0,
@@ -130,7 +135,7 @@
 								maxWidthEndPos = selectorText.indexOf(maxWidthStr) + maxWidthStr.length + 4;
 								maxWidth = parseInt(selectorText.slice(maxWidthStartPos, maxWidthEndPos), 10);
 
-								//console.log(maxWidth);
+								//console.log(elementsObject[i - 1].selectorText(), maxWidth);
 
 								if (maxWidthReached($element, maxWidth)) {
 									$element.addClass('megapony-max-width-' + maxWidth);
@@ -174,6 +179,7 @@
 				},
 
 				maxWidthReached = function ($element, value) {
+					//console.log($element);
 					if ($element.width() < value) {
 						return true;
 					}

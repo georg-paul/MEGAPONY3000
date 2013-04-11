@@ -4,6 +4,7 @@
 	ul {
 		@include clear-after;
 		margin-bottom: 0;
+		margin-top: 0;
 		li {
 			position: relative;
 			&:hover {
@@ -42,20 +43,7 @@
 		}
 	}
 	&.breakpoint-small {
-		> ul > li {
-			width: 100%;
-			@include box-sizing(border-box);
-			margin-right: 0;
-			padding-left: 0 !important;
-			padding-right: 0 !important;
-			margin-bottom: rem(10);
-			&:hover {
-				padding-bottom: 0;
-				ul {
-					position: static;
-				}
-			}
-		}
+		@include hnav-small;
 	}
 	//&.align-right ul { float: right; }
 }
@@ -119,13 +107,16 @@
 		.left, .center, .right {
 			float: none;
 			margin: 0;
-			margin-bottom: rem(20);
+			//margin-bottom: rem(20);
 			width: auto;
 			max-width: 100%;
 			&:last-child { margin-bottom: 0; }
 		}
 		.left { margin-right: 0; }
 		.right { margin-left: 0; }
+		.megapony-object-hnav {
+			//@include hnav-small;
+		}
 	}
 }
 

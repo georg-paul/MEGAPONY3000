@@ -12,7 +12,12 @@ body {
 	line-height: 1.5em;
 	&.megapony-max-width-600 {
 		.l-banner {
-			background: #194460;
+			//background: #194460;
+			padding-top: rem(20);
+			padding-bottom: rem(20);
+			.toggle {
+				top: rem(30)
+			}
 		}
 	}
 }
@@ -56,8 +61,11 @@ table {
 	padding: rem(30) 0;
 	> .megapony-object-halign {
 		min-height: 0; // test
-		&.megapony-max-width-420 {
-			h1 { font-size: rem(35); }
+		&.megapony-max-width-480 {
+			h1 { font-size: rem(24); }
+			.toggle {
+				top: rem(19);
+			}
 		}
 	}
 	h1 {
@@ -115,6 +123,12 @@ table {
 			a {
 				color: #fff;
 			}
+		}
+	}
+
+	.no-side-by-side {
+		#main-nav:not(.breakpoint-small) {
+			margin-top: rem(20);
 		}
 	}
 }

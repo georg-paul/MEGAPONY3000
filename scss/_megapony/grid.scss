@@ -9,10 +9,11 @@
 		float: left;
 		display: block;
 		padding: 0 rem($grid-gutter/2);
-		&.megapony-max-width-320 {
+		&.breakpoint-small {
+			clear: both;
 			float: none;
 			display: block;
-			padding: 0;
+			//padding: 0;
 			width: auto !important;
 			margin-bottom: rem(30);
 			p { color: green; }
@@ -40,23 +41,9 @@
   @for $first-col from 1 to $grid-columns - 1 {
     @if $column-count == 2 {
 		$second-col: $grid-columns - $first-col;
-		[class*="megapony-object-columns-#{$column-count}-#{$first-col}-#{$second-col}"],
-		[class*="megapony-object-columns-#{$column-count}-#{$first-col}r-#{$second-col}"],
-		[class*="megapony-object-columns-#{$column-count}-#{$first-col}-#{$second-col}r"],
-		[class*="megapony-object-columns-#{$column-count}-#{$first-col}r-#{$second-col}r"] {
+		[class*="megapony-object-columns-#{$column-count}-#{$first-col}-#{$second-col}"] {
 			> [class*="megapony-object-column"]:nth-of-type(1) { width: percentage($first-col / $grid-columns); }
 			> [class*="megapony-object-column"]:nth-of-type(2) { width: percentage($second-col / $grid-columns); }
-		}
-		// content of second column can optionally be floated
-		[class*="megapony-object-columns-#{$column-count}-#{$first-col}r-#{$second-col}"] {
-			> [class*="megapony-object-column"]:nth-of-type(1) > * { float: right; }
-		}
-		[class*="megapony-object-columns-#{$column-count}-#{$first-col}-#{$second-col}r"] {
-			> [class*="megapony-object-column"]:nth-of-type(2) > * { float: right; }
-		}
-		[class*="megapony-object-columns-#{$column-count}-#{$first-col}r-#{$second-col}r"] {
-			> [class*="megapony-object-column"]:nth-of-type(1) > * { float: right; }
-			> [class*="megapony-object-column"]:nth-of-type(2) > * { float: right; }
 		}
     }
   }
