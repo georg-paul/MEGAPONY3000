@@ -6,8 +6,6 @@
 	var featureDetection = (function () {
 
 		var init = function () {
-			//$('html').addClass('js-enabled').removeClass('js-disabled');
-			//console.log('test');
 			document.getElementsByTagName('html')[0].className =
 			document.getElementsByTagName('html')[0].className.replace(/(?:^|\s)javascript-is-disabled(?!\S)/g, 'javascript-is-enabled');
 		};
