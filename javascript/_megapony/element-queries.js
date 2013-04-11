@@ -36,7 +36,9 @@
 						$right = $megaponyObj.find('> .right'),
 						leftWidth = 0,
 						centerWidth = 0,
-						rightWidth = 0;
+						rightWidth = 0,
+						totalWidth = 0,
+						safetyMargin = window.megapony3000.safetyMargin;
 
 					if ($left.length || $right.length) {
 						$left.each(function () {
@@ -49,8 +51,12 @@
 							rightWidth += $(this).outerWidth(true);
 						});
 
-						if (leftWidth + centerWidth + rightWidth > $megaponyObj.width()) {
+						totalWidth = leftWidth + centerWidth + rightWidth;
+
+						if (totalWidth > $megaponyObj.width()) {
 							$megaponyObj.addClass('no-side-by-side');
+						} else if (totalWidth + safetyMargin > $megaponyObj.width()) {
+							$megaponyObj.addClass('nearly-no-side-by-side');
 						}
 					}
 				},
