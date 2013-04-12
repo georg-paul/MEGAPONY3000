@@ -56,11 +56,11 @@
 }
 
 @mixin clear-box-shadow {
-	-moz-box-shadow: 0 0 0 #fff, 0 0 0 #fff !important;
-	-webkit-box-shadow: 0 0 0 #fff !important, 0 0 0 #fff !important;
--o-box-shadow: 0 0 0 #fff !important, 0 0 0 #fff !important;
-box-shadow: 0 0 0 #fff, 0 0 0 #fff !important;
-	}
+	-moz-box-shadow: none !important;
+	-webkit-box-shadow: none! important;
+	-o-box-shadow: none !important;
+	box-shadow: none !important;
+}
 
 @mixin hnav-small {
 	> ul {

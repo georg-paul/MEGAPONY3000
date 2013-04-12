@@ -319,6 +319,21 @@ img {
   .megapony-object-hnav.breakpoint-small .toggle:after {
     top: 60%; }
 
+.megapony-object-hlist > ul {
+  margin-bottom: 0;
+  margin-top: 0; }
+  .megapony-object-hlist > ul:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden; }
+  .megapony-object-hlist > ul > li {
+    float: left;
+    height: 100%;
+    list-style: none;
+    line-height: 1em; }
+
 .megapony-object-media {
   overflow: hidden;
   _overflow: visible;

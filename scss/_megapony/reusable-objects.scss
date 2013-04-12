@@ -48,6 +48,21 @@
 	//&.align-right ul { float: right; }
 }
 
+// hlist object
+.megapony-object-hlist {
+	> ul {
+		@include clear-after;
+		margin-bottom: 0;
+		margin-top: 0;
+		> li {
+			float: left;
+			height: 100%;
+			list-style: none;
+			line-height: 1em;
+		}
+	}
+}
+
 
 // media object
 //http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/

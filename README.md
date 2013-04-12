@@ -2,7 +2,20 @@ MEGAPONY3000
 ============
 A Responsive Frontend Framework with lots of resuable CSS Objects, responsive patterns and built-in Element Queries.
 
-...
+
+How do you use it
+-------------------------
+Most important classes:
+
+.megapony-object-halign
+.megapony-object-halign-container
+.no-side-by-side
+.nearly-no-side-by-side
+.children-no-side-by-side
+.children-nearly-no-side-by-side
+
+.megapony-max-width-123
+.megapony-min-width-123
 
 
 Important Notices

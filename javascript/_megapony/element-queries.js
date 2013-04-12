@@ -9,7 +9,9 @@
 
 			var init = function () {
 					checkForCollision();
-					//$(window).bind('resize', checkForCollision);
+					$(window).bind('orientationchange', function () {
+						checkForCollision();
+					});
 				},
 				checkForCollision = function () {
 					$('[class*="megapony-object"]').each(function () {
@@ -55,8 +57,10 @@
 
 						if (totalWidth > $megaponyObj.width()) {
 							$megaponyObj.addClass('no-side-by-side');
+							$megaponyObj.closest('.megapony-object-halign-container').addClass('children-no-side-by-side');
 						} else if (totalWidth + safetyMargin > $megaponyObj.width()) {
 							$megaponyObj.addClass('nearly-no-side-by-side');
+							$megaponyObj.closest('.megapony-object-halign-container').addClass('children-nearly-no-side-by-side');
 						}
 					}
 				},
