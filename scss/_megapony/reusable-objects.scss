@@ -1,6 +1,7 @@
 
 // hnav object
 .megapony-object-hnav {
+	@include clear-after;
 	ul {
 		@include clear-after;
 		margin-bottom: 0;

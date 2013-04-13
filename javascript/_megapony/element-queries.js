@@ -140,10 +140,10 @@
 									minW: (minWidth > 0) ? minWidth : false
 								};
 
-							if (targetSelector !== storedSelector) {
+							//if (targetSelector !== storedSelector) {
 								storedSelector = targetSelector;
 								applyElementQueries($(targetSelector), values);
-							}
+							//}
 						}
 					}
 				},

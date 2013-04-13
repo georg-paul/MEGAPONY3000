@@ -65,7 +65,9 @@
 @mixin hnav-small {
 	> ul {
 		display: none;
-		margin: 10px 0;
+		float: left;
+		width: 100%;
+		margin-top: rem(27);
 		> li {
 			width: 100%;
 			@include box-sizing(border-box);
@@ -87,14 +89,14 @@
 		position: absolute;
 		display: inline-block;
 		cursor: pointer;
-		right: rem($container-side-space);
-		top: rem(40);
+		right: 0;
+		top: 0;
 		width: 38px;
 		height: 27px;
 		background: $linkColor;
-		background: #fff;
+		background: #2E3230;
 		&:before, &:after {
-			border: 2px solid #2E3230;
+			border: 2px solid #fff;
 			content: '';
 			left: 30%;
 			position: absolute;

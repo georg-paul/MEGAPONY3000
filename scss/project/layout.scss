@@ -4,6 +4,9 @@
 	padding: rem(30) 0;
 	> .megapony-object-halign {
 		min-height: 0; // test
+		.left {
+			margin-right: rem(20);
+		}
 		&.megapony-max-width-480 {
 			h1 { font-size: rem(24); }
 			.toggle {
@@ -17,6 +20,16 @@
 		line-height: 1;
 	}
 	#main-nav {
+		&.breakpoint-small {
+			.toggle {
+				right: rem($container-side-space);
+				top: rem(40);
+				background: #fff;
+				&:before, &:after {
+					border: 2px solid #2E3230;
+				}
+			}
+		}
 		> ul > li {
 			min-width: rem(180);
 			&:last-child {
@@ -97,7 +110,7 @@
 		&.megapony-min-width-1100.megapony-max-width-1200 {
 			color: red;
 		}
-		&.megapony-max-width-500 {
+		&.megapony-max-width-1150 {
 			font-size: rem(26);
 			line-height: rem(34);
 		}
@@ -132,6 +145,11 @@
 		margin-bottom: rem(40);
 	}
 	#demo-object-hnav {
+		position: relative;
+		padding: rem(10) rem(15);
+		background: #f5f5f5;
+		min-height: rem(27); // toggle height
+		@include box-sizing(border-box);
 		li {
 			padding: 0 rem(25);
 			margin-right: 0;

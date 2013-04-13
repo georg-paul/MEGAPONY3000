@@ -15,8 +15,11 @@ body {
 			//background: #194460;
 			padding-top: rem(20);
 			padding-bottom: rem(20);
-			.toggle {
-				top: rem(30)
+
+			#main-nav.breakpoint-small {
+				.toggle {
+					top: rem(20);
+				}
 			}
 		}
 	}
