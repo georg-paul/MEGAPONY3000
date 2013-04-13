@@ -3,7 +3,7 @@
 	background: #2E3230;
 	padding: rem(30) 0;
 	> .megapony-object-halign {
-		min-height: 0; // test
+		//min-height: 0; // test
 		.left {
 			margin-right: rem(20);
 		}
@@ -20,6 +20,7 @@
 		line-height: 1;
 	}
 	#main-nav {
+		position: static;
 		&.breakpoint-small {
 			.toggle {
 				right: rem($container-side-space);
@@ -161,9 +162,10 @@
 				border-right: 0 none;
 			}
 		}
-		&.megapony-max-width-480 {
-			ul, li, a {
-				@include reset-styles;
+		&.breakpoint-small {
+			> ul > li > a {
+				background: #fff;
+				padding: rem(8) rem(12);
 			}
 		}
 	}
