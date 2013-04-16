@@ -3,11 +3,12 @@ ROADMAP
 
 MEGAPONY Release 0.5.0
 -------------------------
+* Bugfixes (this->context)
 * Grid Solution (1)
 * Refactoring/Cleanup (blocks new features)
 * Enhanced CSS Object hnav ("classic" or "dropdown")
 * New mixins (reset-columns, toggle-column)
-* Bugfixes
+* Double Tap To Go Feature
 
 
 MEGAPONY Release 0.6.0
@@ -19,7 +20,9 @@ MEGAPONY Release 1.0.0
 -------------------------
 * New CSS Objects (valign, vnav)
 * Avoid FOUC due to CSS parser (loading animation till completion)
+* Switch position classes (to get more flexible in order of elements) (.switch-position-with-xxx?)
 * Enhanced Framework Design
+* New element queries (min-height & max-height)
 * Bugfixes
 
 

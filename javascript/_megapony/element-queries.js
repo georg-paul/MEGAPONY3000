@@ -76,7 +76,8 @@
 
 				hnav = function ($megaponyObj) {
 					var $rootUL = $megaponyObj.find('> ul'),
-						totalWidth = 0;
+						totalWidth = 0,
+						clickEventType = (document.ontouchstart !== null) ? 'click' : 'touchstart';
 
 					$rootUL.find('> li').each(function () {
 						totalWidth += $(this).outerWidth(true);
@@ -85,8 +86,8 @@
 					// rounding bug?!
 					if (totalWidth > $rootUL.width() + 3) {
 						$megaponyObj.addClass('breakpoint-small');
-						$megaponyObj.find('.toggle').bind('click', function () {
-							$rootUL.slideToggle();
+						$megaponyObj.find('.toggle').bind(clickEventType, function () {
+							$rootUL.toggle();
 						});
 					}
 				};
@@ -124,28 +125,46 @@
 					for (var i = 0; i < elementsObject.length; i++) {
 						var selectorText = (elementsObject[i].mSelectorText) !== undefined ? (elementsObject[i].mSelectorText) : '';
 
-						if (selectorText.indexOf('.megapony-max-width-') !== -1 || selectorText.indexOf('.megapony-min-width-') !== -1) {
-							var targetSelector = elementsObject[i].selectorText().split('.megapony-max')[0].split('.megapony-min')[0],
-								storedSelector,
+						if (
+							selectorText.indexOf('.megapony-max-width-') !== -1 ||
+								selectorText.indexOf('.megapony-min-width-') !== -1 ||
+								selectorText.indexOf('.megapony-max-height-') !== -1 ||
+								selectorText.indexOf('.megapony-min-height-') !== -1
+							)
+						{
+							var targetSelector = elementsObject[i].selectorText().split('.megapony-max-width')[0].split('.megapony-min-width')[0].split('.megapony-max-height')[0].split('.megapony-min-height')[0],
+
 								maxWidthStr = '.megapony-max-width-',
 								minWidthStr = '.megapony-min-width-',
+								maxHeightStr = '.megapony-max-height-',
+								minHeightStr = '.megapony-min-height-',
+
 								maxWidthStartPos = selectorText.indexOf(maxWidthStr) + maxWidthStr.length,
 								minWidthStartPos = selectorText.indexOf(minWidthStr) + minWidthStr.length,
 								maxWidthEndPos = selectorText.indexOf(maxWidthStr) + maxWidthStr.length + 4,
 								minWidthEndPos = selectorText.indexOf(minWidthStr) + minWidthStr.length + 4,
+
+								maxHeightStartPos = selectorText.indexOf(maxHeightStr) + maxHeightStr.length,
+								minHeightStartPos = selectorText.indexOf(minHeightStr) + minHeightStr.length,
+								maxHeightEndPos = selectorText.indexOf(maxHeightStr) + maxHeightStr.length + 4,
+								minHeightEndPos = selectorText.indexOf(minHeightStr) + minHeightStr.length + 4,
+
 								maxWidth = parseInt(selectorText.slice(maxWidthStartPos, maxWidthEndPos), 10),
 								minWidth = parseInt(selectorText.slice(minWidthStartPos, minWidthEndPos), 10),
+								maxHeight = parseInt(selectorText.slice(maxHeightStartPos, maxHeightEndPos), 10),
+								minHeight = parseInt(selectorText.slice(minHeightStartPos, minHeightEndPos), 10),
+
 								values = {
 									maxW: (maxWidth > 0) ? maxWidth : false,
-									minW: (minWidth > 0) ? minWidth : false
+									minW: (minWidth > 0) ? minWidth : false,
+									maxH: (maxHeight > 0) ? maxHeight : false,
+									minH: (minHeight > 0) ? minHeight : false
 								};
 
-							//if (targetSelector !== storedSelector) {
-								storedSelector = targetSelector;
-								applyElementQueries($(targetSelector), values);
-							//}
+							applyElementQueries($(targetSelector), values);
 						}
 					}
+					hideLoadingView();
 				},
 
 				applyElementQueries = function ($element, values) {
@@ -169,6 +188,30 @@
 							$element.addClass('megapony-min-width-' + values.minW);
 						}
 					}
+
+					// max height
+					if (values.maxH > 0 && !values.minH) {
+						if ($element.height() < values.maxH) {
+							$element.addClass('megapony-max-height-' + values.maxH);
+						}
+					}
+					// min height
+					if (values.minH > 0 && !values.maxH) {
+						if ($element.width() > values.minH) {
+							$element.addClass('megapony-min-height-' + values.minH);
+						}
+					}
+					// max and min height
+					if (values.maxH > 0 && values.minH > 0) {
+						if ($element.width() < values.maxH && $element.width() > values.minH) {
+							$element.addClass('megapony-max-height-' + values.maxH);
+							$element.addClass('megapony-min-height-' + values.minH);
+						}
+					}
+				},
+
+				hideLoadingView = function () {
+					$('html').removeClass('megapony-loading');
 				};
 
 			return { init: init };
