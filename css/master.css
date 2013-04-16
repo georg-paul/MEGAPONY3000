@@ -438,6 +438,9 @@ img {
     padding: 0 1.5em;
     width: 100%; }
 
+.leader.megapony-max-width-500 {
+  line-height: 1; }
+
 .l-banner {
   background: #2E3230;
   padding: 1.875rem 0; }
@@ -538,6 +541,10 @@ img {
   .l-cssobjects #demo-object-hnav.breakpoint-small > ul > li > a {
     background: #fff;
     padding: 0.5rem 0.75rem; }
+.l-cssobjects .megapony-object-media .img {
+  margin-right: 1.25rem; }
+.l-cssobjects .megapony-object-media .leader {
+  margin-bottom: 0.3125rem; }
 
 table {
   width: 100%; }

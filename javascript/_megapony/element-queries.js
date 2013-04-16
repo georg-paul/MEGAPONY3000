@@ -167,47 +167,52 @@
 					hideLoadingView();
 				},
 
-				applyElementQueries = function ($element, values) {
+				applyElementQueries = function ($elements, values) {
+					var $element = null;
 
-					// max width
-					if (values.maxW > 0 && !values.minW) {
-						if ($element.width() < values.maxW) {
-							$element.addClass('megapony-max-width-' + values.maxW);
-						}
-					}
-					// min width
-					if (values.minW > 0 && !values.maxW) {
-						if ($element.width() > values.minW) {
-							$element.addClass('megapony-min-width-' + values.minW);
-						}
-					}
-					// max and min width
-					if (values.maxW > 0 && values.minW > 0) {
-						if ($element.width() < values.maxW && $element.width() > values.minW) {
-							$element.addClass('megapony-max-width-' + values.maxW);
-							$element.addClass('megapony-min-width-' + values.minW);
-						}
-					}
+					$elements.each(function () {
+						$element = $(this);
 
-					// max height
-					if (values.maxH > 0 && !values.minH) {
-						if ($element.height() < values.maxH) {
-							$element.addClass('megapony-max-height-' + values.maxH);
+						// max width
+						if (values.maxW > 0 && !values.minW) {
+							if ($element.width() < values.maxW) {
+								$element.addClass('megapony-max-width-' + values.maxW);
+							}
 						}
-					}
-					// min height
-					if (values.minH > 0 && !values.maxH) {
-						if ($element.width() > values.minH) {
-							$element.addClass('megapony-min-height-' + values.minH);
+						// min width
+						if (values.minW > 0 && !values.maxW) {
+							if ($element.width() > values.minW) {
+								$element.addClass('megapony-min-width-' + values.minW);
+							}
 						}
-					}
-					// max and min height
-					if (values.maxH > 0 && values.minH > 0) {
-						if ($element.width() < values.maxH && $element.width() > values.minH) {
-							$element.addClass('megapony-max-height-' + values.maxH);
-							$element.addClass('megapony-min-height-' + values.minH);
+						// max and min width
+						if (values.maxW > 0 && values.minW > 0) {
+							if ($element.width() < values.maxW && $element.width() > values.minW) {
+								$element.addClass('megapony-max-width-' + values.maxW);
+								$element.addClass('megapony-min-width-' + values.minW);
+							}
 						}
-					}
+
+						// max height
+						if (values.maxH > 0 && !values.minH) {
+							if ($element.height() < values.maxH) {
+								$element.addClass('megapony-max-height-' + values.maxH);
+							}
+						}
+						// min height
+						if (values.minH > 0 && !values.maxH) {
+							if ($element.width() > values.minH) {
+								$element.addClass('megapony-min-height-' + values.minH);
+							}
+						}
+						// max and min height
+						if (values.maxH > 0 && values.minH > 0) {
+							if ($element.width() < values.maxH && $element.width() > values.minH) {
+								$element.addClass('megapony-max-height-' + values.maxH);
+								$element.addClass('megapony-min-height-' + values.minH);
+							}
+						}
+					});
 				},
 
 				hideLoadingView = function () {

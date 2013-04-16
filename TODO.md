@@ -4,7 +4,7 @@ ROADMAP
 ### MEGAPONY Release 0.5.0 (early alpha) ###
 * <del>Avoid FOUC due to CSS parser (loading animation till completion)</del>
 * <del>New element queries (min-height & max-height)</del>
-* Bugfix (this context -> $element for each)
+* <del>Bugfix (this context -> $element for each)</del>
 * Grid Solution 1)
 * <del>/* */ comments might break CSS parser</del>
 * Refactoring/Cleanup

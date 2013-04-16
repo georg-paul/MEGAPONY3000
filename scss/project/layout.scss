@@ -1,4 +1,9 @@
 // project code goes here
+
+.leader.megapony-max-width-500 {
+	line-height: 1;
+}
+
 .l-banner {
 	background: #2E3230;
 	padding: rem(30) 0;
@@ -167,6 +172,12 @@
 				background: #fff;
 				padding: rem(8) rem(12);
 			}
+		}
+	}
+	.megapony-object-media {
+		.img { margin-right: rem(20); }
+		.leader {
+			margin-bottom: rem(5);
 		}
 	}
 }
