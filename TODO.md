@@ -6,7 +6,7 @@ ROADMAP
 * <del>New element queries (min-height & max-height)</del>
 * Bugfix (this context -> $element for each)
 * Grid Solution 1)
-* /* */ comments might break CSS parser
+* <del>/* */ comments might break CSS parser</del>
 * Refactoring/Cleanup
 
 
