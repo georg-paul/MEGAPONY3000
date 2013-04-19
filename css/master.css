@@ -212,7 +212,7 @@ input, select {
   width: 8.33333%; }
 
 html {
-  font-size: 100%; }
+  font-size: 1em; }
   html.megapony-loading.javascript-is-enabled {
     overflow: hidden; }
     html.megapony-loading.javascript-is-enabled .megapony-loading {

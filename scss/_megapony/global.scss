@@ -1,5 +1,5 @@
 html {
-	font-size: 100%;
+	font-size: em($base-font-size, 16);
 	&.megapony-loading.javascript-is-enabled {
 		overflow: hidden;
 		.megapony-loading {
