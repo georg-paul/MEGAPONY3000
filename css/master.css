@@ -229,7 +229,7 @@ body {
   color: #3b3b3b;
   font-size: 1rem;
   font-family: "Open Sans", Arial, sans-serif;
-  line-height: 1.5em; }
+  line-height: 1.5; }
   body.megapony-max-width-600 .l-banner {
     padding-top: 1.25rem;
     padding-bottom: 1.25rem; }
@@ -259,6 +259,13 @@ img {
 
 .text-align-right {
   text-align: right; }
+
+.simple-ul {
+  list-style: outside disc;
+  margin-left: 1.125rem; }
+  .simple-ul li {
+    padding-left: 0.3125rem;
+    margin-bottom: 0.375rem; }
 
 .megapony-object-hnav {
   position: relative; }

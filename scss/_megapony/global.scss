@@ -22,7 +22,7 @@ body {
 		size: rem($base-font-size);
 		family: $font-stack-1;
 	}
-	line-height: 1.5em;
+	line-height: $base-line-height / $base-font-size;
 	&.megapony-max-width-600 {
 		.l-banner {
 			//background: #194460;
@@ -59,3 +59,12 @@ img {
 
 .text-align-center { text-align: center }
 .text-align-right { text-align: right }
+
+.simple-ul {
+	list-style: outside disc;
+	margin-left: rem(18);
+	li {
+		padding-left: rem(5);
+		margin-bottom: rem(6);
+	}
+}
