@@ -43,7 +43,8 @@ body {
 }
 
 .megapony-delimiter {
-	max-width: rem($container-max-width);
+	//max-width: rem($container-max-width);
+	@include x-rem(max-width, $container-max-width);
 	margin: 0 auto;
 	padding: 0 rem($container-side-space);
 

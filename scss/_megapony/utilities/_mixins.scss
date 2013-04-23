@@ -121,3 +121,9 @@
 	-moz-hyphens: auto;
 	hyphens: auto;
 }
+
+
+@mixin x-rem($property, $value) {
+	#{$property}: $value + 0px;
+	#{$property}: 1 / $base-font-size * $value + 0rem;
+}
