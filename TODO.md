@@ -9,7 +9,9 @@ ROADMAP
 * <del>/* */ comments might break CSS parser</del>
 * Refactoring/Cleanup
 * http://drublic.de/blog/rem-fallback-sass-less/
-
+* display: inline-block for horizontal centering causes too much height of parent element
+* [class*="megapony-object-columns-2-8-4"] > [class*="megapony-object-column"]:nth-of-type(2) not supported in IE 8 (selectivizr?)
+* -webkit-text-size-adjust: 100%;
 
 ### MEGAPONY Release 0.6.0 ###
 * Enhanced CSS Object hnav ("classic" or "dropdown")
