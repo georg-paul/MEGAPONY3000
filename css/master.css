@@ -64,7 +64,10 @@ input, select {
   vertical-align: middle; }
 
 [class*="megapony-object-columns-"] {
-  margin: 0 -1.875rem; }
+  margin-right: -30px;
+  margin-right: -1.875rem;
+  margin-left: -30px;
+  margin-left: -1.875rem; }
   [class*="megapony-object-columns-"]:after {
     content: ".";
     display: block;
@@ -78,12 +81,16 @@ input, select {
     -ms-box-sizing: border-box;
     float: left;
     display: block;
-    padding: 0 1.875rem; }
+    padding-right: 30px;
+    padding-right: 1.875rem;
+    padding-left: 30px;
+    padding-left: 1.875rem; }
     [class*="megapony-object-columns-"] [class*="megapony-object-column"].breakpoint-small {
       clear: both;
       float: none;
       display: block;
       width: auto !important;
+      margin-bottom: 30px;
       margin-bottom: 1.875rem; }
       [class*="megapony-object-columns-"] [class*="megapony-object-column"].breakpoint-small p {
         color: green; }
@@ -197,13 +204,17 @@ html {
 body {
   background: white;
   color: #3b3b3b;
-  font-size: 1rem;
   font-family: Arial, sans-serif;
+  font-size: 16px;
+  font-size: 1rem;
   line-height: 1.5; }
   body.megapony-max-width-600 .l-banner {
-    padding-top: 1.25rem;
-    padding-bottom: 1.25rem; }
+    padding-bottom: 20px;
+    padding-bottom: 1.25rem;
+    padding-top: 20px;
+    padding-top: 1.25rem; }
     body.megapony-max-width-600 .l-banner #main-nav.breakpoint-small .toggle {
+      top: 20px;
       top: 1.25rem; }
 
 .hidden {
@@ -223,8 +234,11 @@ body {
 .megapony-delimiter {
   max-width: 1280px;
   max-width: 80rem;
-  margin: 0 auto;
-  padding: 0 1.875rem; }
+  padding-right: 30px;
+  padding-right: 1.875rem;
+  padding-left: 30px;
+  padding-left: 1.875rem;
+  margin: 0 auto; }
   .megapony-delimiter:after {
     content: ".";
     display: block;
@@ -232,6 +246,7 @@ body {
     clear: both;
     visibility: hidden; }
   .javascript-is-disabled .megapony-delimiter {
+    width: 1280px;
     width: 80rem; }
 
 img {
@@ -247,10 +262,13 @@ img {
 
 .simple-ul {
   list-style: outside disc;
+  margin-left: 18px;
   margin-left: 1.125rem; }
   .simple-ul li {
-    padding-left: 0.3125rem;
-    margin-bottom: 0.375rem; }
+    margin-bottom: 6px;
+    margin-bottom: 0.375rem;
+    padding-left: 5px;
+    padding-left: 0.3125rem; }
 
 .megapony-object-hnav:after {
   content: ".";
@@ -282,6 +300,7 @@ img {
   height: 100%;
   list-style: none;
   line-height: 1em;
+  margin-right: 10px;
   margin-right: 0.625rem; }
   .megapony-object-hnav > ul > li:last-child {
     margin-right: 0; }
@@ -293,6 +312,7 @@ img {
   display: none;
   float: left;
   width: 100%;
+  margin-top: 27px;
   margin-top: 1.6875rem; }
   .megapony-object-hnav.breakpoint-small > ul > li {
     width: 100%;
@@ -305,6 +325,7 @@ img {
     padding-right: 0 !important;
     border-left: 0 none !important;
     border-right: 0 none !important;
+    margin-bottom: 10px;
     margin-bottom: 0.625rem; }
     .megapony-object-hnav.breakpoint-small > ul > li:hover {
       padding-bottom: 0; }
@@ -384,9 +405,11 @@ img {
       text-align: center; }
   .megapony-object-halign .left {
     float: left;
+    margin-right: 20px;
     margin-right: 1.25rem; }
   .megapony-object-halign .right {
     float: right;
+    margin-left: 20px;
     margin-left: 1.25rem; }
   .megapony-object-halign.no-side-by-side.megapony-object-valign-middle {
     display: block; }
@@ -436,10 +459,15 @@ img {
 
 .l-banner {
   background: #2E3230;
-  padding: 1.875rem 0; }
+  padding-top: 30px;
+  padding-top: 1.875rem;
+  padding-bottom: 30px;
+  padding-bottom: 1.875rem; }
   .l-banner > .megapony-object-halign .left {
+    margin-right: 20px;
     margin-right: 1.25rem; }
   .l-banner > .megapony-object-halign.megapony-max-width-480 h1 {
+    font-size: 24px;
     font-size: 1.5rem; }
   .l-banner h1 {
     color: #fff;
@@ -448,17 +476,26 @@ img {
   .l-banner #main-nav {
     position: static; }
     .l-banner #main-nav.breakpoint-small .toggle {
+      right: 30px;
       right: 1.875rem;
       background: #fff; }
       .l-banner #main-nav.breakpoint-small .toggle:before, .l-banner #main-nav.breakpoint-small .toggle:after {
         border: 2px solid #2E3230; }
     .l-banner #main-nav > ul > li {
+      min-width: 180px;
       min-width: 11.25rem; }
       .l-banner #main-nav > ul > li:last-child {
         margin-right: 0; }
       .l-banner #main-nav > ul > li > a {
         text-align: center;
-        padding: 0.9375rem 1.75rem; }
+        padding-top: 15px;
+        padding-top: 0.9375rem;
+        padding-bottom: 15px;
+        padding-bottom: 0.9375rem;
+        padding-left: 28px;
+        padding-left: 1.75rem;
+        padding-right: 28px;
+        padding-right: 1.75rem; }
     .l-banner #main-nav li {
       background-color: rgba(255, 255, 255, 0.08); }
       .l-banner #main-nav li a {
@@ -468,59 +505,104 @@ img {
         background-color: #3E4240;
         border-top: 1px solid #333; }
         .l-banner #main-nav li ul li a {
-          padding: 0.625rem 0.9375rem; }
+          padding-top: 10px;
+          padding-top: 0.625rem;
+          padding-bottom: 10px;
+          padding-bottom: 0.625rem;
+          padding-left: 15px;
+          padding-left: 0.9375rem;
+          padding-right: 15px;
+          padding-right: 0.9375rem; }
   .l-banner #meta-nav li {
+    margin-right: 10px;
     margin-right: 0.625rem;
-    padding: 0.3125rem 0.625rem;
+    padding-top: 5px;
+    padding-top: 0.3125rem;
+    padding-bottom: 5px;
+    padding-bottom: 0.3125rem;
+    padding-left: 10px;
+    padding-left: 0.625rem;
+    padding-right: 10px;
+    padding-right: 0.625rem;
     background-color: rgba(255, 255, 255, 0.03); }
     .l-banner #meta-nav li:last-child {
       margin-right: 0; }
     .l-banner #meta-nav li a {
       color: #fff; }
   .l-banner .no-side-by-side #main-nav:not(.breakpoint-small) {
+    margin-top: 20px;
     margin-top: 1.25rem; }
 
 .l-footnote {
+  font-size: 14px;
   font-size: 0.875rem;
   background: whitesmoke;
+  margin-top: 100px;
   margin-top: 6.25rem; }
   .l-footnote p {
     margin: 0;
-    padding: 0.9375rem 0; }
+    padding-top: 15px;
+    padding-top: 0.9375rem;
+    padding-bottom: 15px;
+    padding-bottom: 0.9375rem; }
 
 .l-intro {
   background: #eeeeee;
-  padding: 2.1875rem 0; }
+  padding-top: 35px;
+  padding-top: 2.1875rem;
+  padding-bottom: 35px;
+  padding-bottom: 2.1875rem; }
   .l-intro .leader {
     margin-bottom: 0; }
     .l-intro .leader.megapony-min-width-1100.megapony-max-width-1200 {
       color: red; }
     .l-intro .leader.megapony-max-width-1150 {
+      font-size: 26px;
       font-size: 1.625rem;
+      line-height: 34px;
       line-height: 2.125rem; }
 
 .l-hero {
-  padding: 2.5rem 0;
+  padding-top: 40px;
+  padding-top: 2.5rem;
+  padding-bottom: 40px;
+  padding-bottom: 2.5rem;
+  margin-bottom: 40px;
   margin-bottom: 2.5rem;
   background: whitesmoke; }
   .l-hero .intro-text {
+    padding-top: 80px;
     padding-top: 5rem; }
 
 .l-features .l-section {
-  padding: 3.75em 0;
+  padding-top: 60px;
+  padding-top: 3.75rem;
+  padding-bottom: 60px;
+  padding-bottom: 3.75rem;
   border-bottom: 1px solid #ddd; }
 
 .l-cssobjects #demo-object-hnav {
   position: relative;
-  padding: 0.625rem 0.9375rem;
+  padding-top: 10px;
+  padding-top: 0.625rem;
+  padding-bottom: 10px;
+  padding-bottom: 0.625rem;
+  padding-left: 15px;
+  padding-left: 0.9375rem;
+  padding-right: 15px;
+  padding-right: 0.9375rem;
   background: #f5f5f5;
+  min-height: 27px;
   min-height: 1.6875rem;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -ms-box-sizing: border-box; }
   .l-cssobjects #demo-object-hnav li {
-    padding: 0 1.5625rem;
+    padding-left: 25px;
+    padding-left: 1.5625rem;
+    padding-right: 25px;
+    padding-right: 1.5625rem;
     margin-right: 0; }
     .l-cssobjects #demo-object-hnav li:first-child {
       padding-left: 0; }
@@ -528,10 +610,19 @@ img {
       border-right: 0 none; }
   .l-cssobjects #demo-object-hnav.breakpoint-small > ul > li > a {
     background: #fff;
-    padding: 0.5rem 0.75rem; }
+    padding-top: 8px;
+    padding-top: 0.5rem;
+    padding-bottom: 8px;
+    padding-bottom: 0.5rem;
+    padding-left: 12px;
+    padding-left: 0.75rem;
+    padding-right: 12px;
+    padding-right: 0.75rem; }
 .l-cssobjects .megapony-object-media .img {
+  margin-right: 20px;
   margin-right: 1.25rem; }
 .l-cssobjects .megapony-object-media .leader {
+  margin-bottom: 5px;
   margin-bottom: 0.3125rem; }
 
 table {
@@ -547,6 +638,7 @@ table {
     background: whitesmoke; }
 
 p, pre, blockquote, ul, ol, dl, figure, table, fieldset, .css-object {
+  margin-bottom: 24px;
   margin-bottom: 1.5rem; }
 
 h1, h2, h3, h4, h5 {
@@ -554,35 +646,46 @@ h1, h2, h3, h4, h5 {
   margin: 0; }
 
 h1 {
-  font-size: 3rem;
   font-weight: 700;
+  font-size: 48px;
+  font-size: 3rem;
   text-transform: uppercase;
   margin-bottom: 0.5em; }
 
 h2 {
+  font-size: 28px;
   font-size: 1.75rem;
   font-weight: 700;
-  margin-bottom: 1.125rem; }
+  margin-bottom: 8px;
+  margin-bottom: 0.5rem; }
 
 h3 {
+  font-size: 18px;
   font-size: 1.125rem;
   font-weight: 700;
-  margin-bottom: 0.5em; }
+  margin-bottom: 8px;
+  margin-bottom: 0.5rem; }
 
 h4 {
+  font-size: 18px;
   font-size: 1.125rem;
   font-weight: 400;
-  margin-bottom: 0.5em; }
+  margin-bottom: 8px;
+  margin-bottom: 0.5rem; }
 
 h5 {
+  font-size: 14px;
   font-size: 0.875rem;
   font-weight: 400;
   text-transform: uppercase;
-  margin-bottom: 0.5em; }
+  margin-bottom: 8px;
+  margin-bottom: 0.5rem; }
 
 .leader {
   font-family: Georgia, serif;
+  font-size: 28px;
   font-size: 1.75rem;
+  line-height: 36px;
   line-height: 2.25rem;
   margin-bottom: 1.5em; }
 

@@ -30,7 +30,7 @@
 			list-style: none;
 			line-height: 1em;
 			@if $default-styling-hnav {
-				margin-right: rem($hnav-margin);
+				@include rem(margin-right, $hnav-margin);
 				&:last-child {
 					margin-right: 0;
 				}
@@ -114,13 +114,13 @@
 	.left {
 		float: left;
 		@if $default-styling-halign {
-			margin-right: rem($halign-margin/2);
+			@include rem(margin-right, $halign-margin/2);
 		}
 	}
 	.right {
 		float: right;
 		@if $default-styling-halign {
-			margin-left: rem($halign-margin/2);
+			@include rem(margin-left, $halign-margin/2);
 		}
 	}
 
@@ -129,7 +129,6 @@
 		.left, .center, .right {
 			float: none;
 			margin: 0;
-			//margin-bottom: rem(20);
 			width: auto;
 			max-width: 100%;
 			&:last-child { margin-bottom: 0; }

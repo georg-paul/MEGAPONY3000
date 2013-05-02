@@ -20,20 +20,18 @@ html {
 body {
 	background: nth($colors, 2);
 	color: nth($colors, 4);
-	font: {
-		size: rem($base-font-size);
-		family: $font-stack-1;
-	}
+	font-family: $font-stack-1;
+	@include rem(font-size, $base-font-size);
+
 	line-height: $base-line-height / $base-font-size;
 	&.megapony-max-width-600 {
 		.l-banner {
-			//background: #194460;
-			padding-top: rem(20);
-			padding-bottom: rem(20);
+			@include rem(padding-bottom, 20);
+			@include rem(padding-top, 20);
 
 			#main-nav.breakpoint-small {
 				.toggle {
-					top: rem(20);
+					@include rem(top, 20);
 				}
 			}
 		}
@@ -56,14 +54,14 @@ body {
 }
 
 .megapony-delimiter {
-	//max-width: rem($container-max-width);
-	@include x-rem(max-width, $container-max-width);
+	@include rem(max-width, $container-max-width);
+	@include rem(padding-right, $container-side-space);
+	@include rem(padding-left, $container-side-space);
 	@include clear-after;
 	margin: 0 auto;
-	padding: 0 rem($container-side-space);
 
 	.javascript-is-disabled & {
-		width: rem($container-max-width);
+		@include rem(width, $container-max-width);
 	}
 }
 
@@ -77,9 +75,9 @@ img {
 
 .simple-ul {
 	list-style: outside disc;
-	margin-left: rem(18);
+	@include rem(margin-left, 18);
 	li {
-		padding-left: rem(5);
-		margin-bottom: rem(6);
+		@include rem(margin-bottom, 6);
+		@include rem(padding-left, 5);
 	}
 }

@@ -2,7 +2,3 @@
   @return 1 / $context * $target + 0em;
   //@return $target + 0px;
 }
-
-@function rem($target) {
-  @return 1 / $base-font-size * $target + 0rem;
-}

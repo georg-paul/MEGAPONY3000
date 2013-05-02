@@ -2,20 +2,22 @@
 
 [class*="megapony-object-columns-"] {
 	@include clear-after;
-	margin: 0 rem($grid-gutter/2) * -1;
+	@include rem(margin-right, $grid-gutter/2 * -1);
+	@include rem(margin-left, $grid-gutter/2 * -1);
 
 	[class*="megapony-object-column"] {
 		@include box-sizing(border-box);
 		float: left;
 		display: block;
-		padding: 0 rem($grid-gutter/2);
+		@include rem(padding-right, $grid-gutter/2);
+		@include rem(padding-left, $grid-gutter/2);
 		&.breakpoint-small {
 			clear: both;
 			float: none;
 			display: block;
 			//padding: 0;
 			width: auto !important;
-			margin-bottom: rem(30);
+			@include rem(margin-bottom, 30);
 			p { color: green; }
 			> * { float: none !important; }
 		}

@@ -1,5 +1,5 @@
 p, pre, blockquote, ul, ol, dl, figure, table, fieldset, .css-object {
-	margin-bottom: rem($text-flow-margin);
+	@include rem(margin-bottom, $text-flow-margin);
 	//&.megapony-max-width-480 {
 	//	@include word-break;
 	//}
@@ -11,54 +11,52 @@ h1, h2, h3, h4, h5 {
 }
 
 h1 {
-	font: {
-		size: rem(nth($headline-sizes, 1));
-		//family: $font-stack-2;
-		weight: 700;
-	}
+	font-weight: 700;
+	@include rem(font-size, nth($headline-sizes, 1));
 	text-transform: uppercase;
 	@if $headline-default-margins {
 		margin-bottom: 0.5em;
 	}
-	//@include collapse-margins(rem(15));
 }
 
 h2 {
-	font-size: rem(nth($headline-sizes, 2));
+	@include rem(font-size, nth($headline-sizes, 2));
 	font-weight: 700;
 	@if $headline-default-margins {
-		margin-bottom: rem(18);
+		@include rem(margin-bottom, $base-font-size/2);
 	}
 }
 
 h3 {
-	font-size: rem(nth($headline-sizes, 3));
+	@include rem(font-size, nth($headline-sizes, 3));
 	font-weight: 700;
 	@if $headline-default-margins {
-		margin-bottom: 0.5em;
+		@include rem(margin-bottom, $base-font-size/2);
 	}
 }
 
 h4 {
-	font-size: rem(nth($headline-sizes, 4));
+	@include rem(font-size, nth($headline-sizes, 4));
 	font-weight: 400;
 	@if $headline-default-margins {
-		margin-bottom: 0.5em;
+		@include rem(margin-bottom, $base-font-size/2);
 	}
 }
 
 h5 {
-	font-size: rem(nth($headline-sizes, 5));
+	@include rem(font-size, nth($headline-sizes, 5));
 	font-weight: 400;
 	text-transform: uppercase;
-	margin-bottom: 0.5em;
+	@if $headline-default-margins {
+		@include rem(margin-bottom, $base-font-size/2);
+	}
 }
 
 
 .leader {
 	font-family: $font-stack-3;
-	font-size: rem(28);
-	line-height: rem(36);
+	@include rem(font-size, 28);
+	@include rem(line-height, 36);
 	margin-bottom: 1.5em;
 }
 

@@ -67,7 +67,7 @@
 		display: none;
 		float: left;
 		width: 100%;
-		margin-top: rem(27);
+		@include rem(margin-top, 27);
 		> li {
 			width: 100%;
 			@include box-sizing(border-box);
@@ -76,7 +76,7 @@
 			padding-right: 0 !important;
 			border-left: 0 none !important;
 			border-right: 0 none !important;
-			margin-bottom: rem(10);
+			@include rem(margin-bottom, 10);
 			&:hover {
 				padding-bottom: 0;
 				ul {
@@ -123,7 +123,7 @@
 }
 
 
-@mixin x-rem($property, $value) {
+@mixin rem($property, $value) {
 	#{$property}: $value + 0px;
 	#{$property}: 1 / $base-font-size * $value + 0rem;
 }
