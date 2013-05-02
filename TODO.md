@@ -8,7 +8,7 @@ ROADMAP
 * Grid Solution 1)
 * <del>/* */ comments might break CSS parser</del>
 * Refactoring/Cleanup
-* http://drublic.de/blog/rem-fallback-sass-less/
+* <del>http://drublic.de/blog/rem-fallback-sass-less/</del>
 * <del>display: inline-block for horizontal centering causes too much height of parent element</del> -> http://blog.mozilla.org/webdev/2009/02/20/cross-browser-inline-block/
 * [class*="megapony-object-columns-2-8-4"] > [class*="megapony-object-column"]:nth-of-type(2) not supported in IE 8 (selectivizr?)
 * <del>-webkit-text-size-adjust: 100%;</del>
