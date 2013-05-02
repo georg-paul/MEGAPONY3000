@@ -1,7 +1,6 @@
 
 // hnav object
 .megapony-object-hnav {
-	position: relative;
 	@include clear-after;
 	ul {
 		@include clear-after;
@@ -12,9 +11,11 @@
 			&:hover {
 				ul {
 					display: block;
-					left: 0;
-					right: 0;
 				}
+			}
+			ul {
+				left: 0;
+				right: 0;
 			}
 			a {
 				display: block;
@@ -97,6 +98,7 @@
 // halign object
 .megapony-object-halign {
 	text-align: center;
+	position: relative;
 	@include clear-after;
 	> * { text-align: left; }
 

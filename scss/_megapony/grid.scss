@@ -42,8 +42,8 @@
     @if $column-count == 2 {
 		$second-col: $grid-columns - $first-col;
 		[class*="megapony-object-columns-#{$column-count}-#{$first-col}-#{$second-col}"] {
-			> [class*="megapony-object-column"]:nth-of-type(1) { width: percentage($first-col / $grid-columns); }
-			> [class*="megapony-object-column"]:nth-of-type(2) { width: percentage($second-col / $grid-columns); }
+			> [class*="megapony-object-column"]:nth-child(1) { width: percentage($first-col / $grid-columns); }
+			> [class*="megapony-object-column"]:nth-child(2) { width: percentage($second-col / $grid-columns); }
 		}
     }
   }

@@ -38,6 +38,17 @@ body {
 	}
 }
 
+// global classes
+.hidden {
+	position: absolute;
+	left: -10000px;
+	top: auto;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+}
+
+
 #page {
 	@include box-sizing(border-box);
 }
@@ -45,6 +56,7 @@ body {
 .megapony-delimiter {
 	//max-width: rem($container-max-width);
 	@include x-rem(max-width, $container-max-width);
+	@include clear-after;
 	margin: 0 auto;
 	padding: 0 rem($container-side-space);
 
