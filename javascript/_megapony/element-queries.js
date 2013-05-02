@@ -25,7 +25,7 @@
 								halign($megaponyObj);
 							} else if (objType === 'media') {
 								media($megaponyObj);
-							} else if (objType === 'hnav') {
+							} else if (objType === 'hnav' && !$megaponyObj.hasClass('no-dropdown')) {
 								hnav($megaponyObj);
 							}
 						}

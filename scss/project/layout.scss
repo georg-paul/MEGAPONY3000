@@ -14,9 +14,6 @@
 		}
 		&.megapony-max-width-480 {
 			h1 { font-size: rem(24); }
-			.toggle {
-				top: rem(19);
-			}
 		}
 	}
 	h1 {
@@ -29,7 +26,6 @@
 		&.breakpoint-small {
 			.toggle {
 				right: rem($container-side-space);
-				top: rem(40);
 				background: #fff;
 				&:before, &:after {
 					border: 2px solid #2E3230;
@@ -148,7 +144,7 @@
 
 .l-cssobjects {
 	[class*="megapony-object"] {
-		margin-bottom: rem(40);
+		//margin-bottom: rem(40);
 	}
 	#demo-object-hnav {
 		position: relative;
