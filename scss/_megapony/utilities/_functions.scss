@@ -1,4 +1,0 @@
-@function em($target, $context: $base-font-size) {
-  @return 1 / $context * $target + 0em;
-  //@return $target + 0px;
-}

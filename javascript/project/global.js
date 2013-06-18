@@ -9,12 +9,8 @@
 		var Global = (function () {
 
 			var init = function () {
-					initResponsiveTables();
-				},
 
-				initResponsiveTables = function () {
-					$('.megapony-rwd-table-container table').stacktable();
-				};
+			};
 
 			return { init: init };
 		}());

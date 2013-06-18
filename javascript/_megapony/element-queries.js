@@ -59,8 +59,10 @@
 							$megaponyObj.addClass('no-side-by-side');
 							$megaponyObj.closest('.megapony-object-halign-container').addClass('children-no-side-by-side');
 						} else if (totalWidth + safetyMargin > $megaponyObj.width()) {
-							$megaponyObj.addClass('nearly-no-side-by-side');
+							$megaponyObj.addClass('nearly-no-side-by-side side-by-side'); // framework modified
 							$megaponyObj.closest('.megapony-object-halign-container').addClass('children-nearly-no-side-by-side');
+						} else {
+							$megaponyObj.addClass('side-by-side'); // framework modified
 						}
 					}
 				},
@@ -86,10 +88,30 @@
 					// rounding bug?!
 					if (totalWidth > $rootUL.width() + 3) {
 						$megaponyObj.addClass('breakpoint-small');
-						$megaponyObj.find('.toggle').bind(clickEventType, function () {
-							$rootUL.toggle();
-						});
 					}
+
+					$megaponyObj.find('.toggle').bind(clickEventType, function () {
+						$rootUL.toggle();
+						$(this).toggleClass('open');
+					});
+				},
+
+				vnav = function ($megaponyObj) {
+					var $rootUl = $megaponyObj.find('> ul'),
+						$active = $rootUl.find('> li.active');
+
+					if (!$active.length) {
+						$rootUl.addClass('no-active-item');
+						$rootUl.find('> li').show();
+					}
+
+					$active.find('a').bind('click', function (e) {
+						if ($active.is(':visible') && $active.css('position') === 'absolute') {
+							e.preventDefault();
+							$active.siblings().toggle();
+							$(this).toggleClass('open');
+						}
+					});
 				};
 
 			return { init: init };
