@@ -122,39 +122,76 @@
 		var elementQueries = (function () {
 
 			var init = function () {
-					$.ajax({
-						url: window.megapony3000.cssPath,
-						dataType: 'text',
-						success: function (response) {
-							var parser = new CSSParser(),
-								sheet = parser.parse(response, false, true),
-								medium = 'screen';
 
-							if (sheet) {
-								sheet.resolveVariables(medium);
-								checkElementBreakpoints(sheet.cssRules);
-								$(window).bind('orientationchange', function () {
-									checkElementBreakpoints(sheet.cssRules);
-								});
+				// clear local storage every 24 hours
+					var lastClear = localStorage.getItem('lastClear'),
+						timeNow = (new Date()).getTime();
+
+					if ((timeNow - lastClear) > 1000 * 60 * 60 * 24) {
+						localStorage.clear();
+						localStorage.setItem('lastClear', timeNow);
+					}
+
+
+				// local storage is supported by the browser AND the local storage is filled
+				// do not make an ajax request, take it from local storage
+					if (localStorage && localStorage.getItem('parsedDom')) {
+						checkElementBreakpoints(localStorage.getItem('parsedDom'));
+						$(window).bind('orientationchange', function () {
+							checkElementBreakpoints(parsedDom);
+						});
+						avoidLayoutBreak.init();
+					}
+
+				// local storage is either not supported by the browser OR the local storage is not filled
+				// so make an ajax request, parse the css file and store the result in the local storage
+					else {
+						$.ajax({
+							url: window.megapony3000.cssPath,
+							dataType: 'text',
+							success: function (response) {
+								var parser = new CSSParser(),
+									sheet = parser.parse(response, false, true),
+									medium = 'screen',
+									parsedDom = '',
+									selectorText = '';
+
+								if (sheet) {
+									sheet.resolveVariables(medium);
+
+									for (var i = 0; i < sheet.cssRules.length; i++) {
+										selectorText = (sheet.cssRules[i].mSelectorText) !== undefined ? (sheet.cssRules[i].mSelectorText) : '';
+										parsedDom += selectorText + ';';
+									}
+
+									localStorage.setItem('parsedDom', parsedDom);
+									checkElementBreakpoints(parsedDom);
+
+									$(window).bind('orientationchange', function () {
+										checkElementBreakpoints(parsedDom);
+									});
+								}
+								avoidLayoutBreak.init();
 							}
-
-							avoidLayoutBreak.init();
-						}
-					});
+						});
+					}
 				},
 
-				checkElementBreakpoints = function (elementsObject) {
-					for (var i = 0; i < elementsObject.length; i++) {
-						var selectorText = (elementsObject[i].mSelectorText) !== undefined ? (elementsObject[i].mSelectorText) : '';
+				checkElementBreakpoints = function (parsedDom) {
+					var elementsArray = parsedDom.split(';'),
+						selectorText = '';
+
+					for (var i = 0; i < elementsArray.length; i++) {
+						selectorText = (elementsArray[i]) !== undefined ? (elementsArray[i]) : '';
 
 						if (
-							selectorText.indexOf('.megapony-max-width-') !== -1 ||
+								selectorText.indexOf('.megapony-max-width-') !== -1 ||
 								selectorText.indexOf('.megapony-min-width-') !== -1 ||
 								selectorText.indexOf('.megapony-max-height-') !== -1 ||
 								selectorText.indexOf('.megapony-min-height-') !== -1
 							)
 						{
-							var targetSelector = elementsObject[i].selectorText().split('.megapony-max-width')[0].split('.megapony-min-width')[0].split('.megapony-max-height')[0].split('.megapony-min-height')[0],
+							var targetSelector = selectorText.split('.megapony-max-width')[0].split('.megapony-min-width')[0].split('.megapony-max-height')[0].split('.megapony-min-height')[0],
 
 								maxWidthStr = '.megapony-max-width-',
 								minWidthStr = '.megapony-min-width-',
