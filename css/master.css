@@ -187,7 +187,8 @@ input, select {
   width: 8.33333%; }
 
 html {
-  font-size: em(16, 16);
+  font-size: 16px;
+  font-size: 1rem;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%; }
   html.megapony-loading.javascript-is-enabled {
@@ -208,14 +209,6 @@ body {
   font-size: 16px;
   font-size: 1rem;
   line-height: 1.5; }
-  body.megapony-max-width-600 .l-banner {
-    padding-bottom: 20px;
-    padding-bottom: 1.25rem;
-    padding-top: 20px;
-    padding-top: 1.25rem; }
-    body.megapony-max-width-600 .l-banner #main-nav.breakpoint-small .toggle {
-      top: 20px;
-      top: 1.25rem; }
 
 .hidden {
   position: absolute;
@@ -224,6 +217,12 @@ body {
   width: 1px;
   height: 1px;
   overflow: hidden; }
+
+.text-align-center {
+  text-align: center; }
+
+.text-align-right {
+  text-align: right; }
 
 #page {
   box-sizing: border-box;
@@ -249,21 +248,13 @@ body {
     width: 1280px;
     width: 80rem; }
 
-.text-align-center {
-  text-align: center; }
+img, embed, object {
+  max-width: 100% !important;
+  height: auto; }
 
-.text-align-right {
-  text-align: right; }
-
-.simple-ul {
-  list-style: outside disc;
-  margin-left: 18px;
-  margin-left: 1.125rem; }
-  .simple-ul li {
-    margin-bottom: 6px;
-    margin-bottom: 0.375rem;
-    padding-left: 5px;
-    padding-left: 0.3125rem; }
+img {
+  display: inline-block;
+  vertical-align: middle; }
 
 .megapony-rwd-table-container.megapony-max-width-640 .rwd-table {
   display: none; }
@@ -432,6 +423,25 @@ body {
   .megapony-object-valign-middle .right > * {
     float: right; }
 
+body.megapony-max-width-600 .l-banner {
+  padding-bottom: 20px;
+  padding-bottom: 1.25rem;
+  padding-top: 20px;
+  padding-top: 1.25rem; }
+  body.megapony-max-width-600 .l-banner #main-nav.breakpoint-small .toggle {
+    top: 20px;
+    top: 1.25rem; }
+
+.simple-ul {
+  list-style: outside disc;
+  margin-left: 18px;
+  margin-left: 1.125rem; }
+  .simple-ul li {
+    margin-bottom: 6px;
+    margin-bottom: 0.375rem;
+    padding-left: 5px;
+    padding-left: 0.3125rem; }
+
 .leader.megapony-max-width-500 {
   line-height: 1; }
 
@@ -514,7 +524,7 @@ body {
 .l-footnote {
   font-size: 14px;
   font-size: 0.875rem;
-  background: whitesmoke;
+  background: #f5f5f5;
   margin-top: 100px;
   margin-top: 6.25rem; }
   .l-footnote p {
@@ -525,7 +535,7 @@ body {
     padding-bottom: 0.9375rem; }
 
 .l-intro {
-  background: #eeeeee;
+  background: #eee;
   padding-top: 35px;
   padding-top: 2.1875rem;
   padding-bottom: 35px;
@@ -547,10 +557,17 @@ body {
   padding-bottom: 2.5rem;
   margin-bottom: 40px;
   margin-bottom: 2.5rem;
-  background: whitesmoke; }
+  background: #f5f5f5; }
   .l-hero .intro-text {
     padding-top: 80px;
     padding-top: 5rem; }
+  .l-hero.megapony-max-width-768 [class*="megapony-object-columns-"] {
+    margin-left: 0 !important;
+    margin-right: 0 !important; }
+    .l-hero.megapony-max-width-768 [class*="megapony-object-columns-"] [class*="megapony-object-column"] {
+      width: 100%;
+      padding-left: 0 !important;
+      padding-right: 0 !important; }
 
 .l-features .l-section {
   padding-top: 60px;
@@ -602,18 +619,6 @@ body {
 .l-cssobjects .megapony-object-media .leader {
   margin-bottom: 5px;
   margin-bottom: 0.3125rem; }
-
-table {
-  width: 100%; }
-  table th {
-    background: #eeeeee;
-    text-align: left;
-    padding: 7px 8px; }
-  table td {
-    text-align: left;
-    padding: 5px 8px; }
-  table tr:nth-child(odd) td {
-    background: whitesmoke; }
 
 p, pre, blockquote, ul, ol, dl, figure, table, fieldset, .css-object {
   margin-bottom: 24px;
@@ -669,6 +674,8 @@ h5 {
 
 a {
   color: #438fc1; }
+  a:visited {
+    color: #9db2c0; }
   a:link, a:visited {
     text-decoration: none; }
   a:hover, a:focus, a:active {
@@ -678,3 +685,15 @@ code {
   white-space: normal;
   font-weight: bold;
   color: #000; }
+
+table {
+  width: 100%; }
+  table th {
+    background: #eee;
+    text-align: left;
+    padding: 7px 8px; }
+  table td {
+    text-align: left;
+    padding: 5px 8px; }
+  table tr:nth-child(odd) td {
+    background: #f5f5f5; }

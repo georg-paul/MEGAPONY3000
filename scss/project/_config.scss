@@ -1,6 +1,6 @@
 
-// LAYOUT SETTINGS
-// declaration in px
+// LAYOUT SETTINGS (declaration in px)
+
 $container-max-width: 1280;
 $container-side-space: 30;
 
@@ -8,8 +8,9 @@ $grid-columns: 12;
 $grid-gutter: 60;
 
 
-// CSS Objects
-// declaration in px
+
+// CSS Objects (declaration in px)
+
 // hnav
 $default-styling-hnav: true;
 $hnav-margin: 10;
@@ -20,8 +21,8 @@ $halign-margin: 40;
 
 
 
-// FONT SIZE
-// declaration in px
+// FONT SIZE (declaration in px)
+
 $base-font-size: 16;
 $base-line-height: 24;
 $tiny-font-size: 14;
@@ -30,7 +31,9 @@ $headline-sizes: 48, 28, 18, 18, $tiny-font-size;
 $headline-default-margins: true;
 
 
+
 // FONT FAMILIES
+
 $font-stack-1: Arial, sans-serif;
 $font-stack-3: Georgia, serif;
 $font-stack-4: Arial, sans-serif;
@@ -38,11 +41,16 @@ $font-stack-4: Arial, sans-serif;
 $text-flow-margin: $base-font-size * 1.5;
 
 
+
 // COLORS
-$linkColor: #438fc1;
-$linkColorVisited: #9db2c0;
-$colors: #f5f5f5, #fff, #eee, #3b3b3b;
+
+$link-color: #438fc1;
+$link-color-visited: #9db2c0;
+$body-bg: #fff;
+$body-text: #3b3b3b;
 
 
-// misc
+
+// MISC
+
 $responsive-table-breakpoint: 640;

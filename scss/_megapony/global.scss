@@ -1,5 +1,5 @@
 html {
-	font-size: em($base-font-size, 16);
+	@include rem(font-size, $base-font-size);
 	-webkit-text-size-adjust: 100%;
 	-ms-text-size-adjust: 100%;
 	&.megapony-loading.javascript-is-enabled {
@@ -18,24 +18,12 @@ html {
 
 
 body {
-	background: nth($colors, 2);
-	color: nth($colors, 4);
+	background: $body-bg;
+	color: $body-text;
 	font-family: $font-stack-1;
 	@include rem(font-size, $base-font-size);
 
 	line-height: $base-line-height / $base-font-size;
-	&.megapony-max-width-600 {
-		.l-banner {
-			@include rem(padding-bottom, 20);
-			@include rem(padding-top, 20);
-
-			#main-nav.breakpoint-small {
-				.toggle {
-					@include rem(top, 20);
-				}
-			}
-		}
-	}
 }
 
 // global classes
@@ -47,6 +35,8 @@ body {
 	height: 1px;
 	overflow: hidden;
 }
+.text-align-center { text-align: center }
+.text-align-right { text-align: right }
 
 
 #page {
@@ -65,21 +55,13 @@ body {
 	}
 }
 
-img {
-	//@include adaptive-image;
+img, embed, object {
+	max-width: 100% !important;
+	height: auto;
 }
-
-
-.text-align-center { text-align: center }
-.text-align-right { text-align: right }
-
-.simple-ul {
-	list-style: outside disc;
-	@include rem(margin-left, 18);
-	li {
-		@include rem(margin-bottom, 6);
-		@include rem(padding-left, 5);
-	}
+img {
+	display: inline-block;
+	vertical-align: middle;
 }
 
 .megapony-rwd-table-container {

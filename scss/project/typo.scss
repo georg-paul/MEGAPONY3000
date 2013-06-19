@@ -61,9 +61,9 @@ h5 {
 }
 
 a {
-	color: $linkColor;
+	color: $link-color;
 	&:visited {
-		//color: $linkColorVisited;
+		color: $link-color-visited;
 	}
 	&:link, &:visited {
 		text-decoration: none;
