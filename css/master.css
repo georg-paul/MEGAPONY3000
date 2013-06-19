@@ -64,10 +64,10 @@ input, select {
   vertical-align: middle; }
 
 [class*="megapony-object-columns-"] {
-  margin-right: -30px;
-  margin-right: -1.875rem;
-  margin-left: -30px;
-  margin-left: -1.875rem; }
+  margin-right: -8px;
+  margin-right: -0.5rem;
+  margin-left: -8px;
+  margin-left: -0.5rem; }
   [class*="megapony-object-columns-"]:after {
     content: ".";
     display: block;
@@ -81,10 +81,10 @@ input, select {
     -ms-box-sizing: border-box;
     float: left;
     display: block;
-    padding-right: 30px;
-    padding-right: 1.875rem;
-    padding-left: 30px;
-    padding-left: 1.875rem; }
+    padding-right: 8px;
+    padding-right: 0.5rem;
+    padding-left: 8px;
+    padding-left: 0.5rem; }
     [class*="megapony-object-columns-"] [class*="megapony-object-column"].breakpoint-small {
       clear: both;
       float: none;
@@ -231,8 +231,8 @@ body {
   -ms-box-sizing: border-box; }
 
 .megapony-delimiter {
-  max-width: 1280px;
-  max-width: 80rem;
+  max-width: 960px;
+  max-width: 60rem;
   padding-right: 30px;
   padding-right: 1.875rem;
   padding-left: 30px;
@@ -245,8 +245,8 @@ body {
     clear: both;
     visibility: hidden; }
   .javascript-is-disabled .megapony-delimiter {
-    width: 1280px;
-    width: 80rem; }
+    width: 960px;
+    width: 60rem; }
 
 img, embed, object {
   max-width: 100% !important;
@@ -470,8 +470,8 @@ body.megapony-max-width-600 .l-banner {
       .l-banner #main-nav.breakpoint-small .toggle:before, .l-banner #main-nav.breakpoint-small .toggle:after {
         border: 2px solid #2E3230; }
     .l-banner #main-nav > ul > li {
-      min-width: 180px;
-      min-width: 11.25rem; }
+      min-width: 160px;
+      min-width: 10rem; }
       .l-banner #main-nav > ul > li:last-child {
         margin-right: 0; }
       .l-banner #main-nav > ul > li > a {
@@ -560,7 +560,9 @@ body.megapony-max-width-600 .l-banner {
   background: #f5f5f5; }
   .l-hero .intro-text {
     padding-top: 80px;
-    padding-top: 5rem; }
+    padding-top: 5rem;
+    padding-left: 45px;
+    padding-left: 2.8125rem; }
   .l-hero.megapony-max-width-768 [class*="megapony-object-columns-"] {
     margin-left: 0 !important;
     margin-right: 0 !important; }
@@ -619,6 +621,10 @@ body.megapony-max-width-600 .l-banner {
 .l-cssobjects .megapony-object-media .leader {
   margin-bottom: 5px;
   margin-bottom: 0.3125rem; }
+
+.l-columns [class*="megapony-object-columns-"] {
+  margin-bottom: 15px;
+  margin-bottom: 0.9375rem; }
 
 p, pre, blockquote, ul, ol, dl, figure, table, fieldset, .css-object {
   margin-bottom: 24px;

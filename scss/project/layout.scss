@@ -35,7 +35,7 @@
 			}
 		}
 		> ul > li {
-			@include rem(min-width, 180);
+			@include rem(min-width, 160);
 			&:last-child {
 				margin-right: 0;
 			}
@@ -126,6 +126,7 @@
 	background: #f5f5f5;
 	.intro-text {
 		@include rem(padding-top, 80);
+		@include rem(padding-left, 45);
 	}
 	&.megapony-max-width-768 {
 		[class*="megapony-object-columns-"] {
@@ -140,12 +141,6 @@
 		@include rem(padding-top, 60);
 		@include rem(padding-bottom, 60);
 		border-bottom: 1px solid #ddd;
-		&:last-child {
-			//@include clear-common-last-child-styles;
-		}
-		> :last-child {
-			//@include clear-common-last-child-styles;
-		}
 	}
 }
 
@@ -163,7 +158,6 @@
 			@include rem(padding-left, 25);
 			@include rem(padding-right, 25);
 			margin-right: 0;
-			//border-right: 1px solid nth($colors, 4);
 			&:first-child {
 				padding-left: 0;
 			}
@@ -188,5 +182,11 @@
 		.leader {
 			@include rem(margin-bottom, 5);
 		}
+	}
+}
+
+.l-columns {
+	[class*="megapony-object-columns-"] {
+		@include rem(margin-bottom, 15);
 	}
 }
