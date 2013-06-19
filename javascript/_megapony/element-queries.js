@@ -34,9 +34,6 @@
 
 			var init = function () {
 					checkForCollision();
-					$(window).bind('orientationchange', function () {
-						checkForCollision();
-					});
 				},
 				checkForCollision = function () {
 					$('[class*="megapony-object"]').each(function () {
@@ -52,44 +49,35 @@
 								media($megaponyObj);
 							} else if (objType === 'hnav' && !$megaponyObj.hasClass('no-dropdown')) {
 								hnav($megaponyObj);
+							} else if (objType === 'vnav') {
+								vnav($megaponyObj);
 							}
 						}
 					});
 				},
 
 				halign = function ($megaponyObj) {
-					var $left = $megaponyObj.find('> .left'),
-						$center = $megaponyObj.find('> .center'),
-						$right = $megaponyObj.find('> .right'),
-						leftWidth = 0,
+					var leftWidth = 0,
 						centerWidth = 0,
 						rightWidth = 0,
-						totalWidth = 0,
-						safetyMargin = window.megapony3000.safetyMargin;
+						totalWidth = 0;
 
-					if ($left.length || $right.length) {
-						$left.each(function () {
-							leftWidth += $(this).outerWidth(true);
-						});
-						$center.each(function () {
-							centerWidth += $(this).outerWidth(true);
-						});
-						$right.each(function () {
-							rightWidth += $(this).outerWidth(true);
-						});
+					$megaponyObj.find('> .left').each(function () { leftWidth += $(this).outerWidth(true); });
+					$megaponyObj.find('> .center').each(function () { centerWidth += $(this).outerWidth(true); });
+					$megaponyObj.find('> .right').each(function () { rightWidth += $(this).outerWidth(true); });
 
-						totalWidth = leftWidth + centerWidth + rightWidth;
+					totalWidth = leftWidth + centerWidth + rightWidth;
 
-						if (totalWidth > $megaponyObj.width()) {
-							$megaponyObj.addClass('no-side-by-side');
-							$megaponyObj.closest('.megapony-object-halign-container').addClass('children-no-side-by-side');
-						} else if (totalWidth + safetyMargin > $megaponyObj.width()) {
-							$megaponyObj.addClass('nearly-no-side-by-side side-by-side'); // framework modified
-							$megaponyObj.closest('.megapony-object-halign-container').addClass('children-nearly-no-side-by-side');
-						} else {
-							$megaponyObj.addClass('side-by-side'); // framework modified
-						}
+					if (totalWidth > $megaponyObj.width()) {
+						$megaponyObj.addClass('no-side-by-side');
+						$megaponyObj.closest('.megapony-object-halign-container').addClass('children-no-side-by-side');
+					} else if (totalWidth + window.megapony3000.safetyMargin > $megaponyObj.width()) {
+						$megaponyObj.addClass('nearly-no-side-by-side side-by-side');
+						$megaponyObj.closest('.megapony-object-halign-container').addClass('children-nearly-no-side-by-side');
+					} else {
+						$megaponyObj.addClass('side-by-side');
 					}
+
 				},
 
 				media = function ($megaponyObj) {
@@ -162,9 +150,6 @@
 				// do not make an ajax request, take it from local storage
 					if (localStorage && localStorage.getItem('parsedDom')) {
 						checkElementBreakpoints(localStorage.getItem('parsedDom'));
-						$(window).bind('orientationchange', function () {
-							checkElementBreakpoints(parsedDom);
-						});
 						avoidLayoutBreak.init();
 					}
 
@@ -191,10 +176,6 @@
 
 									localStorage.setItem('parsedDom', parsedDom);
 									checkElementBreakpoints(parsedDom);
-
-									$(window).bind('orientationchange', function () {
-										checkElementBreakpoints(parsedDom);
-									});
 								}
 								avoidLayoutBreak.init();
 							}
