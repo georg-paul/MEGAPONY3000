@@ -434,9 +434,9 @@ img {
   z-index: 502;
   overflow: hidden;
   position: fixed;
-  background: #0b0b0b;
+  background: black;
   opacity: 0.8;
-  filter: alpha(opacity=80); }
+  filter: alpha(opacity=0.8); }
 
 .mfp-wrap {
   top: 0;
