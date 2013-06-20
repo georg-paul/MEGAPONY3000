@@ -1,4 +1,4 @@
-@import "project/_config.scss";
+@import "_config.scss";
 
 // megapony framework styles
 @import "_megapony/_mixins.scss";
@@ -8,8 +8,8 @@
 @import "_megapony/reusable-objects.scss";
 
 // custom project styles
-@import "project/_mixins.scss";
-@import "project/global.scss";
-@import "project/layout.scss";
-@import "project/typo.scss";
-@import "project/tables.scss";
+@import "_mixins.scss";
+@import "global.scss";
+@import "layout.scss";
+@import "typo.scss";
+@import "tables.scss";

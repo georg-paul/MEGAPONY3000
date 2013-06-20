@@ -1,5 +1,5 @@
 var megapony3000 = {
-	cssPath: 'css/master.css',
+	cssPath: 'Css/master.css',
 	safetyMargin: 50
 };
 
