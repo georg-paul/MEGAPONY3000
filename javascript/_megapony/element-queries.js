@@ -136,11 +136,11 @@
 
 			var init = function () {
 
-				// clear local storage every 24 hours
+				// clear local storage every hour
 					var lastClear = localStorage.getItem('lastClear'),
 						timeNow = (new Date()).getTime();
 
-					if ((timeNow - lastClear) > 1000 * 60 * 60 * 24) {
+					if ((timeNow - lastClear) > 1000 * 60 * 60 * 1) {
 						localStorage.clear();
 						localStorage.setItem('lastClear', timeNow);
 					}
