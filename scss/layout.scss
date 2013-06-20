@@ -20,6 +20,7 @@
 	}
 	h1 {
 		color: #fff;
+		text-transform: uppercase;
 		margin-bottom: 0;
 		line-height: 1;
 	}
@@ -93,7 +94,7 @@
 }
 
 .l-footnote {
-	@include rem(font-size, $tiny-font-size);
+	@include rem(font-size, 14);
 	background: #f5f5f5;
 	@include rem(margin-top, 100);
 	p {

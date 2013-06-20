@@ -13,7 +13,6 @@ h1, h2, h3, h4, h5 {
 h1 {
 	font-weight: 700;
 	@include rem(font-size, nth($headline-sizes, 1));
-	text-transform: uppercase;
 	@if $headline-default-margins {
 		margin-bottom: 0.5em;
 	}
@@ -46,7 +45,6 @@ h4 {
 h5 {
 	@include rem(font-size, nth($headline-sizes, 5));
 	font-weight: 400;
-	text-transform: uppercase;
 	@if $headline-default-margins {
 		@include rem(margin-bottom, $base-font-size/2);
 	}
@@ -54,7 +52,7 @@ h5 {
 
 
 .leader {
-	font-family: $font-stack-3;
+	font-family: $leader-font;
 	@include rem(font-size, 28);
 	@include rem(line-height, 36);
 	margin-bottom: 1.5em;

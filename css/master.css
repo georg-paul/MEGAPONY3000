@@ -459,6 +459,7 @@ body.megapony-max-width-600 .l-banner {
     font-size: 1.5rem; }
   .l-banner h1 {
     color: #fff;
+    text-transform: uppercase;
     margin-bottom: 0;
     line-height: 1; }
   .l-banner #main-nav {
@@ -627,8 +628,8 @@ body.megapony-max-width-600 .l-banner {
   margin-bottom: 0.9375rem; }
 
 p, pre, blockquote, ul, ol, dl, figure, table, fieldset, .css-object {
-  margin-bottom: 24px;
-  margin-bottom: 1.5rem; }
+  margin-bottom: 32px;
+  margin-bottom: 2rem; }
 
 h1, h2, h3, h4, h5 {
   line-height: 1.1em;
@@ -636,9 +637,8 @@ h1, h2, h3, h4, h5 {
 
 h1 {
   font-weight: 700;
-  font-size: 48px;
-  font-size: 3rem;
-  text-transform: uppercase;
+  font-size: 46px;
+  font-size: 2.875rem;
   margin-bottom: 0.5em; }
 
 h2 {
@@ -663,10 +663,9 @@ h4 {
   margin-bottom: 0.5rem; }
 
 h5 {
-  font-size: 14px;
-  font-size: 0.875rem;
+  font-size: 16px;
+  font-size: 1rem;
   font-weight: 400;
-  text-transform: uppercase;
   margin-bottom: 8px;
   margin-bottom: 0.5rem; }
 

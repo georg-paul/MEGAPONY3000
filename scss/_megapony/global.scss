@@ -20,9 +20,8 @@ html {
 body {
 	background: $body-bg;
 	color: $body-text;
-	font-family: $font-stack-1;
+	font-family: $body-font;
 	@include rem(font-size, $base-font-size);
-
 	line-height: $base-line-height / $base-font-size;
 }
 
