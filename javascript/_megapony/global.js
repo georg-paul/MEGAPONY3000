@@ -34,11 +34,37 @@
 		var Global = (function () {
 
 			var init = function () {
-					initResponsiveTables();
+					if (megapony3000.enableResponsiveTables) {
+						initResponsiveTables();
+					}
+					if (megapony3000.enableLightbox) {
+						initLightbox();
+					}
 				},
 
 				initResponsiveTables = function () {
 					$('.megapony-rwd-table-container table').stacktable();
+				},
+
+				initLightbox = function () {
+					$('.lightbox-image').magnificPopup({
+						type: 'image',
+						gallery: {
+							enabled: false,
+							tCounter: '<span class="mfp-counter">%curr%/%total%</span>',
+							tNext: 'next',
+							tPrev: 'previous'
+						},
+						image: {
+							titleSrc: function (item) {
+								var $img = $(item.el),
+									myTitle = $img.closest('.csc-textpic-image').find('.csc-textpic-caption').text();
+
+								return myTitle;
+							}
+						},
+						tClose: 'close'
+					});
 				};
 
 			return { init: init };

@@ -74,14 +74,14 @@
 	zoom: 1;
 	.img {
 		float: left;
-		margin-right: 10px;
+		@include rem(margin-right, $media-object-margin);
 		img {
 			display: block;
 		}
 	}
 	.imgExt {
 		float: right;
-		margin-left: 10px;
+		@include rem(margin-left, $media-object-margin);
 	}
 	.bd {
 		overflow: hidden;
