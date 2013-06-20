@@ -17,11 +17,18 @@ body {
 	}
 }
 
-.simple-ul {
-	list-style: outside disc;
-	@include rem(margin-left, 18);
+.content-ul {
+	list-style: $ul-bullet-position $ul-bullet-type;
+	@include rem(margin-left, $ul-margin-left);
 	li {
-		@include rem(margin-bottom, 6);
-		@include rem(padding-left, 5);
+		@include rem(margin-bottom, $ul-li-margin-bottom);
+	}
+}
+
+.content-ol {
+	list-style: $ol-bullet-position $ol-bullet-type;
+	@include rem(margin-left, $ol-margin-left);
+	li {
+		@include rem(margin-bottom, $ol-li-margin-bottom);
 	}
 }

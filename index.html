@@ -274,16 +274,16 @@
 						<p>Then there are the lists. <code>ul</code> denotes an unordered list (ie. a list of loose items that don't require numbering, or a bulleted list). <code>ol</code> denotes an ordered list, and various numbering schemes are available through the <abbr>CSS</abbr> (including 1,2,3... a,b,c... i,ii,iii... and so on). Each item within the <code>ul</code> or <code>ol</code> requires a surrounding <code>&lt;li&gt;</code> and <code>&lt;/li&gt;</code> tag, to denote individual items within the list (as you may have guessed, <code>li</code> stands for list item).</p>
 						<p>Additionally, <code>dl</code> is another list type called a definition list. Instead of list items, the content of a <code>dl</code> consists of <code>dt</code> (Definition Term) and <code>dd</code> (Definition description) pairs. Though it may be called a "definition list", <code>dl</code> can apply to other scenarios where a parent/child relationship is applicable. For example, it may be used for marking up dialogues, with each <code>dt</code> naming a speaker, and each <code>dd</code> containing his or her words.</p>
 						<p>Example lists and usage:</p>
-						<ul>
+						<ul class="content-ul">
 							<li>This is an unordered list.</li>
 							<li>It has two items.</li>
 						</ul>
-						<ol>
+						<ol class="content-ol">
 							<li>This is an ordered list.</li>
 							<li>It has two items.</li>
 							<li>No, I lied, it has three.</li>
 						</ol>
-						<ul>
+						<ul class="content-ul">
 							<li>
 								<p>Sometimes we want lists to contain block elements, like paragraphs. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus condimentum venenatis eros ac condimentum. Morbi elit odio, imperdiet at ornare vel, auctor in turpis. In hac habitasse platea dictumst. Nulla facilisi. Aliquam fermentum lobortis turpis non porttitor.</p>
 							</li>

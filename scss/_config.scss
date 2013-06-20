@@ -46,3 +46,21 @@ $leader-font: Georgia, serif;
 
 $text-flow-margin: $base-font-size * 2;
 $responsive-table-breakpoint: 640;
+
+$ul-bullet-position: outside;
+$ul-bullet-type: disc;
+$ul-margin-left: 20;
+$ul-li-margin-bottom: 0;
+
+$ol-bullet-position: outside;
+$ol-bullet-type: decimal;
+$ol-margin-left: 25;
+$ol-li-margin-bottom: 0;
+
+
+// TYPO3 CMS specific
+
+$csc-default-margin: 40;
+$textpic-caption-color: #9ba2a7;
+$textpic-caption-font-style: italic;
+$textpic-caption-align: center;

@@ -1,0 +1,42 @@
+// TYPO3 CSS Styled Content Styles
+
+.csc-default {
+	@include rem(margin-bottom, $csc-default-margin);
+}
+
+DIV.csc-textpic {
+	.csc-textpic-caption {
+		@include rem(padding-top, 7);
+		color: $textpic-caption-color;
+		font-style: $textpic-caption-font-style;
+		text-align: $textpic-caption-align;
+	}
+	&.megapony-max-width-640 {
+		.csc-textpic-imagewrap {
+			margin-right: 0 !important;
+			margin-left: 0 !important;
+			img {
+				max-width: 100% !important;
+				height: auto;
+				display: inline;
+			}
+		}
+		.csc-textpic-text {
+			margin-left: 0 !important;
+			margin-right: 0 !important;
+		}
+		DIV.csc-textpic-imagecolumn {
+			float: none;
+		}
+		.csc-textpic-imagewrap {
+			float: none;
+			.csc-textpic-image {
+				display: block;
+				.csc-textpic-caption {
+					display: block;
+				}
+			}
+		}
+	}
+
+}
