@@ -22,7 +22,7 @@ h2 {
 	@include rem(font-size, nth($headline-sizes, 2));
 	font-weight: 700;
 	@if $headline-default-margins {
-		@include rem(margin-bottom, $base-font-size/2);
+		@include rem(margin-bottom, $base-font-size);
 	}
 }
 

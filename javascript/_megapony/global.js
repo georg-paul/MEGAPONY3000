@@ -40,6 +40,9 @@
 					if (megapony3000.enableLightbox) {
 						initLightbox();
 					}
+					if (megapony3000.enableResponsiveVideos) {
+						initFitVids();
+					}
 				},
 
 				initResponsiveTables = function () {
@@ -64,6 +67,19 @@
 							}
 						},
 						tClose: 'close'
+					});
+				},
+
+				initFitVids = function () {
+					var $videoContainers = $(),
+						$videos = $('.megapony-video');
+
+					$videos.each(function () {
+						$videoContainers.push($(this));
+					});
+
+					$videoContainers.each(function () {
+						$(this).fitVids();
 					});
 				};
 

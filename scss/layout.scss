@@ -191,3 +191,12 @@
 		@include rem(margin-bottom, 15);
 	}
 }
+
+.l-video {
+	[class*="megapony-object-columns-"] {
+		@include rem(margin-bottom, 50);
+	}
+	.leader {
+		@include rem(margin-bottom, 15);
+	}
+}

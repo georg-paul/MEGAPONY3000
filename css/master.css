@@ -261,6 +261,10 @@ img {
 .megapony-rwd-table-container.megapony-min-width-640 .stacktable {
   display: none; }
 
+.megapony-video {
+  min-width: 400px;
+  min-width: 25rem; }
+
 .megapony-object-hnav:after {
   content: ".";
   display: block;
@@ -1038,6 +1042,13 @@ body.megapony-max-width-600 .l-banner {
   margin-bottom: 15px;
   margin-bottom: 0.9375rem; }
 
+.l-video [class*="megapony-object-columns-"] {
+  margin-bottom: 50px;
+  margin-bottom: 3.125rem; }
+.l-video .leader {
+  margin-bottom: 15px;
+  margin-bottom: 0.9375rem; }
+
 p, pre, blockquote, ul, ol, dl, figure, table, fieldset, .css-object {
   margin-bottom: 32px;
   margin-bottom: 2rem; }
@@ -1056,8 +1067,8 @@ h2 {
   font-size: 28px;
   font-size: 1.75rem;
   font-weight: 700;
-  margin-bottom: 8px;
-  margin-bottom: 0.5rem; }
+  margin-bottom: 16px;
+  margin-bottom: 1rem; }
 
 h3 {
   font-size: 18px;

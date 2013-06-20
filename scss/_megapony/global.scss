@@ -71,3 +71,7 @@ img {
 		.stacktable { display: none; }
 	}
 }
+
+.megapony-video {
+	@include rem(min-width, $video-min-width);
+}
