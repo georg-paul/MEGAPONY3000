@@ -1,0 +1,15 @@
+table {
+	width: 100%;
+	th {
+		background: #eee;
+		text-align: left;
+		padding: 7px 8px;
+	}
+	td {
+		text-align: left;
+		padding: 5px 8px;
+	}
+	tr:nth-child(odd) td {
+		background: #f5f5f5;
+	}
+}

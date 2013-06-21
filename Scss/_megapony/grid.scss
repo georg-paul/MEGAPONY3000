@@ -1,0 +1,52 @@
+// 6er grid reicht
+
+[class*="megapony-object-columns-"] {
+	@include clear-after;
+	@include rem(margin-right, $grid-gutter/2 * -1);
+	@include rem(margin-left, $grid-gutter/2 * -1);
+
+	[class*="megapony-object-column"] {
+		@include box-sizing(border-box);
+		float: left;
+		display: block;
+		@include rem(padding-right, $grid-gutter/2);
+		@include rem(padding-left, $grid-gutter/2);
+		&.breakpoint-small {
+			clear: both;
+			float: none;
+			display: block;
+			//padding: 0;
+			width: auto !important;
+			@include rem(margin-bottom, 30);
+			p { color: green; }
+			> * { float: none !important; }
+		}
+	}
+  [class*="megapony-object-columns-"] {
+	  margin: 0;
+	  [class*="megapony-object-column"] {
+		  &:first-of-type { padding-left: 0; }
+		  &:last-of-type { padding-right: 0; }
+	  }
+  }
+}
+
+@for $column-count from 2 to $grid-columns + 1 {
+
+  // by default, every column should be equal
+  [class*="megapony-object-columns-#{$column-count}"] {
+    > [class*="megapony-object-column"] {
+		width: percentage($grid-columns / $column-count / $grid-columns);
+	}
+  }
+
+  @for $first-col from 1 to $grid-columns - 1 {
+    @if $column-count == 2 {
+		$second-col: $grid-columns - $first-col;
+		[class*="megapony-object-columns-#{$column-count}-#{$first-col}-#{$second-col}"] {
+			> [class*="megapony-object-column"]:nth-child(1) { width: percentage($first-col / $grid-columns); }
+			> [class*="megapony-object-column"]:nth-child(2) { width: percentage($second-col / $grid-columns); }
+		}
+    }
+  }
+}

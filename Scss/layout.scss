@@ -1,0 +1,202 @@
+// project code goes here
+
+.leader.megapony-max-width-500 {
+	line-height: 1;
+}
+
+.l-banner {
+	background: #2E3230;
+	@include rem(padding-top, 30);
+	@include rem(padding-bottom, 30);
+	> .megapony-object-halign {
+		.left {
+			@include rem(margin-right, 20);
+		}
+		&.megapony-max-width-480 {
+			h1 {
+				@include rem(font-size, 24);
+			}
+		}
+	}
+	h1 {
+		color: #fff;
+		text-transform: uppercase;
+		margin-bottom: 0;
+		line-height: 1;
+	}
+	#main-nav {
+		position: static;
+		&.breakpoint-small {
+			.toggle {
+				@include rem(right, $container-side-space);
+				background: #fff;
+				&:before, &:after {
+					border: 2px solid #2E3230;
+				}
+			}
+		}
+		> ul > li {
+			@include rem(min-width, 160);
+			&:last-child {
+				margin-right: 0;
+			}
+			> a {
+				text-align: center;
+				@include rem(padding-top, 15);
+				@include rem(padding-bottom, 15);
+				@include rem(padding-left, 28);
+				@include rem(padding-right, 28);
+			}
+		}
+		li {
+			background-color: rgba(255,255,255,0.08);
+			a {
+				text-decoration: none;
+				color: #fff;
+
+			}
+			ul {
+				li {
+					background-color: #3E4240;
+					border-top: 1px solid #333;
+					a {
+						@include rem(padding-top, 10);
+						@include rem(padding-bottom, 10);
+						@include rem(padding-left, 15);
+						@include rem(padding-right, 15);
+					}
+				}
+			}
+		}
+	}
+	#meta-nav {
+		li {
+			@include rem(margin-right, 10);
+			@include rem(padding-top, 5);
+			@include rem(padding-bottom, 5);
+			@include rem(padding-left, 10);
+			@include rem(padding-right, 10);
+			background-color: rgba(255,255,255,0.03);
+			&:last-child {
+				margin-right: 0;
+			}
+			a {
+				color: #fff;
+			}
+		}
+	}
+
+	.no-side-by-side {
+		#main-nav:not(.breakpoint-small) {
+			@include rem(margin-top, 20);
+		}
+	}
+}
+
+.l-footnote {
+	@include rem(font-size, 14);
+	background: #f5f5f5;
+	@include rem(margin-top, 100);
+	p {
+		margin: 0;
+		@include rem(padding-top, 15);
+		@include rem(padding-bottom, 15);
+	}
+}
+
+.l-intro {
+	background: #eee;
+	@include rem(padding-top, 35);
+	@include rem(padding-bottom, 35);
+	.leader {
+		margin-bottom: 0;
+		&.megapony-min-width-1100.megapony-max-width-1200 {
+			color: red;
+		}
+		&.megapony-max-width-1150 {
+			@include rem(font-size, 26);
+			@include rem(line-height, 34);
+		}
+	}
+}
+
+.l-hero {
+	@include rem(padding-top, 40);
+	@include rem(padding-bottom, 40);
+	@include rem(margin-bottom, 40);
+	background: #f5f5f5;
+	.intro-text {
+		@include rem(padding-top, 80);
+		@include rem(padding-left, 45);
+	}
+	&.megapony-max-width-768 {
+		[class*="megapony-object-columns-"] {
+			@include one-column-per-row;
+		}
+	}
+}
+
+
+.l-features {
+	.l-section {
+		@include rem(padding-top, 60);
+		@include rem(padding-bottom, 60);
+		border-bottom: 1px solid #ddd;
+	}
+}
+
+.l-cssobjects {
+	#demo-object-hnav {
+		position: relative;
+		@include rem(padding-top, 10);
+		@include rem(padding-bottom, 10);
+		@include rem(padding-left, 15);
+		@include rem(padding-right, 15);
+		background: #f5f5f5;
+		@include rem(min-height, 27);
+		@include box-sizing(border-box);
+		li {
+			@include rem(padding-left, 25);
+			@include rem(padding-right, 25);
+			margin-right: 0;
+			&:first-child {
+				padding-left: 0;
+			}
+			&:last-child {
+				border-right: 0 none;
+			}
+		}
+		&.breakpoint-small {
+			> ul > li > a {
+				background: #fff;
+				@include rem(padding-top, 8);
+				@include rem(padding-bottom, 8);
+				@include rem(padding-left, 12);
+				@include rem(padding-right, 12);
+			}
+		}
+	}
+	.megapony-object-media {
+		.img {
+			@include rem(margin-right, 20);
+		}
+		.leader {
+			@include rem(margin-bottom, 5);
+		}
+	}
+}
+
+.l-columns {
+	[class*="megapony-object-columns-"] {
+		@include rem(margin-bottom, 15);
+	}
+}
+
+.l-video {
+	[class*="megapony-object-columns-"] {
+		@include rem(margin-bottom, 50);
+	}
+	.leader {
+		@include rem(margin-bottom, 15);
+	}
+}
