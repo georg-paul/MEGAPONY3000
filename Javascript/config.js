@@ -3,6 +3,7 @@ var megapony3000 = {
 	safetyMargin: 50,
 	enableLightbox: true,
 	enableResponsiveTables: true,
-	enableResponsiveVideos: true
+	enableResponsiveVideos: true,
+	localStorageEnabled: false
 };
 

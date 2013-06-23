@@ -11,6 +11,7 @@
 		display: block;
 		@include rem(padding-right, $grid-gutter/2);
 		@include rem(padding-left, $grid-gutter/2);
+		min-height: 1px;
 		&.breakpoint-small {
 			clear: both;
 			float: none;

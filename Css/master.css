@@ -84,7 +84,8 @@ input, select {
     padding-right: 8px;
     padding-right: 0.5rem;
     padding-left: 8px;
-    padding-left: 0.5rem; }
+    padding-left: 0.5rem;
+    min-height: 1px; }
     [class*="megapony-object-columns-"] [class*="megapony-object-column"].breakpoint-small {
       clear: both;
       float: none;
@@ -1303,6 +1304,8 @@ input[type="text"], input[type="email"], input[type="date"], textarea, select {
 DIV.csc-textpic .csc-textpic-caption {
   padding-top: 7px;
   padding-top: 0.4375rem;
+  font-size: 14px;
+  font-size: 0.875rem;
   color: #9ba2a7;
   font-style: italic;
   text-align: center; }

@@ -7,6 +7,7 @@
 DIV.csc-textpic {
 	.csc-textpic-caption {
 		@include rem(padding-top, 7);
+		@include rem(font-size, $textpic-caption-size);
 		color: $textpic-caption-color;
 		font-style: $textpic-caption-font-style;
 		text-align: $textpic-caption-align;

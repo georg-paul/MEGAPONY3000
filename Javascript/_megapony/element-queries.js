@@ -136,7 +136,7 @@
 
 			var init = function () {
 
-				// clear local storage every hour
+					// clear local storage every hour
 					var lastClear = localStorage.getItem('lastClear'),
 						timeNow = (new Date()).getTime();
 
@@ -146,15 +146,15 @@
 					}
 
 
-				// local storage is supported by the browser AND the local storage is filled
-				// do not make an ajax request, take it from local storage
-					if (localStorage && localStorage.getItem('parsedDom')) {
+					// local storage is supported by the browser AND the local storage is filled
+					// do not make an ajax request, take it from local storage
+					if (localStorage && localStorage.getItem('parsedDom') && megapony3000.localStorageEnabled) {
 						checkElementBreakpoints(localStorage.getItem('parsedDom'));
 						avoidLayoutBreak.init();
 					}
 
-				// local storage is either not supported by the browser OR the local storage is not filled
-				// so make an ajax request, parse the css file and store the result in the local storage
+					// local storage is either not supported by the browser OR the local storage is not filled
+					// so make an ajax request, parse the css file and store the result in the local storage
 					else {
 						$.ajax({
 							url: window.megapony3000.cssPath,
@@ -173,8 +173,9 @@
 										selectorText = (sheet.cssRules[i].mSelectorText) !== undefined ? (sheet.cssRules[i].mSelectorText) : '';
 										parsedDom += selectorText + ';';
 									}
-
-									localStorage.setItem('parsedDom', parsedDom);
+									if (megapony3000.localStorageEnabled) {
+										localStorage.setItem('parsedDom', parsedDom);
+									}
 									checkElementBreakpoints(parsedDom);
 								}
 								avoidLayoutBreak.init();
@@ -191,7 +192,7 @@
 						selectorText = (elementsArray[i]) !== undefined ? (elementsArray[i]) : '';
 
 						if (
-								selectorText.indexOf('.megapony-max-width-') !== -1 ||
+							selectorText.indexOf('.megapony-max-width-') !== -1 ||
 								selectorText.indexOf('.megapony-min-width-') !== -1 ||
 								selectorText.indexOf('.megapony-max-height-') !== -1 ||
 								selectorText.indexOf('.megapony-min-height-') !== -1
