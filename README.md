@@ -1,6 +1,6 @@
 MEGAPONY3000
 ============
-A Responsive Frontend Framework with lots of resuable CSS Objects, responsive patterns and built-in Element Queries.
+A Responsive Framework with focus on resuable CSS Objects and built-in Element Queries. Not a single media query is used.
 
 
 How do you use it
