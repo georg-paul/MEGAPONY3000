@@ -266,6 +266,9 @@ img {
   min-width: 400px;
   min-width: 25rem; }
 
+ul, ol {
+  list-style: none; }
+
 .megapony-object-hnav:after {
   content: ".";
   display: block;

@@ -75,3 +75,7 @@ img {
 .megapony-video {
 	@include rem(min-width, $video-min-width);
 }
+
+ul, ol {
+	list-style: none;
+}
