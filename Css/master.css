@@ -64,10 +64,10 @@ input, select {
   vertical-align: middle; }
 
 [class*="megapony-object-columns-"] {
-  margin-right: -8px;
-  margin-right: -0.5rem;
-  margin-left: -8px;
-  margin-left: -0.5rem; }
+  margin-right: -15px;
+  margin-right: -0.9375rem;
+  margin-left: -15px;
+  margin-left: -0.9375rem; }
   [class*="megapony-object-columns-"]:after {
     content: ".";
     display: block;
@@ -81,10 +81,10 @@ input, select {
     -ms-box-sizing: border-box;
     float: left;
     display: block;
-    padding-right: 8px;
-    padding-right: 0.5rem;
-    padding-left: 8px;
-    padding-left: 0.5rem;
+    padding-right: 15px;
+    padding-right: 0.9375rem;
+    padding-left: 15px;
+    padding-left: 0.9375rem;
     min-height: 1px; }
     [class*="megapony-object-columns-"] [class*="megapony-object-column"].breakpoint-small {
       clear: both;
@@ -359,7 +359,11 @@ ul, ol {
     float: left;
     height: 100%;
     list-style: none;
-    line-height: 1em; }
+    line-height: 1em;
+    margin-right: 20px;
+    margin-right: 1.25rem; }
+    .megapony-object-hlist > ul > li:last-child {
+      margin-right: 0; }
 
 .megapony-object-media {
   overflow: hidden;
@@ -861,9 +865,6 @@ body.megapony-max-width-600 .l-banner {
     margin-bottom: 0px;
     margin-bottom: 0rem; }
 
-.leader.megapony-max-width-500 {
-  line-height: 1; }
-
 .l-banner {
   background: #2E3230;
   padding-top: 30px;
@@ -941,18 +942,34 @@ body.megapony-max-width-600 .l-banner {
     margin-top: 20px;
     margin-top: 1.25rem; }
 
+.l-element-queries pre.prettyprint {
+  margin: 0 0 20px 0; }
+.l-element-queries .example {
+  margin-top: 40px;
+  margin-top: 2.5rem;
+  margin-bottom: 30px;
+  margin-bottom: 1.875rem; }
+  .l-element-queries .example h3 {
+    margin-bottom: 25px;
+    margin-bottom: 1.5625rem; }
+.l-element-queries .demo-text.megapony-max-width-360 {
+  color: red; }
+.l-element-queries .demo-text.megapony-max-width-280 {
+  color: blue; }
+
 .l-footnote {
   font-size: 14px;
   font-size: 0.875rem;
-  background: #f5f5f5;
+  background: #2E3230;
   margin-top: 100px;
-  margin-top: 6.25rem; }
+  margin-top: 6.25rem;
+  padding-top: 15px;
+  padding-top: 0.9375rem;
+  padding-bottom: 15px;
+  padding-bottom: 0.9375rem; }
   .l-footnote p {
-    margin: 0;
-    padding-top: 15px;
-    padding-top: 0.9375rem;
-    padding-bottom: 15px;
-    padding-bottom: 0.9375rem; }
+    color: #fff;
+    margin: 0; }
 
 .l-intro {
   background: #eee;
@@ -998,6 +1015,9 @@ body.megapony-max-width-600 .l-banner {
   padding-bottom: 3.75rem;
   border-bottom: 1px solid #ddd; }
 
+.l-cssobjects h3 {
+  margin-top: 40px;
+  margin-top: 2.5rem; }
 .l-cssobjects #demo-object-hnav {
   position: relative;
   padding-top: 10px;
@@ -1106,7 +1126,7 @@ h5 {
 a {
   color: #438fc1; }
   a:visited {
-    color: #9db2c0; }
+    color: #438fc1; }
   a:link, a:visited {
     text-decoration: none; }
   a:hover, a:focus, a:active {

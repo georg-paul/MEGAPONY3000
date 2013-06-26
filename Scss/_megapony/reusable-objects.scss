@@ -61,6 +61,12 @@
 			height: 100%;
 			list-style: none;
 			line-height: 1em;
+			@if $default-styling-hlist {
+				@include rem(margin-right, $hlist-margin);
+				&:last-child {
+					margin-right: 0;
+				}
+			}
 		}
 	}
 }

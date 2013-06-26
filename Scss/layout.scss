@@ -1,9 +1,5 @@
 // project code goes here
 
-.leader.megapony-max-width-500 {
-	line-height: 1;
-}
-
 .l-banner {
 	background: #2E3230;
 	@include rem(padding-top, 30);
@@ -93,14 +89,36 @@
 	}
 }
 
+.l-element-queries {
+	pre.prettyprint {
+		margin: 0 0 20px 0;
+	}
+	.example {
+		h3 {
+			@include rem(margin-bottom, 25);
+		}
+		@include rem(margin-top, 40);
+		@include rem(margin-bottom, 30);
+	}
+
+	// simple example
+	.demo-text.megapony-max-width-360 {
+		color: red;
+	}
+	.demo-text.megapony-max-width-280 {
+		color: blue
+	}
+}
+
 .l-footnote {
 	@include rem(font-size, 14);
-	background: #f5f5f5;
+	background: #2E3230;
 	@include rem(margin-top, 100);
+	@include rem(padding-top, 15);
+	@include rem(padding-bottom, 15);
 	p {
+		color: #fff;
 		margin: 0;
-		@include rem(padding-top, 15);
-		@include rem(padding-bottom, 15);
 	}
 }
 
@@ -146,6 +164,9 @@
 }
 
 .l-cssobjects {
+	h3 {
+		@include rem(margin-top, 40);
+	}
 	#demo-object-hnav {
 		position: relative;
 		@include rem(padding-top, 10);

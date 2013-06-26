@@ -5,7 +5,7 @@ $container-max-width: 960;
 $container-side-space: 30;
 
 $grid-columns: 12;
-$grid-gutter: 16;
+$grid-gutter: 30;
 
 
 // CSS Objects (declaration in px)
@@ -17,6 +17,10 @@ $hnav-margin: 10;
 // halign
 $default-styling-halign: true;
 $halign-margin: 40;
+
+// hlist
+$default-styling-hlist: true;
+$hlist-margin: 20;
 
 
 // FONT SIZE (declaration in px)
@@ -31,7 +35,7 @@ $headline-default-margins: true;
 // COLORS
 
 $link-color: #438fc1;
-$link-color-visited: #9db2c0;
+$link-color-visited: #438fc1;
 $body-bg: #fff;
 $body-text: #3b3b3b;
 

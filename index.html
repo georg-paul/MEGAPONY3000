@@ -48,7 +48,7 @@
 
 			<section class="l-intro">
 				<div class="megapony-delimiter">
-					<p class="leader">A <em>Responsive Frontend Framework</em> with lots of resuable CSS Objects, responsive patterns and built-in <em>Element Queries</em>.</p>
+					<p class="leader">A <em>Responsive Framework</em> with focus on resuable CSS Objects and built-in <em>Element Queries</em>. Not a single media query is used.</p>
 				</div>
 			</section>
 
@@ -60,15 +60,14 @@
 						</div>
 						<div class="megapony-object-column">
 							<div class="intro-text">
-								<h2>Lorem Ipsum Dolor</h2>
-								<p>A Responsive Frontend Framework with lots of resuable CSS Objects, responsive patterns and built-in Element Queries.</p>
-								<ul>
-									<li>Lorem ipsum dolor sit amet</li>
-									<li>Lorem ipsum dolor sit amet</li>
-									<li>Lorem ipsum dolor sit amet</li>
-									<li>Lorem ipsum dolor sit amet</li>
-								</ul>
-								<a href="https://github.com/georg-paul/megapony3000">Download on Github</a>
+								<h2>What's the deal?</h2>
+								<p>The main difference to all the other existing frameworks are the built-in <em>Element Queries</em>. Another big feature are <em>CSS Objects</em> that react automatically to the available space they have in this or that context.</p>
+								<div class="megapony-object-hlist">
+									<ul>
+										<li><a href="#element-queries">How does it work?</a></li>
+										<li><a href="https://github.com/georg-paul/megapony3000">Download on Github</a></li>
+									</ul>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -79,8 +78,28 @@
 			<section class="l-features">
 				<div class="megapony-delimiter">
 
-					<section class="l-section">
-						<p>The intro paragraph above has a class of <code>leader</code></p>
+					<section class="l-section l-element-queries">
+						<h2 id="element-queries">Element Queries</h2>
+
+						<div class="example">
+							<h3>Simple example</h3>
+							<div class="megapony-object-columns-2-7-5">
+								<div class="megapony-object-column" >
+<pre class="prettyprint lang-css">
+.demo-text.megapony-max-width-360 {
+	color: red;
+}
+.demo-text.megapony-max-width-280 {
+	color: blue;
+}
+</pre>
+								</div>
+								<div class="megapony-object-column">
+									<p class="demo-text">This paragraph will be red if it's width is smaller than 360 px and green if it is smaller than 280 px and the paragraph will have the default color for every width above.</p>
+								</div>
+							</div>
+							<p class="demo-text">This paragraph will be also red if it's width is smaller than 360 px and green if it is smaller than 280 px. <strong>It's width</strong> is the jumping point. The width of the paragraph. <strong>NOT the screen width</strong>. The available width of the element in the context matters. Compare this p-tag with the p-tag top right. The react differntly because the are in another context with different space available.</p>
+						</div>
 					</section>
 
 					<section class="l-section l-headlines">
@@ -101,7 +120,7 @@
 					<section class="l-section l-cssobjects">
 						<h2>Reusable CSS Objects</h2>
 
-						<h3>.hnav</h3>
+						<h3>.megapony-object-hnav</h3>
 						<nav class="megapony-object-hnav" id="demo-object-hnav">
                             <span class="toggle"></span>
 							<ul>
@@ -115,7 +134,7 @@
 							</ul>
 						</nav>
 
-						<h3>.media</h3>
+						<h3>.megapony-object-media (contributed)</h3>
 						<div class="megapony-object-media">
 							<a class="img" href="#">
 								<img src="http://placehold.it/200x200" />
@@ -126,20 +145,18 @@
 							</div>
 						</div>
 
-						<h3>.halign</h3>
+						<h3>.megapony-object-halign</h3>
 						<div class="megapony-object-halign">
 							<div class="center">
 								<h4>.center</h4>
 								<nav class="megapony-object-hnav">
 									<ul>
-										<li><a href="#">previous</a></li>
 										<li><a href="#">1</a></li>
 										<li><a href="#">2</a></li>
 										<li><a href="#">3</a></li>
 										<li><a href="#">4</a></li>
 										<li><a href="#">5</a></li>
 										<li><a href="#">6</a></li>
-										<li><a href="#">next</a></li>
 									</ul>
 								</nav>
 							</div>
@@ -188,14 +205,12 @@
 								<h4>.center</h4>
 								<nav class="megapony-object-hnav">
 									<ul>
-										<li><a href="#">previous</a></li>
 										<li><a href="#">1</a></li>
 										<li><a href="#">2</a></li>
 										<li><a href="#">3</a></li>
 										<li><a href="#">4</a></li>
 										<li><a href="#">5</a></li>
 										<li><a href="#">6</a></li>
-										<li><a href="#">next</a></li>
 									</ul>
 								</nav>
 							</div>
@@ -228,46 +243,6 @@
 						<p>Additionally, you might wish to cite the source, as in the above example. (The correct method involves the <code>cite</code> attribute directly applied to the <code>blockquote</code> element, but since no browser makes any use of that information whatsoever, it’s useful to also specify the standalone <code>footer</code> element as detailed at <a href="http://html5doctor.com/blockquote-q-cite/">html5doctor.com/blockquote-q-cite/</a>.)</p>
 					</section>
 
-
-					<section class="l-section l-inline-text">
-						<h2 id="inlinetext">Inline Text</h2>
-						<p>You might have noticed all the monospaced text in this guide. There are a number of inline <abbr title="HyperText Markup Language">HTML</abbr> elements you may use anywhere within other elements, including <abbr title="Abbreviation">abbr</abbr>, <cite>cite</cite>, <code>code</code>, <del>del</del>, <em>em</em>, <ins>ins</ins>, <strong>strong</strong>, and <var>var</var>.</p>
-						<dl>
-							<dt><abbr title="Abbreviation">abbr</abbr></dt>
-							<dd>Used for any abbreviated text, whether it be acronym, initialism, or otherwise. Generally, it’s less work and useful (enough) to mark up only the first occurence of any particular abbreviation on a page, and ignore the rest. Any text in the <code>title</code> attribute will appear when the user’s mouse hovers the abbreviation (although notably, this does not work in Internet Explorer for Windows). Example abbreviations and usage: <abbr title="National Aeronautics and Space Administration">NASA</abbr>, <abbr title="HyperText Markup Language">HTML</abbr>, and <abbr title="Massachusetts">Mass.</abbr></dd>
-							<dt><code>code</code></dt>
-							<dd>
-								<p>Used for computer code samples. Useful for technology-oriented sites, not so useful otherwise. Example code and usage:</p>
-								<pre><code>function getJelly() {echo $aDeliciousSnack;}</code></pre>
-								<p>With line numbers:</p>
-								<ol class="code">
-									<li><code>&lt;?php</code></li>
-									<li class="tab1"><code>echo 'Hello World!';</code></li>
-									<li><code>?&gt;</code></li>
-								</ol>
-								<p>Inline usage: just like elsewhere in this document, <abbr title="HyperText Markup Language">HTML</abbr> elements like <code>em</code> or <code>code</code> can be considered code, and marked up as such.</p>
-							</dd>
-							<dt><cite>cite</cite></dt>
-							<dd>Used for defining a citation or reference to other information sources. Example cited text and usage: More information can be found in <cite>[ISO-0000]</cite></dd>
-							<dt><del datetime="2005-05-30T13:00:00">del</del></dt>
-							<dd>Used for deleted or retracted text which still must remain on the page for some reason. Since the default style includes a strikethrough line, it’s preferable to the <code>s</code> element. The <code>del</code> element also has a <code>datetime</code> attribute which allows you to include a timestamp directly in the element. Example deleted text and usage: She bought <del datetime="2005-05-30T13:00:00">two</del> <ins datetime="2005-05-30T13:00:00">five</ins> pairs of shoes.</dd>
-							<dt><em>em</em></dt>
-							<dd>Used for denoting emphasized text. In most instances where you'd want to italicize text (using the <abbr title="HyperText Markup Language">HTML</abbr> element <code>i</code> or otherwise) you should use the <code>em</code> element instead. Notable exceptions are stylistic italicizing of proper titles, foreign languages, etc. where italicizing is used for differentiation instead of emphasis. In those cases, no proper <abbr title="HyperText Markup Language">HTML</abbr> elements exist, so an <code>i</code> element or a <code>span</code> element with a custom class may be preferable. Example emphasized text and usage: You simply <em>must</em> try the negitoro maki!</dd>
-							<dt><ins datetime="2005-05-30T13:00:00">ins</ins></dt>
-							<dd>Used for inserted text and counterpart to the <code>del</code> element. Like <code>del</code>, <code>ins</code> has a <code>datetime</code> attribute which allows you to include a timestamp directly in the element. Example inserted text and usage: She bought <del datetime="2005-05-30T13:00:00">two</del> <ins datetime="2005-05-30T13:00:00">five</ins> pairs of shoes.</dd>
-							<dt><kbd>kbd</kbd></dt>
-							<dd>Used for text which should be typed by the user. Mainly useful for computer instructions. Example keyboard text and usage: Please press <kbd>Enter</kbd> to continue.</dd>
-							<dt><q>q</q></dt>
-							<dd>
-								<p>Used for quoting inline. Example usage illustrating nested quotations:</p>
-								<p>John said, <q>I saw Lucy at lunch, she told me <q>Mary wants you to get some ice cream on your way home</q>. I think I will get some at Ben and Jerry’s, on Gloucester Road.</q></p>
-							</dd>
-							<dt><strong>strong</strong></dt>
-							<dd>Used for denoting stronger emphasis than the <code>em</code> element. In most instances where you'd want to bold text (using the <abbr title="HyperText Markup Language">HTML</abbr> element <code>b</code> or otherwise) you should use the <code>strong</code> element instead. Notable exceptions are stylistic bolding of examples, first occurences of names in an article, etc. where bolding is used for differentiation instead of emphasis. In those cases, no proper <abbr title="HyperText Markup Language">HTML</abbr> elements exist, so <code>b</code> element or a <code>span</code> element with a custom class may be preferable. Example strong text and usage: <strong>Don't</strong> stick nails in the electrical outlet.</dd>
-							<dt><var>var</var></dt>
-							<dd>Used for variables within computer code snippets. Useful for technology-oriented sites, not so useful otherwise. Example code and usage: Add 5 to <var>$result</var> and recalculate.</dd>
-						</dl>
-					</section>
 
 					<section class="l-section l-lists">
 						<h2 id="lists">Lists</h2>
@@ -488,9 +463,12 @@
 			</section>
 			<footer class="l-footnote">
 				<div class="megapony-delimiter">
-					<p>
-						Copyright &copy; 2013 Georg Paul
-					</p>
+					<div class="megapony-object-halign">
+							<p class="left">
+								Copyright &copy; 2013 <a href="https://twitter.com/georg_paul">Georg Paul</a>
+							</p>
+						<a href="#page" class="right">to top</a>
+					</div>
 				</div>
 			</footer>
 		</div>
@@ -501,5 +479,11 @@
 		<script src="Javascript/_megapony/contributed/jquery.stackable.js"></script>
 		<script src="Javascript/_megapony/contributed/jquery.fitvids.js"></script>
 		<script src="Javascript/_megapony/contributed/jquery.magnific-popup.js"></script>
+		<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?lang=css&skin=sunburst"></script>
+		<script type="text/javascript">
+			$(document).ready(function () {
+				prettyPrint();
+			});
+		</script>
 	</body>
 </html>
