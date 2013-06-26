@@ -5,32 +5,21 @@ A Responsive Frontend Framework with lots of resuable CSS Objects, responsive pa
 
 How do you use it
 -------------------------
-Most important classes:
-
-.megapony-object-halign
-.megapony-object-halign-container
-.no-side-by-side
-.nearly-no-side-by-side
-.children-no-side-by-side
-.children-nearly-no-side-by-side
-
-.megapony-max-width-123
-.megapony-min-width-123
+Please clone the repo and check out the demo. I haven't put very much time into the demo yet. More infos are coming soon.
 
 
 Important Notices
 -------------------------
-* This Repo is not even on an EARLY ALPHA state and no proper testing was made (bugs are expected)
-* You may NOT have /* */ comments in your css output files. The css parser will probably stop working otherwise.
-* http://stackoverflow.com/questions/4208530/xmlhttprequest-origin-null-is-not-allowed-access-control-access-allow-for-file
 * Responsive Resizing will NOT work for few cases. Reload the page please, resizing is no real-world issue. Orientation change event should fire (not tested yet)
+* This Repo has an EARLY ALPHA state (proper testing was made but bugs are expected)
+* http://stackoverflow.com/questions/4208530/xmlhttprequest-origin-null-is-not-allowed-access-control-access-allow-for-file
 
 
 Special thanks to
 -------------------------
-* the guys who made the contributed stuff I use in this repo.
-* Clearleft - I used most of their styleguide content (http://clearleft.com/styleguide/)
-* the unknown copyright owner of the horse image I use.
+* The jQuery guys, Daniel Glazman, Chris Coyier, Dmitry Semenov, John Polacek
+* Clearleft - I used most of their styleguide content for demo purpose (http://clearleft.com/styleguide/)
+* The unknown copyright owner of the horse image I use from google images.
 
 
 License
