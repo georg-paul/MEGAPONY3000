@@ -10,6 +10,7 @@ Please clone the repo and check out the demo. I haven't put very much time into 
 
 Important Notices
 -------------------------
+* Javascript is a requirement of this framework. The page won't break if Javascript is disabled, but the features won't work either.
 * Responsive Resizing will NOT work for few cases. Reload the page please, resizing is no real-world issue. Orientation change event should fire (not tested yet)
 * This Repo has an EARLY ALPHA state (proper testing was made but bugs are expected)
 * http://stackoverflow.com/questions/4208530/xmlhttprequest-origin-null-is-not-allowed-access-control-access-allow-for-file
