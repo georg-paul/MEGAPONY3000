@@ -98,9 +98,8 @@
 								</div>
 							</div>
 							<p class="demo-text">This paragraph will be also red if it's width is smaller than 360 px and green if it is smaller than 280 px. <strong>It's width is the jumping point</strong> . The width of the paragraph. <strong>NOT the screen width</strong>.
-								The available width of the element in the context matters. Compare this p-tag with the p-tag top right. The react differently because the are in another context with different space available. You only have to use the classes megapony-max-width-123
-								or megapony-min-width-456 in your stylesheets. The class is applied by the framework. A <strong>CSS parser</strong> written in Javascript by <a href="glazman@netscape.com">Daniel Glazman</a> plays an important role there. The rest ist quite simple. Search for <strong>megapony-max-width-</strong> and <strong>megapony-min-width-</strong>
-								in the selectors and add the class when the required width suits the available width of the element in it's context.</p>
+								The available width of the element in the context matters. Compare this p-tag with the p-tag top right. The react differently because the are in another context with different space available. You only have to use the classes <strong>megapony-max-width-123</strong>
+								or <strong>megapony-min-width-456</strong> in your stylesheets. The classes are applied by the framework automatically. Every linked stylesheet with a title attribute value of "megapony" will be parsed. Not with AJAX and regex, just with simple DOM access <code>document.styleSheets</code>.</p>
 						</div>
 					</section>
 
@@ -480,7 +479,7 @@
 		<script src="Javascript/_megapony/contributed/jquery-1.8.3.min.js"></script>
 		<script src="Javascript/_megapony/global.js"></script>
         <script src="Javascript/_megapony/element-queries.js"></script>
-		<script src="Javascript/_megapony/contributed/jquery.stackable.js"></script>
+		<script src="Javascript/_megapony/contributed/jquery.stacktable.js"></script>
 		<script src="Javascript/_megapony/contributed/jquery.fitvids.js"></script>
 		<script src="Javascript/_megapony/contributed/jquery.magnific-popup.js"></script>
 
