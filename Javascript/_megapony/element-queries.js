@@ -30,7 +30,7 @@
 	"use strict";
 
 	$(document).ready(function () {
-		var avoidLayoutBreak = (function () {
+		var responsiveCssObjects = (function () {
 
 			var init = function () {
 					checkForCollision();
@@ -60,7 +60,9 @@
 					var leftWidth = 0,
 						centerWidth = 0,
 						rightWidth = 0,
-						totalWidth = 0;
+						totalWidth = 0,
+						pageHasVerticalScrollbar = document.body.scrollHeight > document.body.clientHeight,
+						scrollBarWidth = pageHasVerticalScrollbar ? 20 : 0; // dirty, default value of 20 px, exact calculation needed -> http://davidwalsh.name/detect-scrollbar-width?
 
 					$megaponyObj.find('> .left').each(function () { leftWidth += $(this).outerWidth(true); });
 					$megaponyObj.find('> .center').each(function () { centerWidth += $(this).outerWidth(true); });
@@ -68,16 +70,13 @@
 
 					totalWidth = leftWidth + centerWidth + rightWidth;
 
-					if (totalWidth > $megaponyObj.width()) {
+					if (totalWidth > $megaponyObj.width() - scrollBarWidth) {
 						$megaponyObj.addClass('no-side-by-side');
 						$megaponyObj.closest('.megapony-object-halign-container').addClass('children-no-side-by-side');
-					} else if (totalWidth + window.megapony3000.safetyMargin > $megaponyObj.width()) {
-						$megaponyObj.addClass('nearly-no-side-by-side side-by-side');
+					} else if (totalWidth + window.megapony3000.halignSafetyMargin > $megaponyObj.width()) {
+						$megaponyObj.addClass('nearly-no-side-by-side');
 						$megaponyObj.closest('.megapony-object-halign-container').addClass('children-nearly-no-side-by-side');
-					} else {
-						$megaponyObj.addClass('side-by-side');
 					}
-
 				},
 
 				media = function ($megaponyObj) {
@@ -135,53 +134,24 @@
 		var elementQueries = (function () {
 
 			var init = function () {
+					var megaponyStylesheets = new Object(),
+						parsedDom = '';
 
-					// clear local storage every hour
-					var lastClear = localStorage.getItem('lastClear'),
-						timeNow = (new Date()).getTime();
+					$.each(document.styleSheets, function (i) {
+						var stylesheet = this;
+						if (stylesheet.title === 'megapony') {
+							megaponyStylesheets[i] = stylesheet;
+						}
+					});
 
-					if ((timeNow - lastClear) > 1000 * 60 * 60 * 1) {
-						localStorage.clear();
-						localStorage.setItem('lastClear', timeNow);
-					}
-
-
-					// local storage is supported by the browser AND the local storage is filled
-					// do not make an ajax request, take it from local storage
-					if (localStorage && localStorage.getItem('parsedDom') && megapony3000.localStorageEnabled) {
-						checkElementBreakpoints(localStorage.getItem('parsedDom'));
-						avoidLayoutBreak.init();
-					}
-
-					// local storage is either not supported by the browser OR the local storage is not filled
-					// so make an ajax request, parse the css file and store the result in the local storage
-					else {
-						$.ajax({
-							url: window.megapony3000.cssPath,
-							dataType: 'text',
-							success: function (response) {
-								var parser = new CSSParser(),
-									sheet = parser.parse(response, false, true),
-									medium = 'screen',
-									parsedDom = '',
-									selectorText = '';
-
-								if (sheet) {
-									sheet.resolveVariables(medium);
-
-									for (var i = 0; i < sheet.cssRules.length; i++) {
-										selectorText = (sheet.cssRules[i].mSelectorText) !== undefined ? (sheet.cssRules[i].mSelectorText) : '';
-										parsedDom += selectorText + ';';
-									}
-									if (megapony3000.localStorageEnabled) {
-										localStorage.setItem('parsedDom', parsedDom);
-									}
-									checkElementBreakpoints(parsedDom);
-								}
-								avoidLayoutBreak.init();
-							}
+					$.each(megaponyStylesheets, function (i) {
+						$.each(this.cssRules, function () {
+							parsedDom += this.selectorText + ';';
 						});
-					}
+						checkElementBreakpoints(parsedDom);
+					});
+					responsiveCssObjects.init();
+					hideLoadingView();
 				},
 
 				checkElementBreakpoints = function (parsedDom) {
@@ -230,7 +200,6 @@
 							applyElementQueries($(targetSelector), values);
 						}
 					}
-					hideLoadingView();
 				},
 
 				applyElementQueries = function ($elements, values) {
