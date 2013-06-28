@@ -145,12 +145,21 @@
 					});
 
 					$.each(megaponyStylesheets, function (i) {
-						$.each(this.cssRules, function () {
-							parsedDom += this.selectorText + ';';
-						});
-						checkElementBreakpoints(parsedDom);
+						var crossRules = this.rules || this.cssRules;
+
+						for (var x = 0; x < crossRules.length; x++) {
+							parsedDom += crossRules[x].selectorText + ';';
+						}
+						if (isSelectorTextSupportedCorrectly(parsedDom)) {
+							checkElementBreakpoints(parsedDom);
+						}
 					});
-					responsiveCssObjects.init();
+					if (isSelectorTextSupportedCorrectly(parsedDom)) {
+						responsiveCssObjects.init();
+					} else {
+						$('html').addClass('non-responsive');
+					}
+
 					hideLoadingView();
 				},
 
@@ -252,6 +261,10 @@
 
 				hideLoadingView = function () {
 					$('html').removeClass('megapony-loading');
+				},
+
+				isSelectorTextSupportedCorrectly = function (parsedDom) {
+					return parsedDom.split('.megapony-max-width-123')[0].indexOf('.is-selectorText-supported-correctly') !== -1;
 				};
 
 			return { init: init };

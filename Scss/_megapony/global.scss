@@ -49,8 +49,9 @@ body {
 	@include clear-after;
 	margin: 0 auto;
 
-	.javascript-is-disabled & {
+	.javascript-is-disabled &, .non-responsive & {
 		@include rem(width, $container-max-width);
+		max-width: none;
 	}
 }
 
@@ -78,4 +79,11 @@ img {
 
 ul, ol {
 	list-style: none;
+}
+
+// do NOT modify the lines below
+.is-selectorText-supported-correctly {
+	&.megapony-max-width-123 {
+		color: red;
+	}
 }

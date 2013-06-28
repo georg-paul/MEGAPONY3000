@@ -245,9 +245,10 @@ body {
     height: 0;
     clear: both;
     visibility: hidden; }
-  .javascript-is-disabled .megapony-delimiter {
+  .javascript-is-disabled .megapony-delimiter, .non-responsive .megapony-delimiter {
     width: 960px;
-    width: 60rem; }
+    width: 60rem;
+    max-width: none; }
 
 img, embed, object {
   max-width: 100% !important;
@@ -268,6 +269,9 @@ img {
 
 ul, ol {
   list-style: none; }
+
+.is-selectorText-supported-correctly.megapony-max-width-123 {
+  color: red; }
 
 .megapony-object-hnav:after {
   content: ".";
