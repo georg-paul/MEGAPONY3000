@@ -134,33 +134,82 @@
 		var elementQueries = (function () {
 
 			var init = function () {
-					var megaponyStylesheets = new Object(),
-						parsedDom = '';
+					var megaponyStylesheets = getMegaponyStyleSheets(),
+						megaponyStylesheetCount = getMegaponyStyleSheetCount(megaponyStylesheets),
+						parsedDom = '',
+						crossRules,
+						z = 1;
 
+					$.each(megaponyStylesheets, function () {
+						crossRules = this.rules || this.cssRules;
+						for (var x = 0; x < crossRules.length; x++) {
+							parsedDom += crossRules[x].selectorText + ';';
+						}
+
+						if (isSelectorTextSupportedCorrectly(parsedDom)) {
+							checkElementBreakpoints(parsedDom);
+							if (megaponyStylesheetCount === z) {
+								responsiveCssObjects.init();
+								hideLoadingView();
+							}
+						} else {
+							if (megaponyStylesheetCount === z) {
+								ajaxParseFallback(this.href, true);
+							} else {
+								ajaxParseFallback(this.href, false);
+							}
+						}
+						z++;
+					});
+				},
+
+				getMegaponyStyleSheets = function () {
+					var megaponyStylesheets = new Object();
 					$.each(document.styleSheets, function (i) {
 						var stylesheet = this;
 						if (stylesheet.title === 'megapony') {
 							megaponyStylesheets[i] = stylesheet;
 						}
 					});
+					return megaponyStylesheets;
+				},
 
-					$.each(megaponyStylesheets, function (i) {
-						var crossRules = this.rules || this.cssRules;
+				getMegaponyStyleSheetCount = function (megaponyStylesheets) {
+					var count = 0,
+						i;
 
-						for (var x = 0; x < crossRules.length; x++) {
-							parsedDom += crossRules[x].selectorText + ';';
+					for (i in megaponyStylesheets) {
+						if (megaponyStylesheets.hasOwnProperty(i)) {
+							count++;
 						}
-						if (isSelectorTextSupportedCorrectly(parsedDom)) {
-							checkElementBreakpoints(parsedDom);
+					}
+					return count;
+				},
+
+				ajaxParseFallback = function (cssPath, isLast) {
+					$.ajax({
+						url: cssPath,
+						dataType: 'text',
+						success: function (response) {
+							var parser = new CSSParser(),
+								sheet = parser.parse(response, false, true),
+								parsedDom = '',
+								selectorText = '';
+
+							if (sheet) {
+								sheet.resolveVariables('screen');
+								for (var i = 0; i < sheet.cssRules.length; i++) {
+									selectorText = (sheet.cssRules[i].mSelectorText) !== undefined ? (sheet.cssRules[i].mSelectorText) : '';
+									parsedDom += selectorText + ';';
+								}
+								checkElementBreakpoints(parsedDom);
+							}
+							if (isLast) {
+								responsiveCssObjects.init();
+								hideLoadingView();
+							}
 						}
 					});
-					if (isSelectorTextSupportedCorrectly(parsedDom)) {
-						responsiveCssObjects.init();
-					} else {
-						$('html').addClass('non-responsive');
-					}
-
-					hideLoadingView();
 				},
 
 				checkElementBreakpoints = function (parsedDom) {

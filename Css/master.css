@@ -245,7 +245,7 @@ body {
     height: 0;
     clear: both;
     visibility: hidden; }
-  .javascript-is-disabled .megapony-delimiter, .non-responsive .megapony-delimiter {
+  .javascript-is-disabled .megapony-delimiter {
     width: 960px;
     width: 60rem;
     max-width: none; }

@@ -49,7 +49,7 @@ body {
 	@include clear-after;
 	margin: 0 auto;
 
-	.javascript-is-disabled &, .non-responsive & {
+	.javascript-is-disabled & {
 		@include rem(width, $container-max-width);
 		max-width: none;
 	}
