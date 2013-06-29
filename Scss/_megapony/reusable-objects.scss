@@ -78,16 +78,18 @@
 	overflow: hidden;
 	_overflow: visible;
 	zoom: 1;
-	.img {
+	.img, .video {
 		float: left;
 		@include rem(margin-right, $media-object-margin);
+		overflow: hidden;
 		img {
 			display: block;
 		}
-	}
-	.imgExt {
-		float: right;
-		@include rem(margin-left, $media-object-margin);
+		&.right {
+			float: right;
+			margin-right: 0;
+			@include rem(margin-left, $media-object-margin);
+		}
 	}
 	.bd {
 		overflow: hidden;
@@ -95,6 +97,19 @@
 		zoom: 1;
 		&.in-text {
 			overflow: visible;
+		}
+	}
+	&.no-side-by-side {
+		.img, .video {
+			float: none;
+			display: inline-block;
+			@include rem(margin-bottom, $media-object-margin);
+			margin-left: 0;
+			margin-right: 0;
+		}
+		.video {
+			width: 100%;
+			.megapony-video { min-width: 0; }
 		}
 	}
 }

@@ -252,6 +252,7 @@ body {
 
 img, embed, object {
   max-width: 100% !important;
+  width: auto;
   height: auto; }
 
 img {
@@ -373,22 +374,35 @@ ul, ol {
   overflow: hidden;
   _overflow: visible;
   zoom: 1; }
-  .megapony-object-media .img {
+  .megapony-object-media .img, .megapony-object-media .video {
     float: left;
     margin-right: 20px;
-    margin-right: 1.25rem; }
-    .megapony-object-media .img img {
+    margin-right: 1.25rem;
+    overflow: hidden; }
+    .megapony-object-media .img img, .megapony-object-media .video img {
       display: block; }
-  .megapony-object-media .imgExt {
-    float: right;
-    margin-left: 20px;
-    margin-left: 1.25rem; }
+    .megapony-object-media .img.right, .megapony-object-media .video.right {
+      float: right;
+      margin-right: 0;
+      margin-left: 20px;
+      margin-left: 1.25rem; }
   .megapony-object-media .bd {
     overflow: hidden;
     _overflow: visible;
     zoom: 1; }
     .megapony-object-media .bd.in-text {
       overflow: visible; }
+  .megapony-object-media.no-side-by-side .img, .megapony-object-media.no-side-by-side .video {
+    float: none;
+    display: inline-block;
+    margin-bottom: 20px;
+    margin-bottom: 1.25rem;
+    margin-left: 0;
+    margin-right: 0; }
+  .megapony-object-media.no-side-by-side .video {
+    width: 100%; }
+    .megapony-object-media.no-side-by-side .video .megapony-video {
+      min-width: 0; }
 
 .megapony-object-halign {
   text-align: center;
@@ -849,9 +863,6 @@ body.megapony-max-width-600 .l-banner {
   padding-bottom: 1.25rem;
   padding-top: 20px;
   padding-top: 1.25rem; }
-  body.megapony-max-width-600 .l-banner #main-nav.breakpoint-small .toggle {
-    top: 20px;
-    top: 1.25rem; }
 
 .content-ul {
   list-style: outside disc;

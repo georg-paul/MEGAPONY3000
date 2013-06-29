@@ -81,11 +81,12 @@
 				},
 
 				media = function ($megaponyObj) {
-					var $img = $megaponyObj.find('.img'),
+					var $media = ($megaponyObj.find('.img').length) ? $megaponyObj.find('.img') : $megaponyObj.find('.video'),
 						$content = $megaponyObj.find('.bd');
 
-					if ($img.height() * 1.8 < $content.height()) {
-						$content.addClass('in-text');
+					// bug with iframe videos, $media.outerWidth() is wrong, jQuery issue or CSS bug?!
+					if ($megaponyObj.width() < $media.outerWidth(true) + window.megapony3000.mediaTextMinWidth || $media.height() * 2 < $content.height()) {
+						$megaponyObj.addClass('no-side-by-side');
 					}
 				},
 

@@ -7,12 +7,6 @@ body {
 		.l-banner {
 			@include rem(padding-bottom, 20);
 			@include rem(padding-top, 20);
-
-			#main-nav.breakpoint-small {
-				.toggle {
-					@include rem(top, 20);
-				}
-			}
 		}
 	}
 }
