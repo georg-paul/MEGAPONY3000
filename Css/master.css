@@ -1011,6 +1011,8 @@ body.megapony-max-width-600 .l-banner {
       width: 100%;
       padding-left: 0 !important;
       padding-right: 0 !important; }
+  .l-hero.megapony-max-width-768 .megapony-object-column .intro-text {
+    padding-left: 0; }
 
 .l-features .l-section {
   padding-top: 60px;

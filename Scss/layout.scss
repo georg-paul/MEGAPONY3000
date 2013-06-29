@@ -148,8 +148,11 @@
 		@include rem(padding-left, 45);
 	}
 	&.megapony-max-width-768 {
-		[class*="megapony-object-columns-"] {
-			@include one-column-per-row;
+		@include single-column;
+		.megapony-object-column {
+			.intro-text {
+				padding-left: 0;
+			}
 		}
 	}
 }
