@@ -30,12 +30,13 @@
 	"use strict";
 
 	$(document).ready(function () {
-		var responsiveCssObjects = (function () {
+
+		var megaponyObjects = (function () {
 
 			var init = function () {
-					checkForCollision();
+					initMegaponyObjects();
 				},
-				checkForCollision = function () {
+				initMegaponyObjects = function () {
 					$('[class*="megapony-object"]').each(function () {
 						var $megaponyObj = $(this),
 							classNames = $megaponyObj.attr('class').split(/\s+/),
@@ -136,30 +137,30 @@
 			var init = function () {
 					var megaponyStylesheets = getMegaponyStyleSheets(),
 						megaponyStylesheetCount = getMegaponyStyleSheetCount(megaponyStylesheets),
-						parsedDom = '',
+						selectorTextString = '',
 						crossRules,
-						z = 1;
+						iterator = 1;
 
 					$.each(megaponyStylesheets, function () {
 						crossRules = this.rules || this.cssRules;
 						for (var x = 0; x < crossRules.length; x++) {
-							parsedDom += crossRules[x].selectorText + ';';
+							selectorTextString += crossRules[x].selectorText + ';';
 						}
-
-						if (isSelectorTextSupportedCorrectly(parsedDom)) {
-							checkElementBreakpoints(parsedDom);
-							if (megaponyStylesheetCount === z) {
-								responsiveCssObjects.init();
+						
+						if (isSelectorTextSupportedCorrectly(selectorTextString)) {
+							checkSelectorsForElementQuery(selectorTextString);
+							if (megaponyStylesheetCount === iterator) {
+								megaponyObjects.init();
 								hideLoadingView();
 							}
 						} else {
-							if (megaponyStylesheetCount === z) {
+							if (megaponyStylesheetCount === iterator) {
 								ajaxParseFallback(this.href, true);
 							} else {
 								ajaxParseFallback(this.href, false);
 							}
 						}
-						z++;
+						iterator++;
 					});
 				},
 
@@ -202,46 +203,37 @@
 									selectorText = (sheet.cssRules[i].mSelectorText) !== undefined ? (sheet.cssRules[i].mSelectorText) : '';
 									parsedDom += selectorText + ';';
 								}
-								checkElementBreakpoints(parsedDom);
+								checkSelectorsForElementQuery(parsedDom);
 							}
 							if (isLast) {
-								responsiveCssObjects.init();
+								megaponyObjects.init();
 								hideLoadingView();
 							}
 						}
 					});
 				},
 
-				checkElementBreakpoints = function (parsedDom) {
-					var elementsArray = parsedDom.split(';'),
-						selectorText = '';
+				checkSelectorsForElementQuery = function (selectorTextString) {
+					var elementsArray = selectorTextString.split(';'),
+						selectorText = '',
+						maxWStr = '.megapony-max-width-',
+						minWStr = '.megapony-min-width-',
+						maxHStr = '.megapony-max-height-',
+						minHStr = '.megapony-min-height-';
 
 					for (var i = 0; i < elementsArray.length; i++) {
 						selectorText = (elementsArray[i]) !== undefined ? (elementsArray[i]) : '';
 
-						if (
-							selectorText.indexOf('.megapony-max-width-') !== -1 ||
-								selectorText.indexOf('.megapony-min-width-') !== -1 ||
-								selectorText.indexOf('.megapony-max-height-') !== -1 ||
-								selectorText.indexOf('.megapony-min-height-') !== -1
-							)
-						{
-							var targetSelector = selectorText.split('.megapony-max-width')[0].split('.megapony-min-width')[0].split('.megapony-max-height')[0].split('.megapony-min-height')[0],
+						if (selectorText.indexOf(maxWStr) !== -1 || selectorText.indexOf(minWStr) !== -1 || selectorText.indexOf(maxHStr) !== -1 || selectorText.indexOf(minHStr) !== -1) {
+							var maxWidthStartPos = selectorText.indexOf(maxWStr) + maxWStr.length,
+								minWidthStartPos = selectorText.indexOf(minWStr) + minWStr.length,
+								maxWidthEndPos = selectorText.indexOf(maxWStr) + maxWStr.length + 4,
+								minWidthEndPos = selectorText.indexOf(minWStr) + minWStr.length + 4,
 
-								maxWidthStr = '.megapony-max-width-',
-								minWidthStr = '.megapony-min-width-',
-								maxHeightStr = '.megapony-max-height-',
-								minHeightStr = '.megapony-min-height-',
-
-								maxWidthStartPos = selectorText.indexOf(maxWidthStr) + maxWidthStr.length,
-								minWidthStartPos = selectorText.indexOf(minWidthStr) + minWidthStr.length,
-								maxWidthEndPos = selectorText.indexOf(maxWidthStr) + maxWidthStr.length + 4,
-								minWidthEndPos = selectorText.indexOf(minWidthStr) + minWidthStr.length + 4,
-
-								maxHeightStartPos = selectorText.indexOf(maxHeightStr) + maxHeightStr.length,
-								minHeightStartPos = selectorText.indexOf(minHeightStr) + minHeightStr.length,
-								maxHeightEndPos = selectorText.indexOf(maxHeightStr) + maxHeightStr.length + 4,
-								minHeightEndPos = selectorText.indexOf(minHeightStr) + minHeightStr.length + 4,
+								maxHeightStartPos = selectorText.indexOf(maxHStr) + maxHStr.length,
+								minHeightStartPos = selectorText.indexOf(minHStr) + minHStr.length,
+								maxHeightEndPos = selectorText.indexOf(maxHStr) + maxHStr.length + 4,
+								minHeightEndPos = selectorText.indexOf(minHStr) + minHStr.length + 4,
 
 								maxWidth = parseInt(selectorText.slice(maxWidthStartPos, maxWidthEndPos), 10),
 								minWidth = parseInt(selectorText.slice(minWidthStartPos, minWidthEndPos), 10),
@@ -253,7 +245,9 @@
 									minW: (minWidth > 0) ? minWidth : false,
 									maxH: (maxHeight > 0) ? maxHeight : false,
 									minH: (minHeight > 0) ? minHeight : false
-								};
+								},
+
+								targetSelector = selectorText.split(maxWStr)[0].split(minWStr)[0].split(maxHStr)[0].split(minHStr)[0];
 
 							applyElementQueries($(targetSelector), values);
 						}
