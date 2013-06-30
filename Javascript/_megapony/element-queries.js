@@ -44,6 +44,8 @@
 
 						for (var i = 0; i < classNames.length; i++) {
 							objType = classNames[i].split('megapony-object-')[1];
+							objType = (objType === undefined) ? '' : objType;
+
 							if (objType === 'halign' || objType === 'valign-middle') {
 								halign($megaponyObj);
 							} else if (objType === 'media') {
@@ -52,6 +54,8 @@
 								hnav($megaponyObj);
 							} else if (objType === 'vnav') {
 								vnav($megaponyObj);
+							} else if (objType.indexOf('columns-') !== -1) {
+								columns($megaponyObj);
 							}
 						}
 					});
@@ -126,6 +130,19 @@
 							$(this).toggleClass('open');
 						}
 					});
+				},
+
+				columns = function ($megaponyObj) {
+					var columnHeight = 0,
+						highestHeight = 0;
+
+					if ($megaponyObj.hasClass('equal-height')) {
+						$megaponyObj.find('> .megapony-object-column').each(function () {
+							columnHeight = $(this).height();
+							highestHeight = (highestHeight > columnHeight) ? highestHeight : columnHeight;
+						});
+						$megaponyObj.find('> .megapony-object-column').css('height', highestHeight);
+					}
 				};
 
 			return { init: init };

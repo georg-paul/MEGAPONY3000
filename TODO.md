@@ -36,5 +36,5 @@ ROADMAP
 #### 1) ####
 * .megapony-object-columns-2-8-4, megapony-object-columns-3-3-6-3
 * Every columns can be collapsed/expanded with mixin toggle-columns (:before and :after is used for generating Headline and toggle icon)
-* An Additional class "equal-height" makes the height of the columns equal
+* <del>An Additional class "equal-height" makes the height of the columns equal</del>
 * By setting a max-width (in pixel) for a column, the column should be fixed, not fluid
