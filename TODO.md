@@ -5,7 +5,7 @@ ROADMAP
 * <del>Avoid FOUC due to CSS parser (loading animation till completion)</del>
 * <del>New element queries (min-height & max-height)</del>
 * <del>Bugfix (this context -> $element for each)</del>
-* Grid Solution 1)
+* <del>Grid Solution 1)</del>
 * <del>/* */ comments might break CSS parser</del>
 * Refactoring/Cleanup
 * <del>http://drublic.de/blog/rem-fallback-sass-less/</del>
@@ -34,7 +34,7 @@ ROADMAP
 
 
 #### 1) ####
-* .megapony-object-columns-2-8-4, megapony-object-columns-3-3-6-3
+* <del>.megapony-object-columns-2-8-4, megapony-object-columns-3-3-6-3</del>
 * Every columns can be collapsed/expanded with mixin toggle-columns (:before and :after is used for generating Headline and toggle icon)
 * <del>An Additional class "equal-height" makes the height of the columns equal</del>
 * By setting a max-width (in pixel) for a column, the column should be fixed, not fluid

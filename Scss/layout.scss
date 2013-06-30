@@ -212,7 +212,7 @@
 
 .l-columns {
 	[class*="megapony-object-columns-"] {
-		@include rem(margin-bottom, 15);
+		@include rem(margin-bottom, 30);
 	}
 }
 

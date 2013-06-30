@@ -23,31 +23,52 @@
 			> * { float: none !important; }
 		}
 	}
-  [class*="megapony-object-columns-"] {
-	  margin: 0;
-	  [class*="megapony-object-column"] {
-		  &:first-of-type { padding-left: 0; }
-		  &:last-of-type { padding-right: 0; }
-	  }
-  }
+	[class*="megapony-object-columns-"] {
+		margin: 0;
+		[class*="megapony-object-column"] {
+			&:first-of-type { padding-left: 0; }
+			&:last-of-type { padding-right: 0; }
+		}
+	}
 }
 
-@for $column-count from 2 to $grid-columns + 1 {
+@for $column-count from 2 through $grid-columns {
 
-  // by default, every column should be equal
-  [class*="megapony-object-columns-#{$column-count}"] {
-    > [class*="megapony-object-column"] {
-		width: percentage($grid-columns / $column-count / $grid-columns);
-	}
-  }
-
-  @for $first-col from 1 to $grid-columns - 1 {
-    @if $column-count == 2 {
-		$second-col: $grid-columns - $first-col;
-		[class*="megapony-object-columns-#{$column-count}-#{$first-col}-#{$second-col}"] {
-			> [class*="megapony-object-column"]:nth-child(1) { width: percentage($first-col / $grid-columns); }
-			> [class*="megapony-object-column"]:nth-child(2) { width: percentage($second-col / $grid-columns); }
+	// by default, every column should be equal
+	[class*="megapony-object-columns-#{$column-count}"] {
+		> [class*="megapony-object-column"] {
+			width: percentage($grid-columns / $column-count / $grid-columns);
 		}
-    }
-  }
+	}
+
+	// 2-columns
+	@if $column-count == 2 {
+		@for $i from 2 through $grid-columns - 2 {
+			@for $j from 2 through $grid-columns - 2 {
+				@if $i + $j == $grid-columns {
+					[class*="megapony-object-columns-#{$column-count}-#{$i}-#{$j}"] {
+						> [class*="megapony-object-column"]:nth-child(1) { width: percentage($i / $grid-columns); }
+						> [class*="megapony-object-column"]:nth-child(2) { width: percentage($j / $grid-columns); }
+					}
+				}
+			}
+		}
+	}
+
+	// 3-columns
+	@if $column-count == 3 {
+		@for $i from 2 through $grid-columns - 4 {
+			@for $j from 2 through $grid-columns - 4 {
+				@for $k from 2 through $grid-columns - 4 {
+					@if $i + $j + $k == $grid-columns {
+						[class*="megapony-object-columns-#{$column-count}-#{$i}-#{$j}-#{$k}"] {
+							> [class*="megapony-object-column"]:nth-child(1) { width: percentage($i / $grid-columns); }
+							> [class*="megapony-object-column"]:nth-child(2) { width: percentage($j / $grid-columns); }
+							> [class*="megapony-object-column"]:nth-child(3) { width: percentage($k / $grid-columns); }
+						}
+					}
+				}
+			}
+		}
+	}
 }
