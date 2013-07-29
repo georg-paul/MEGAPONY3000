@@ -82,6 +82,19 @@ ul, ol {
 	list-style: none;
 }
 
+sup {
+	position: relative;
+	font-size: 68%;
+	bottom: 0.5em;
+}
+
+sub {
+	position: relative;
+	font-size: 68%;
+	top: 0.5em;
+}
+
+
 // do NOT modify the lines below
 .is-selectorText-supported-correctly {
 	&.megapony-max-width-123 {
