@@ -18,7 +18,7 @@ Important Notices
 
 Special thanks to
 -------------------------
-* The jQuery guys, Chris Coyier (fitVids), Dmitry Semenov (magnific popup), John Polacek (stacktable)
+* The jQuery guys, Chris Coyier (fitVids), Dmitry Semenov (magnific popup), John Polacek (stacktable), Philipp Bergsmann (CssSelectorNormalizer)
 * Clearleft - I used most of their styleguide content for demo purpose (http://clearleft.com/styleguide/)
 * The unknown copyright owner of the horse image I use from google images.
 

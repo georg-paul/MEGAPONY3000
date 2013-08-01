@@ -472,9 +472,6 @@ sub {
   font-size: 68%;
   top: 0.5em; }
 
-.is-selectorText-supported-correctly.megapony-max-width-123 {
-  color: red; }
-
 .megapony-object-hnav:after {
   content: ".";
   display: block;
