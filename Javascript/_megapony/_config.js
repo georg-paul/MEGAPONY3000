@@ -3,6 +3,7 @@ var megapony3000 = {
 	mediaTextMinWidth: 150,
 	enableLightbox: true,
 	enableResponsiveTables: true,
-	enableResponsiveVideos: true
+	enableResponsiveVideos: true,
+	mediaImageShrink: false
 };
 

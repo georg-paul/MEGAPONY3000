@@ -71,19 +71,21 @@ function CssSelectorNormalizer() {
 }
 
 function ElementQueries() {
+	"use strict";
+
 	var self = this;
 
 	this.init = function () {
-		var megaponyStylesheets = self.getMegaponyStyleSheets(),
-			selectorTextString = '',
+		var selectorTextString = '',
 			crossRules,
-			iterator = 1;
+			cssNormalizer,
+			rule;
 
-		$.each(megaponyStylesheets, function () {
+		$.each(self.getMegaponyStyleSheets(), function () {
 			crossRules = this.rules || this.cssRules;
 			for (var x = 0; x < crossRules.length; x++) {
-				var cssNormalizer = new CssSelectorNormalizer();
-				var rule = cssNormalizer.normalize(crossRules[x].selectorText);
+				cssNormalizer = new CssSelectorNormalizer();
+				rule = cssNormalizer.normalize(crossRules[x].selectorText);
 				selectorTextString += rule + ';';
 			}
 			self.checkSelectorsForElementQuery(selectorTextString);

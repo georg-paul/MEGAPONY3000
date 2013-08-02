@@ -27,6 +27,8 @@
  */
 
 function MegaponyObjects() {
+	"use strict";
+
 	var self = this;
 
 	this.init = function () {
@@ -37,9 +39,10 @@ function MegaponyObjects() {
 		$('[class*="megapony-object"]').each(function () {
 			var $megaponyObj = $(this),
 				classNames = $megaponyObj.attr('class').split(/\s+/),
-				objType = '';
+				objType = '',
+				i = 0;
 
-			for (var i = 0; i < classNames.length; i++) {
+			for (i = 0; i < classNames.length; i += 1) {
 				objType = classNames[i].split('megapony-object-')[1];
 				if (objType === 'halign' || objType === 'valign-middle') {
 					self.halign($megaponyObj);
@@ -62,7 +65,7 @@ function MegaponyObjects() {
 			centerWidth = 0,
 			rightWidth = 0,
 			totalWidth = 0,
-			safetyMargin = window.megapony3000.safetyMargin;
+			safetyMargin = window.megapony3000.halignSafetyMargin;
 
 		if ($left.length || $right.length) {
 			$left.each(function () {
@@ -81,10 +84,10 @@ function MegaponyObjects() {
 				$megaponyObj.addClass('no-side-by-side');
 				$megaponyObj.closest('.megapony-object-halign-container').addClass('children-no-side-by-side');
 			} else if (totalWidth + safetyMargin > $megaponyObj.width()) {
-				$megaponyObj.addClass('nearly-no-side-by-side side-by-side'); // framework modified
+				$megaponyObj.addClass('nearly-no-side-by-side side-by-side');
 				$megaponyObj.closest('.megapony-object-halign-container').addClass('children-nearly-no-side-by-side');
 			} else {
-				$megaponyObj.addClass('side-by-side'); // framework modified
+				$megaponyObj.addClass('side-by-side');
 			}
 		}
 	};
