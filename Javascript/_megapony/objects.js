@@ -93,22 +93,23 @@ function MegaponyObjects() {
 	};
 
 	this.media = function ($megaponyObj) {
-		var $media = ($megaponyObj.find('.img').length) ? $megaponyObj.find('.img') : $megaponyObj.find('.video'),
-			$content = $megaponyObj.find('.bd'),
-			imageWidthInPixel = $media.width(),
-			imageWidthInPercentage = parseInt(imageWidthInPixel, 10) / parseInt($megaponyObj.width(), 10) * 100;
+        var $media = ($megaponyObj.find('.img').length) ? $megaponyObj.find('.img') : $megaponyObj.find('.video'),
+            mediaImage = new Image(),
+            imageSrc = ($media.find('img').length) ? $media.find('img').attr('src') : $media.attr('src');
 
-		if (window.megapony3000.mediaImageShrink) {
-			$media.css('width', imageWidthInPercentage + '%');
-		}
-		// bug with iframe videos, $media.outerWidth() is wrong, jQuery issue or CSS bug?!
-		if ($megaponyObj.width() < $media.outerWidth(true) + window.megapony3000.mediaTextMinWidth) {
-			$megaponyObj.addClass('no-side-by-side');
-		}
-		if ($media.height() > 0 && $media.height() * 3 < $content.height()) {
-			// temporarily disabled (buggy for some edge cases)
-			//$megaponyObj.addClass('no-side-by-side');
-		}
+        if ($media.hasClass('img')) {
+            mediaImage.onload = function () {
+                if ($megaponyObj.width() < $media.outerWidth(true) + window.megapony3000.mediaTextMinWidth) {
+                    $megaponyObj.addClass('no-side-by-side');
+                }
+                $media.css('max-width', $media.width());
+            };
+            mediaImage.src =  imageSrc;
+        } else {
+            if ($megaponyObj.width() < $media.outerWidth(true) + window.megapony3000.mediaTextMinWidth) {
+                $megaponyObj.addClass('no-side-by-side');
+            }
+        }
 	};
 
 	this.hnav = function ($megaponyObj) {
