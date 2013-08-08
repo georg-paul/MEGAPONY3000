@@ -122,6 +122,10 @@
 	#{$property}: 1 / $base-font-size * $value + 0rem;
 }
 
+@function em($target, $context: $base-font-size) {
+	@return 1 / $context * $target + 0em;
+}
+
 @mixin single-column {
 	[class*="megapony-object-columns-"] {
 		margin-left: 0 !important;
