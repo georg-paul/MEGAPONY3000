@@ -93,23 +93,25 @@ function MegaponyObjects() {
 	};
 
 	this.media = function ($megaponyObj) {
-        var $media = ($megaponyObj.find('.img').length) ? $megaponyObj.find('.img') : $megaponyObj.find('.video'),
-            mediaImage = new Image(),
-            imageSrc = ($media.find('img').length) ? $media.find('img').attr('src') : $media.attr('src');
+		var $media = ($megaponyObj.find('.img').length) ? $megaponyObj.find('.img') : $megaponyObj.find('.video'),
+			mediaImage = new Image(),
+			imageSrc = ($media.find('img').length) ? $media.find('img').attr('src') : $media.attr('src'),
+			mediaObjectIsHidden = false;
 
-        if ($media.hasClass('img')) {
-            mediaImage.onload = function () {
-                if ($megaponyObj.width() < $media.outerWidth(true) + window.megapony3000.mediaTextMinWidth) {
-                    $megaponyObj.addClass('no-side-by-side');
-                }
-                $media.css('max-width', $media.width());
-            };
-            mediaImage.src =  imageSrc;
-        } else {
-            if ($megaponyObj.width() < $media.outerWidth(true) + window.megapony3000.mediaTextMinWidth) {
-                $megaponyObj.addClass('no-side-by-side');
-            }
-        }
+		if ($media.hasClass('img')) {
+			mediaImage.onload = function () {
+				mediaObjectIsHidden = ($megaponyObj.width() <= 0);
+				if (!mediaObjectIsHidden && ($megaponyObj.width() < this.width + window.megapony3000.mediaMargin + window.megapony3000.mediaTextMinWidth)) {
+					$megaponyObj.addClass('no-side-by-side');
+				}
+				$media.css('max-width', this.width);
+			};
+			mediaImage.src =  imageSrc;
+		} else {
+			if ($megaponyObj.width() < $media.outerWidth(true) + window.megapony3000.mediaTextMinWidth) {
+				$megaponyObj.addClass('no-side-by-side');
+			}
+		}
 	};
 
 	this.hnav = function ($megaponyObj) {
