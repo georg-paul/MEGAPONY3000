@@ -1,5 +1,5 @@
 html {
-	@include rem(font-size, $base-font-size);
+	font-size: em($base-font-size, 16);
 	-webkit-text-size-adjust: 100%;
 	-ms-text-size-adjust: 100%;
 	&.megapony-loading.javascript-is-enabled {

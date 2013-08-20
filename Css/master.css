@@ -379,8 +379,7 @@ input, select {
   width: 8.33333%; }
 
 html {
-  font-size: 16px;
-  font-size: 1rem;
+  font-size: 1em;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%; }
   html.megapony-loading.javascript-is-enabled {
