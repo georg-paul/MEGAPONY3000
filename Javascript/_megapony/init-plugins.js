@@ -26,67 +26,79 @@
  WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
+function InitPlugins() {
+	"use strict";
+
+	var self = this;
+
+	this.init = function () {
+		if (megapony3000.enableResponsiveTables) {
+			self.initResponsiveTables();
+		}
+		if (megapony3000.enableLightbox) {
+			self.initLightbox();
+		}
+		if (megapony3000.enableResponsiveVideos) {
+			self.initFitVids();
+		}
+	};
+
+	this.initResponsiveTables = function () {
+		$('.megapony-rwd-table-container table').stacktable();
+	};
+
+	this.initLightbox = function () {
+		$('.lightbox-image').magnificPopup({
+			type: 'image',
+			gallery: {
+				enabled: false,
+				tCounter: '<span class="mfp-counter">%curr%/%total%</span>',
+				tNext: 'next',
+				tPrev: 'previous'
+			},
+			image: {
+				titleSrc: function (item) {
+					var $img = $(item.el),
+						myTitle = $img.closest('.csc-textpic-image').find('.csc-textpic-caption').text();
+
+					return myTitle;
+				}
+			},
+			tClose: 'close'
+		});
+	};
+
+	this.initFitVids = function () {
+		var $videoContainers = $(),
+			$videos = $('.megapony-video'),
+			$iframe;
+
+		$videos.each(function () {
+			$videoContainers.push($(this));
+		});
+
+		$videoContainers.each(function () {
+			$iframe = $(this).find('iframe');
+
+			// add wmode paramter to iframe src
+			$iframe.attr('src', self.appendParamToUrl($iframe.attr('src'), 'wmode=transparent'));
+
+			// init plugin
+			$(this).fitVids();
+		});
+	};
+
+	this.appendParamToUrl = function (url, param) {
+		return (url.indexOf('?') > 0) ? url + '&' + param : url + '?' + param;
+	};
+}
+
 (function () {
 	"use strict";
 
 	$(document).ready(function () {
-
-		var Global = (function () {
-
-			var init = function () {
-					if (megapony3000.enableResponsiveTables) {
-						initResponsiveTables();
-					}
-					if (megapony3000.enableLightbox) {
-						initLightbox();
-					}
-					if (megapony3000.enableResponsiveVideos) {
-						initFitVids();
-					}
-				},
-
-				initResponsiveTables = function () {
-					$('.megapony-rwd-table-container table').stacktable();
-				},
-
-				initLightbox = function () {
-					$('.lightbox-image').magnificPopup({
-						type: 'image',
-						gallery: {
-							enabled: false,
-							tCounter: '<span class="mfp-counter">%curr%/%total%</span>',
-							tNext: 'next',
-							tPrev: 'previous'
-						},
-						image: {
-							titleSrc: function (item) {
-								var $img = $(item.el),
-									myTitle = $img.closest('.csc-textpic-image').find('.csc-textpic-caption').text();
-
-								return myTitle;
-							}
-						},
-						tClose: 'close'
-					});
-				},
-
-				initFitVids = function () {
-					var $videoContainers = $(),
-						$videos = $('.megapony-video');
-
-					$videos.each(function () {
-						$videoContainers.push($(this));
-					});
-
-					$videoContainers.each(function () {
-						$(this).fitVids();
-					});
-				};
-
-			return { init: init };
-		}());
-
-		Global.init();
-
+		var initPlugins = new InitPlugins();
+		initPlugins.init();
 	});
+
 }());
