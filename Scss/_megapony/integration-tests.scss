@@ -1,0 +1,22 @@
+.l-integration-tests {
+	.test-results {
+		width: 30px;
+		height: 70px;
+		&.success { background-color: green; }
+		&.failure { background-color: red; }
+	}
+
+	#max-width-target {
+		color: rgb(0,0,0);
+	}
+	#max-width-target.megapony-max-width-800 {
+		color: rgb(255,0,0);
+	}
+
+	#min-width-target {
+		color: rgb(0,0,0);
+	}
+	#min-width-target.megapony-min-width-800 {
+		color: rgb(255,0,0);
+	}
+}

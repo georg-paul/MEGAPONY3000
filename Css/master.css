@@ -1055,6 +1055,22 @@ img.mfp-img {
   right: 0;
   padding-top: 0; }
 
+.l-integration-tests .test-results {
+  width: 30px;
+  height: 70px; }
+  .l-integration-tests .test-results.success {
+    background-color: green; }
+  .l-integration-tests .test-results.failure {
+    background-color: red; }
+.l-integration-tests #max-width-target {
+  color: black; }
+.l-integration-tests #max-width-target.megapony-max-width-800 {
+  color: red; }
+.l-integration-tests #min-width-target {
+  color: black; }
+.l-integration-tests #min-width-target.megapony-min-width-800 {
+  color: red; }
+
 body.megapony-max-width-600 .l-banner {
   padding-bottom: 20px;
   padding-bottom: 1.25rem;

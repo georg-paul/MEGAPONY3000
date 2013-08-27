@@ -7,6 +7,7 @@
 @import "_megapony/global.scss";
 @import "_megapony/reusable-objects.scss";
 @import "_megapony/contributed/magnific-popup.scss";
+@import "_megapony/integration-tests.scss"; // do not include in production
 
 // custom project styles
 @import "_mixins.scss";
