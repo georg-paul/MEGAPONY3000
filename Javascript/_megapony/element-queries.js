@@ -158,13 +158,13 @@ function ElementQueries() {
 			}
 			// min width
 			if (values.minW > 0 && !values.maxW) {
-				if ($element.width() > values.minW) {
+				if ($element.width() >= values.minW) {
 					$element.addClass('megapony-min-width-' + values.minW);
 				}
 			}
 			// max and min width
 			if (values.maxW > 0 && values.minW > 0) {
-				if ($element.width() < values.maxW && $element.width() > values.minW) {
+				if ($element.width() < values.maxW && $element.width() >= values.minW) {
 					$element.addClass('megapony-max-width-' + values.maxW);
 					$element.addClass('megapony-min-width-' + values.minW);
 				}
