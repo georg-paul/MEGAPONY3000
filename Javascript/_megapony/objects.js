@@ -58,37 +58,21 @@ function MegaponyObjects() {
 	};
 
 	this.halign = function ($megaponyObj) {
-		var $left = $megaponyObj.find('> .left'),
-			$center = $megaponyObj.find('> .center'),
-			$right = $megaponyObj.find('> .right'),
-			leftWidth = 0,
-			centerWidth = 0,
-			rightWidth = 0,
-			totalWidth = 0,
-			safetyMargin = window.megapony3000.halignSafetyMargin;
+		var totalChildrenWidth = 0,
+			availableWidth = $megaponyObj.width();
 
-		if ($left.length || $right.length) {
-			$left.each(function () {
-				leftWidth += $(this).outerWidth(true);
-			});
-			$center.each(function () {
-				centerWidth += $(this).outerWidth(true);
-			});
-			$right.each(function () {
-				rightWidth += $(this).outerWidth(true);
-			});
+		$megaponyObj.find('> .left, > .center, > .right').each(function () {
+			totalChildrenWidth += $(this).outerWidth(true);
+		});
 
-			totalWidth = leftWidth + centerWidth + rightWidth;
-
-			if (totalWidth > $megaponyObj.width()) {
-				$megaponyObj.addClass('no-side-by-side');
-				$megaponyObj.closest('.megapony-object-halign-container').addClass('children-no-side-by-side');
-			} else if (totalWidth + safetyMargin > $megaponyObj.width()) {
-				$megaponyObj.addClass('nearly-no-side-by-side side-by-side');
-				$megaponyObj.closest('.megapony-object-halign-container').addClass('children-nearly-no-side-by-side');
-			} else {
-				$megaponyObj.addClass('side-by-side');
-			}
+		if (totalChildrenWidth > availableWidth) {
+			$megaponyObj.addClass('no-side-by-side');
+			$megaponyObj.closest('.megapony-object-halign-container').addClass('children-no-side-by-side');
+		} else if (totalChildrenWidth + window.megapony3000.halignSafetyMargin > availableWidth) {
+			$megaponyObj.addClass('nearly-no-side-by-side side-by-side');
+			$megaponyObj.closest('.megapony-object-halign-container').addClass('children-nearly-no-side-by-side');
+		} else {
+			$megaponyObj.addClass('side-by-side');
 		}
 	};
 
