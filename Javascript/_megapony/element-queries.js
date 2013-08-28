@@ -26,50 +26,6 @@
  WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-function CssSelectorNormalizer() {
-	"use strict";
-
-	this.normalize = function (rule) {
-		if (rule === undefined) {
-			return rule;
-		}
-
-		var megaponySelectorRegExp = new RegExp(/(megapony)\-(max|min)\-(width|height)\-(\d*)/);
-		rule = rule.replace(/^\s+|\s+$/g, '');
-
-		if (megaponySelectorRegExp.test(rule)) {
-			var rules = rule.split(' '),
-				ruleArray = [];
-			for (var i = 0; i < rules.length; i++) {
-				if (megaponySelectorRegExp.test(rules[i])) {
-					var rulesToNormalize = rules[i].split('.'),
-						append = '',
-						parts = [],
-						currentRule;
-					for (var x = 0; x < rulesToNormalize.length; x++) {
-						currentRule = rulesToNormalize[x];
-						if (megaponySelectorRegExp.test(currentRule)) {
-							append += currentRule;
-						} else {
-							parts.push(currentRule);
-						}
-					}
-
-					if (append.length > 0) {
-						parts.push(append);
-					}
-
-					ruleArray[i] = parts.join('.');
-				} else {
-					ruleArray[i] = rules[i];
-				}
-			}
-			rule = ruleArray.join(' ');
-		}
-		return rule;
-	}
-}
-
 function ElementQueries() {
 	"use strict";
 
