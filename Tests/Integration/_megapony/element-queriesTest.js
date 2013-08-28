@@ -61,6 +61,8 @@ function IntegrationTests() {
 
 		// Display success or failure (green or red)
 		$('#test-max-width .test-results').addClass(self.returnResultClass(testsOK));
+
+		testsOK = true;
 	};
 
 	this.minWidthTests = function () {
@@ -87,6 +89,8 @@ function IntegrationTests() {
 
 		// Display success or failure (green or red)
 		$('#test-min-width .test-results').addClass(self.returnResultClass(testsOK));
+
+		testsOK = true;
 	};
 
 	this.returnResultClass = function (testResultBoolean) {
