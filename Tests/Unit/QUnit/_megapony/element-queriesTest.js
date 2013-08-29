@@ -8,3 +8,12 @@ test('CSS-normalizer returns correct rules', function () {
 	equal(fixture.normalize('.megapony-rwd-table-container.megapony-max-width-400 .rwd-table'), '.megapony-rwd-table-container.megapony-max-width-400 .rwd-table');
 	equal(fixture.normalize('.megapony-max-width-800#max-width-target'), '#max-width-target.megapony-max-width-800');
 });
+
+test('selectorContainsElementQuery() returns correct boolean', function () {
+	var fixture = new ElementQueries();
+	ok(fixture.selectorContainsElementQuery('.test-selector.megapony-max-width-768'));
+	ok(fixture.selectorContainsElementQuery('.megapony-max-width-400.megapony-rwd-table-container'));
+	ok(fixture.selectorContainsElementQuery('.l-facts ul.megapony-max-width-480 li:last-child'));
+	ok(fixture.selectorContainsElementQuery('body.megapony-min-width-900'));
+});
+
