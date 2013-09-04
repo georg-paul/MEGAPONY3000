@@ -62,12 +62,7 @@
 							<div class="intro-text">
 								<h2>What's the deal?</h2>
 								<p>The main difference to all the other existing frameworks are the built-in <em>Element Queries</em>. Another big feature are <em>CSS Objects</em> that react automatically to the available space they have in this or that context.</p>
-								<div class="megapony-object-hlist">
-									<ul>
-										<li><a href="#element-queries">How does it work?</a></li>
-										<li><a href="https://github.com/georg-paul/megapony3000">Download on Github</a></li>
-									</ul>
-								</div>
+								<a href="https://github.com/georg-paul/megapony3000">Download on Github</a>
 							</div>
 						</div>
 					</div>
@@ -76,153 +71,23 @@
 
 
 			<section class="l-features">
+
 				<div class="megapony-delimiter">
 
-					<section class="l-section l-element-queries">
-						<h2 id="element-queries">Element Queries</h2>
-
-						<div class="example">
-							<h3>Simple example</h3>
-							<div class="megapony-object-columns-2-7-5">
-								<div class="megapony-object-column" >
-<pre class="prettyprint lang-css">
-.demo-text.megapony-max-width-360 {
-	color: red;
-}
-.demo-text.megapony-max-width-280 {
-	color: blue;
-}
-</pre>
-								</div>
-								<div class="megapony-object-column">
-									<p class="demo-text">This paragraph will be red if it's width is smaller than 360 px and green if it is smaller than 280 px and the paragraph will have the default color for every width above. <strong>Important: A reload is needed after resizing. See important notice in <a href="README.md">README.md</a></strong></p>
-								</div>
-							</div>
-							<p class="demo-text">This paragraph will be also red if it's width is smaller than 360 px and green if it is smaller than 280 px. <strong>It's width is the jumping point</strong> . The width of the paragraph. <strong>NOT the screen width</strong>.
-								The available width of the element in the context matters. Compare this p-tag with the p-tag top right. The react differently because the are in another context with different space available. You only have to use the classes <strong>megapony-max-width-123</strong>
-								or <strong>megapony-min-width-456</strong> in your stylesheets. The classes are applied by the framework automatically. Every linked stylesheet with a title attribute value of "megapony" will be parsed. Not with AJAX and regex, just with simple DOM access <code>document.styleSheets</code>.</p>
-						</div>
-					</section>
-
-					<section class="l-section l-headlines">
-						<h1>First Level Header</h1>
-						<h2>Second Level Header</h2>
-						<p>The main page header of this guide is an <code>h1</code> element. Please reserve <code>h1</code> for individual page titles only.</p>
-
-						<h3>Third-Level Header</h3>
-						<p>The header above is an <code>h3</code> element, which may be used for any form of page-level header which falls below the <code>h2</code> header in a document hierarchy. More than one may be used per page.</p>
-
-						<h4>Fourth-Level Header</h4>
-						<p>The header above is an <code>h4</code> element, which may be used for any form of page-level header which falls below the <code>h3</code> header in a document hierarchy. More than one may be used per page.</p>
-
-						<h5>Fifth-Level Header</h5>
-						<p>The header above is an <code>h5</code> element, which may be used for any form of page-level header which falls below the <code>h4</code> header in a document hierarchy. More than one may be used per page.</p>
-					</section>
-
-                    <section class="l-columns l-section">
-                        <h2 id="grid-columns">Grid Columns</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. </p>
-
-                        <h3>2 equal columns</h3>
-                        <div class="megapony-object-columns-2">
-                            <div class="megapony-object-column" >
-                                <div style="background-color: #ccc;">&nbsp;</div>
-                            </div>
-                            <div class="megapony-object-column">
-                                <div style="background-color: #ccc;">&nbsp;</div>
-                            </div>
-                        </div>
-
-                        <h3>2 columns / 3-9</h3>
-                        <div class="megapony-object-columns-2-3-9">
-                            <div class="megapony-object-column" >
-                                <div style="background-color: #ccc;">&nbsp;</div>
-                            </div>
-                            <div class="megapony-object-column">
-                                <div style="background-color: #ccc;">&nbsp;</div>
-                            </div>
-                        </div>
-
-                        <h3>2 columns / 4-8</h3>
-                        <div class="megapony-object-columns-2-4-8">
-                            <div class="megapony-object-column" >
-                                <div style="background-color: #ccc;">&nbsp;</div>
-                            </div>
-                            <div class="megapony-object-column">
-                                <div style="background-color: #ccc;">&nbsp;</div>
-                            </div>
-                        </div>
-
-                        <h3>3 equal columns</h3>
-                        <div class="megapony-object-columns-3">
-                            <div class="megapony-object-column" >
-                                <div style="background-color: #ccc;">&nbsp;</div>
-                            </div>
-                            <div class="megapony-object-column">
-                                <div style="background-color: #ccc;">&nbsp;</div>
-                            </div>
-                            <div class="megapony-object-column">
-                                <div style="background-color: #ccc;">&nbsp;</div>
-                            </div>
-                        </div>
-
-                        <h3>3 columns / 3-6-3</h3>
-                        <div class="megapony-object-columns-3-3-6-3">
-                            <div class="megapony-object-column" >
-                                <div style="background-color: #ccc;">&nbsp;</div>
-                            </div>
-                            <div class="megapony-object-column">
-                                <div style="background-color: #ccc;">&nbsp;</div>
-                            </div>
-                            <div class="megapony-object-column">
-                                <div style="background-color: #ccc;">&nbsp;</div>
-                            </div>
-                        </div>
-
-                        <h3>3 columns / 8-2-2</h3>
-                        <div class="megapony-object-columns-3-8-2-2">
-                            <div class="megapony-object-column" >
-                                <div style="background-color: #ccc;">&nbsp;</div>
-                            </div>
-                            <div class="megapony-object-column">
-                                <div style="background-color: #ccc;">&nbsp;</div>
-                            </div>
-                            <div class="megapony-object-column">
-                                <div style="background-color: #ccc;">&nbsp;</div>
-                            </div>
-                        </div>
-
-                        <h3>4 equal columns</h3>
-                        <div class="megapony-object-columns-4">
-                            <div class="megapony-object-column" >
-                                <div style="background-color: #ccc;">&nbsp;</div>
-                            </div>
-                            <div class="megapony-object-column">
-                                <div style="background-color: #ccc;">&nbsp;</div>
-                            </div>
-                            <div class="megapony-object-column">
-                                <div style="background-color: #ccc;">&nbsp;</div>
-                            </div>
-                            <div class="megapony-object-column">
-                                <div style="background-color: #ccc;">&nbsp;</div>
-                            </div>
-                        </div>
-                    </section>
-
 					<section class="l-section l-cssobjects">
-						<h2>Reusable CSS Objects</h2>
+						<h1>Reusable CSS Objects</h1>
 
 						<h3>.megapony-object-hnav</h3>
 						<nav class="megapony-object-hnav" id="demo-object-hnav">
-                            <span class="toggle"></span>
+							<span class="toggle"></span>
 							<ul>
 								<li><a href="#">Nav item</a></li>
 								<li><a href="#">Nav item</a></li>
 								<li><a href="#">Nav item</a></li>
-                                <li><a href="#">Nav item</a></li>
-                                <li><a href="#">Nav item</a></li>
-                                <li><a href="#">Nav item</a></li>
-                                <li><a href="#">Nav item</a></li>
+								<li><a href="#">Nav item</a></li>
+								<li><a href="#">Nav item</a></li>
+								<li><a href="#">Nav item</a></li>
+								<li><a href="#">Nav item</a></li>
 							</ul>
 						</nav>
 
@@ -272,11 +137,11 @@
 										<li><a href="#">Nav item</a></li>
 										<li><a href="#">Nav item</a></li>
 										<li><a href="#">Nav item</a></li>
-                                        <li><a href="#">Nav item</a></li>
-                                        <li><a href="#">Nav item</a></li>
-                                        <li><a href="#">Nav item</a></li>
-                                        <li><a href="#">Nav item</a></li>
-                                        <li><a href="#">Nav item</a></li>
+										<li><a href="#">Nav item</a></li>
+										<li><a href="#">Nav item</a></li>
+										<li><a href="#">Nav item</a></li>
+										<li><a href="#">Nav item</a></li>
+										<li><a href="#">Nav item</a></li>
 									</ul>
 								</nav>
 							</div>
@@ -317,137 +182,203 @@
 								</nav>
 							</div>
 						</div>
-
 					</section>
 
-					<section class="l-section l-paragraphs">
-						<h2 id="paragraphs">Paragraphs</h2>
-						<p>All paragraphs are wrapped in <code>p</code> tags. Additionally, <code>p</code> elements can be wrapped with a <code>blockquote</code> element <em>if the <code>p</code> element is indeed a quote</em>. Historically, <code>blockquote</code> has been used purely to force indents, but this is now achieved using <abbr>CSS</abbr>. Reserve <code>blockquote</code> for quotes. Here’s an example of correct usage:</p>
+					<section class="l-section l-element-queries">
+						<h1 id="element-queries">Element Queries</h1>
 
-						<blockquote cite="http://en.wikiquote.org/wiki/Winston_Churchill">
-							<p>Many forms of Government have been tried and will be tried in this world of sin and woe. <em>No one pretends that democracy is perfect</em> or all-wise.</p>
-							<p>Indeed, it has been said that democracy is the worst form of government except all those other forms that have been tried from time to time.</p>
-							<footer>
-								<p><a href="http://en.wikiquote.org/wiki/Winston_Churchill">http://en.wikiquote.org/wiki/Winston_Churchill</a></p><p>
-							</p></footer>
-						</blockquote>
-
-						<p>Additionally, you might wish to cite the source, as in the above example. (The correct method involves the <code>cite</code> attribute directly applied to the <code>blockquote</code> element, but since no browser makes any use of that information whatsoever, it’s useful to also specify the standalone <code>footer</code> element as detailed at <a href="http://html5doctor.com/blockquote-q-cite/">html5doctor.com/blockquote-q-cite/</a>.)</p>
+						<div class="example">
+							<h3>Simple example</h3>
+							<div class="megapony-object-columns-2-7-5">
+								<div class="megapony-object-column" >
+<pre class="prettyprint lang-css">
+.demo-text.megapony-max-width-360 {
+	color: red;
+}
+.demo-text.megapony-max-width-280 {
+	color: blue;
+}
+</pre>
+								</div>
+								<div class="megapony-object-column">
+									<p class="demo-text">This paragraph will be red if it's width is smaller than 360 px and green if it is smaller than 280 px and the paragraph will have the default color for every width above. <strong>Important: A reload is needed after resizing. See important notice in <a href="README.md">README.md</a></strong></p>
+								</div>
+							</div>
+							<p class="demo-text">This paragraph will be also red if it's width is smaller than 360 px and green if it is smaller than 280 px. <strong>It's width is the jumping point</strong> . The width of the paragraph. <strong>NOT the screen width</strong>.
+								The available width of the element in the context matters. Compare this p-tag with the p-tag top right. The react differently because the are in another context with different space available. You only have to use the classes <strong>megapony-max-width-123</strong>
+								or <strong>megapony-min-width-456</strong> in your stylesheets. The classes are applied by the framework automatically. Every linked stylesheet with a title attribute value of "megapony" will be parsed. Not with AJAX and regex, just with simple DOM access <code>document.styleSheets</code>.</p>
+						</div>
 					</section>
 
 
-					<section class="l-section l-lists">
-						<h2 id="lists">Lists</h2>
-						<p>Then there are the lists. <code>ul</code> denotes an unordered list (ie. a list of loose items that don't require numbering, or a bulleted list). <code>ol</code> denotes an ordered list, and various numbering schemes are available through the <abbr>CSS</abbr> (including 1,2,3... a,b,c... i,ii,iii... and so on). Each item within the <code>ul</code> or <code>ol</code> requires a surrounding <code>&lt;li&gt;</code> and <code>&lt;/li&gt;</code> tag, to denote individual items within the list (as you may have guessed, <code>li</code> stands for list item).</p>
-						<p>Additionally, <code>dl</code> is another list type called a definition list. Instead of list items, the content of a <code>dl</code> consists of <code>dt</code> (Definition Term) and <code>dd</code> (Definition description) pairs. Though it may be called a "definition list", <code>dl</code> can apply to other scenarios where a parent/child relationship is applicable. For example, it may be used for marking up dialogues, with each <code>dt</code> naming a speaker, and each <code>dd</code> containing his or her words.</p>
-						<p>Example lists and usage:</p>
-						<ul class="content-ul">
-							<li>This is an unordered list.</li>
-							<li>It has two items.</li>
-						</ul>
-						<ol class="content-ol">
-							<li>This is an ordered list.</li>
-							<li>It has two items.</li>
-							<li>No, I lied, it has three.</li>
-						</ol>
-						<ul class="content-ul">
-							<li>
-								<p>Sometimes we want lists to contain block elements, like paragraphs. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus condimentum venenatis eros ac condimentum. Morbi elit odio, imperdiet at ornare vel, auctor in turpis. In hac habitasse platea dictumst. Nulla facilisi. Aliquam fermentum lobortis turpis non porttitor.</p>
-							</li>
-							<li>
-								<p>Shall we do that again? Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus condimentum venenatis eros ac condimentum. Morbi elit odio, imperdiet at ornare vel, auctor in turpis. In hac habitasse platea dictumst. Nulla facilisi. Aliquam fermentum lobortis turpis non porttitor.</p>
-							</li>
-						</ul>
-						<dl>
-							<dt>This is a term.</dt>
-							<dd>This is the definition of that term, which both live in a <code>dl</code>.</dd>
-							<dt>Here is another term.</dt>
-							<dd>And it gets a definition too, which is this line.</dd>
-							<dt>Here is term that shares a definition with the term below.</dt>
-							<dt>Here is a defined term.</dt>
-							<dd><code>dt</code> terms may stand on their own without an accompanying <code>dd</code>, but in that case they <em>share</em> descriptions with the next available <code>dt</code>. You may not have a <code>dd</code> without a parent <code>dt</code>.</dd>
-						</dl>
+					<section class="l-columns l-section">
+						<h1 id="grid-columns">Grid Columns</h1>
+						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. </p>
+
+						<h3>2 equal columns</h3>
+						<div class="megapony-object-columns-2">
+							<div class="megapony-object-column" >
+								<div style="background-color: #ccc;">&nbsp;</div>
+							</div>
+							<div class="megapony-object-column">
+								<div style="background-color: #ccc;">&nbsp;</div>
+							</div>
+						</div>
+
+						<h3>2 columns / 3-9</h3>
+						<div class="megapony-object-columns-2-3-9">
+							<div class="megapony-object-column" >
+								<div style="background-color: #ccc;">&nbsp;</div>
+							</div>
+							<div class="megapony-object-column">
+								<div style="background-color: #ccc;">&nbsp;</div>
+							</div>
+						</div>
+
+						<h3>2 columns / 4-8</h3>
+						<div class="megapony-object-columns-2-4-8">
+							<div class="megapony-object-column" >
+								<div style="background-color: #ccc;">&nbsp;</div>
+							</div>
+							<div class="megapony-object-column">
+								<div style="background-color: #ccc;">&nbsp;</div>
+							</div>
+						</div>
+
+						<h3>3 equal columns</h3>
+						<div class="megapony-object-columns-3">
+							<div class="megapony-object-column" >
+								<div style="background-color: #ccc;">&nbsp;</div>
+							</div>
+							<div class="megapony-object-column">
+								<div style="background-color: #ccc;">&nbsp;</div>
+							</div>
+							<div class="megapony-object-column">
+								<div style="background-color: #ccc;">&nbsp;</div>
+							</div>
+						</div>
+
+						<h3>3 columns / 3-6-3</h3>
+						<div class="megapony-object-columns-3-3-6-3">
+							<div class="megapony-object-column" >
+								<div style="background-color: #ccc;">&nbsp;</div>
+							</div>
+							<div class="megapony-object-column">
+								<div style="background-color: #ccc;">&nbsp;</div>
+							</div>
+							<div class="megapony-object-column">
+								<div style="background-color: #ccc;">&nbsp;</div>
+							</div>
+						</div>
+
+						<h3>3 columns / 8-2-2</h3>
+						<div class="megapony-object-columns-3-8-2-2">
+							<div class="megapony-object-column" >
+								<div style="background-color: #ccc;">&nbsp;</div>
+							</div>
+							<div class="megapony-object-column">
+								<div style="background-color: #ccc;">&nbsp;</div>
+							</div>
+							<div class="megapony-object-column">
+								<div style="background-color: #ccc;">&nbsp;</div>
+							</div>
+						</div>
+
+						<h3>4 equal columns</h3>
+						<div class="megapony-object-columns-4">
+							<div class="megapony-object-column" >
+								<div style="background-color: #ccc;">&nbsp;</div>
+							</div>
+							<div class="megapony-object-column">
+								<div style="background-color: #ccc;">&nbsp;</div>
+							</div>
+							<div class="megapony-object-column">
+								<div style="background-color: #ccc;">&nbsp;</div>
+							</div>
+							<div class="megapony-object-column">
+								<div style="background-color: #ccc;">&nbsp;</div>
+							</div>
+						</div>
 					</section>
 
 					<section class="l-section l-tables megapony-rwd-table-container">
-						<h2 id="tables">Tables</h2>
-						<p>Tables should be used when displaying tabular data. The <code>thead</code>, <code>tfoot</code> and <code>tbody</code> elements enable you to group rows within each a table.</p>
-						<p>If you use these elements, you must use every element. They should appear in this order: <code>thead</code>, <code>tfoot</code> and <code>tbody</code>, so that browsers can render the foot before receiving all the data. You must use these tags within the table element.</p>
+						<h1 id="tables">Tables</h1>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
 						<table class="rwd-table">
 							<thead>
 							<tr>
-								<th scope="col">Ingredients</th>
-								<th scope="col">Serves 12</th>
-								<th scope="col">Serves 24</th>
+								<th scope="col">Column heading 1</th>
+								<th scope="col">Column heading 2</th>
+								<th scope="col">Column heading 3</th>
 							</tr>
 							</thead>
 							<tbody>
 							<tr>
-								<td>Milk</td>
-								<td>1 quart</td>
-								<td>2 quart</td>
+								<td>Lorem ipsum dolor sit amet</td>
+								<td>Lorem ipsum dolor sit amet</td>
+								<td>Lorem ipsum dolor sit amet</td>
 							</tr>
 							<tr>
-								<td>Cinnamon Sticks</td>
-								<td>2</td>
-								<td>1</td>
+								<td>Lorem ipsum dolor sit amet</td>
+								<td>Lorem ipsum dolor sit amet</td>
+								<td>Lorem ipsum dolor sit amet</td>
 							</tr>
 							<tr>
-								<td>Vanilla Bean, Split</td>
-								<td>1</td>
-								<td>2</td>
+								<td>Lorem ipsum dolor sit amet</td>
+								<td>Lorem ipsum dolor sit amet</td>
+								<td>Lorem ipsum dolor sit amet</td>
 							</tr>
 							<tr>
-								<td>Cloves</td>
-								<td>5</td>
-								<td>10</td>
+								<td>Lorem ipsum dolor sit amet</td>
+								<td>Lorem ipsum dolor sit amet</td>
+								<td>Lorem ipsum dolor sit amet</td>
 							</tr>
 							<tr>
-								<td>Mace</td>
-								<td>10 blades</td>
-								<td>20 blades</td>
+								<td>Lorem ipsum dolor sit amet</td>
+								<td>Lorem ipsum dolor sit amet</td>
+								<td>Lorem ipsum dolor sit amet</td>
 							</tr>
 							<tr>
-								<td>Egg Yolks</td>
-								<td>12</td>
-								<td>24</td>
+								<td>Lorem ipsum dolor sit amet</td>
+								<td>Lorem ipsum dolor sit amet</td>
+								<td>Lorem ipsum dolor sit amet</td>
 							</tr>
 							<tr>
-								<td>Cups Sugar</td>
-								<td>1 ½ cups</td>
-								<td>3 cups</td>
+								<td>Lorem ipsum dolor sit amet</td>
+								<td>Lorem ipsum dolor sit amet</td>
+								<td>Lorem ipsum dolor sit amet</td>
 							</tr>
 							<tr>
-								<td>Dark Rum</td>
-								<td>1 ½ cups</td>
-								<td>3 cups</td>
+								<td>Lorem ipsum dolor sit amet</td>
+								<td>Lorem ipsum dolor sit amet</td>
+								<td>Lorem ipsum dolor sit amet</td>
 							</tr>
 							<tr>
-								<td>Brandy</td>
-								<td>1 ½ cups</td>
-								<td>3 cups</td>
+								<td>Lorem ipsum dolor sit amet</td>
+								<td>Lorem ipsum dolor sit amet</td>
+								<td>Lorem ipsum dolor sit amet</td>
 							</tr>
 							<tr>
-								<td>Vanilla</td>
-								<td>1 tbsp</td>
-								<td>2 tbsp</td>
+								<td>Lorem ipsum dolor sit amet</td>
+								<td>Lorem ipsum dolor sit amet</td>
+								<td>Lorem ipsum dolor sit amet</td>
 							</tr>
 							<tr>
-								<td>Half-and-half or Light Cream</td>
-								<td>1 quart</td>
-								<td>2 quart</td>
+								<td>Lorem ipsum dolor sit amet</td>
+								<td>Lorem ipsum dolor sit amet</td>
+								<td>Lorem ipsum dolor sit amet</td>
 							</tr>
 							<tr>
-								<td>Freshly grated nutmeg to taste</td>
-								<td></td>
-								<td></td>
+								<td>Lorem ipsum dolor sit amet</td>
+								<td>Lorem ipsum dolor sit amet</td>
+								<td>Lorem ipsum dolor sit amet</td>
 							</tr>
 							</tbody>
 						</table>
 					</section>
 
 					<section class="l-section l-lightbox">
-						<h2 id="lightbox">Lightbox</h2>
+						<h1 id="lightbox">Lightbox</h1>
 						<div class="megapony-object-media">
 							<a class="img right lightbox-image" href="Images/_megapony/bear-big.jpg">
 								<img src="Images/_megapony/bear-small.jpg" alt="Funny bear" width="220" height="258" />
@@ -460,7 +391,7 @@
 					</section>
 
 					<section class="l-section l-video">
-						<h2 id="video">Responsive Videos</h2>
+						<h1 id="video">Responsive Videos</h1>
 						<div class="megapony-object-media">
 							<div class="video">
 								<div class="megapony-video">
@@ -476,7 +407,7 @@
 					</section>
 
 					<section class="l-section l-integration-tests">
-						<h2 id="integration-tests">Integration Tests</h2>
+						<h1 id="integration-tests">Integration Tests</h1>
 						<div id="test-max-width">
 							<div class="megapony-object-media">
 								<div class="img">
