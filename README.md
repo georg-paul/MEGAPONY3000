@@ -19,7 +19,6 @@ Important Notices
 Special thanks to
 -------------------------
 * The jQuery guys, Chris Coyier (fitVids), Dmitry Semenov (magnific popup), John Polacek (stacktable), Philipp Bergsmann (CssSelectorNormalizer)
-* The unknown copyright owner of the horse image I use from google images.
 
 
 License
