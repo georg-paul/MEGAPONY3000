@@ -39,7 +39,7 @@ function IntegrationTests() {
 	};
 
 	this.maxWidthTests = function () {
-		var $target = $('#max-width-target'),
+		var $target = $('.max-width-target'),
 			$targetContainer = $('#test-max-width .bd'),
 			elQ = null;
 
@@ -66,7 +66,7 @@ function IntegrationTests() {
 	};
 
 	this.minWidthTests = function () {
-		var $target = $('#min-width-target'),
+		var $target = $('.min-width-target'),
 			$targetContainer = $('#test-min-width .bd'),
 			elQ = null;
 

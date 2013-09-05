@@ -6,17 +6,17 @@
 		&.failure { background-color: red; }
 	}
 
-	#max-width-target {
+	.max-width-target {
 		color: rgb(0,0,0);
 	}
-	#max-width-target.megapony-max-width-800 {
+	.max-width-target.megapony-max-width-800 {
 		color: rgb(255,0,0);
 	}
 
-	#min-width-target {
+	.min-width-target {
 		color: rgb(0,0,0);
 	}
-	#min-width-target.megapony-min-width-800 {
+	.min-width-target.megapony-min-width-800 {
 		color: rgb(255,0,0);
 	}
 }

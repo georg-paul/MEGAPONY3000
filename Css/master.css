@@ -1062,13 +1062,13 @@ img.mfp-img {
     background-color: green; }
   .l-integration-tests .test-results.failure {
     background-color: red; }
-.l-integration-tests #max-width-target {
+.l-integration-tests .max-width-target {
   color: black; }
-.l-integration-tests #max-width-target.megapony-max-width-800 {
+.l-integration-tests .max-width-target.megapony-max-width-800 {
   color: red; }
-.l-integration-tests #min-width-target {
+.l-integration-tests .min-width-target {
   color: black; }
-.l-integration-tests #min-width-target.megapony-min-width-800 {
+.l-integration-tests .min-width-target.megapony-min-width-800 {
   color: red; }
 
 body.megapony-max-width-600 .l-banner {
