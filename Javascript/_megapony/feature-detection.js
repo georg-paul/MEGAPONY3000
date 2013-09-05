@@ -25,19 +25,23 @@
  WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-(function () {
+function FeatureDetection() {
 	"use strict";
 
-	var featureDetection = (function () {
+	var self = this;
 
-		var init = function () {
-			document.getElementsByTagName('html')[0].className =
-			document.getElementsByTagName('html')[0].className.replace(/(?:^|\s)javascript-is-disabled(?!\S)/g, 'javascript-is-enabled');
-		};
+	this.init = function () {
+		self.replaceJavascriptClass();
+	};
 
-		return { init: init };
-	}());
+	this.replaceJavascriptClass = function () {
+		document.getElementsByTagName('html')[0].className =
+		document.getElementsByTagName('html')[0].className.replace(/(?:^|\s)javascript-is-disabled(?!\S)/g, 'javascript-is-enabled');
+	};
+}
 
+(function () {
+	"use strict";
+	var featureDetection = new FeatureDetection();
 	featureDetection.init();
-
 }());
