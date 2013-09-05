@@ -1,5 +1,4 @@
 /*jslint browser: true, nomen: false, devel: true*/
-/*global $, jQuery, Modernizr */
 
 /*
  Copyright (c) 2013 Georg Paul

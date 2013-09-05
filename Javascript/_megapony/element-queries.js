@@ -1,5 +1,4 @@
 /*jslint browser: true, nomen: false, devel: true*/
-/*global $, jQuery, Modernizr */
 
 /*
  Copyright (c) 2013 Georg Paul
@@ -38,14 +37,22 @@ function ElementQueries() {
 
 
 	this.init = function () {
+		self.parseStylesheets();
+	};
+
+	this.parseStylesheets = function () {
 		var selectorTextString = '',
+			megaponyStylesheets = self.getMegaponyStyleSheets(),
 			crossRules,
+			crossRulesLength,
 			cssNormalizer,
 			rule = '';
 
-		$.each(self.getMegaponyStyleSheets(), function () {
-			crossRules = this.rules || this.cssRules;
-			for (var x = 0; x < crossRules.length; x++) {
+		megaponyStylesheets.forEach(function (stylesheet) {
+			crossRules = stylesheet.rules || stylesheet.cssRules;
+			crossRulesLength = crossRules.length;
+
+			for (var x = 0; x < crossRulesLength; x++) {
 				cssNormalizer = new CssSelectorNormalizer();
 				rule = cssNormalizer.normalize(crossRules[x].selectorText);
 				selectorTextString += rule + ';';
@@ -54,25 +61,25 @@ function ElementQueries() {
 		});
 	};
 
-
 	this.getMegaponyStyleSheets = function () {
-		var megaponyStylesheets = [];
-		$.each(document.styleSheets, function (i) {
-			var stylesheet = this;
-			if (stylesheet.title === 'megapony') {
-				megaponyStylesheets.push(stylesheet);
+		var megaponyStylesheets = [],
+			stylesheets = document.styleSheets,
+			stylesheetsLength = stylesheets.length;
+
+		for (var i = 0; i < stylesheetsLength; i++) {
+			if (stylesheets[i].title === 'megapony') {
+				megaponyStylesheets.push(stylesheets[i]);
 			}
-		});
+		}
 		return megaponyStylesheets;
 	};
-
 
 	this.checkSelectorsForElementQuery = function (selectorTextString) {
 		var elementsArray = selectorTextString.split(';'),
 			selectorText = '';
 
 		for (var i = 0; i < elementsArray.length; i++) {
-			selectorText = (elementsArray[i]) !== undefined ? (elementsArray[i]) : '';
+			selectorText = (elementsArray[i] !== undefined) ? (elementsArray[i]) : '';
 
 			if (self.selectorContainsElementQuery(selectorText)) {
 				var values = {
@@ -83,16 +90,14 @@ function ElementQueries() {
 					},
 					targetSelector = selectorText.split(self.maxWSelector)[0].split(self.minWSelector)[0].split(self.maxHSelector)[0].split(self.minHSelector)[0];
 
-				self.applyElementQueries($(targetSelector), values);
+				self.applyElementQueries(document.querySelectorAll(targetSelector), values);
 			}
 		}
 	};
 
-
 	this.selectorContainsElementQuery = function (selectorText) {
 		return !!(selectorText.indexOf(self.maxWSelector) !== -1 || selectorText.indexOf(self.minWSelector) !== -1 || selectorText.indexOf(self.maxHSelector) !== -1 || selectorText.indexOf(self.minHSelector) !== -1);
 	};
-
 
 	this.getMaxWidth = function (selectorText) {
 		var indexOfText = selectorText.indexOf(self.maxWSelector),
@@ -100,7 +105,6 @@ function ElementQueries() {
 
 		return (maxWidth > 0) ? maxWidth : false;
 	};
-
 
 	this.getMinWidth = function (selectorText) {
 		var indexOfText = selectorText.indexOf(self.minWSelector),
@@ -110,14 +114,12 @@ function ElementQueries() {
 
 	};
 
-
 	this.getMaxHeight = function (selectorText) {
 		var indexOfText = selectorText.indexOf(self.maxHSelector),
 			maxHeight = parseInt(selectorText.slice(indexOfText + self.maxHSelector.length, indexOfText + self.maxHSelector.length + 4), 10);
 
 		return (maxHeight > 0) ? maxHeight : false;
 	};
-
 
 	this.getMinHeight = function (selectorText) {
 		var indexOfText = selectorText.indexOf(self.maxHSelector),
@@ -126,54 +128,57 @@ function ElementQueries() {
 		return (maxHeight > 0) ? maxHeight : false;
 	};
 
+	this.applyElementQueries = function (elements, values) {
+		var elementWidth,
+			elementHeight,
+			elementsLength = elements.length;
 
-	this.applyElementQueries = function ($elements, values) {
-		var $el, elWidth, elHeight;
+		if (elementsLength === 0) {
+			return;
+		}
 
-		$elements.each(function () {
-			$el = $(this);
-			elWidth = $el.width();
-			elHeight = $el.height();
+		for (var i = 0; i < elementsLength; i++) {
+			elementWidth = elements[i].offsetWidth;
+			elementHeight = elements[i].offsetHeight;
 
 			// max width
-			if ((values.maxW > 0 && !values.minW) && (elWidth < values.maxW)) {
-				$el.addClass(self.maxWSelector.split('.')[1] + values.maxW);
+			if ((values.maxW > 0 && !values.minW) && (elementWidth < values.maxW)) {
+				elements[i].classList.add(self.maxWSelector.split('.')[1] + values.maxW);
 			}
 			// min width
-			if ((values.minW > 0 && !values.maxW) && (elWidth >= values.minW)) {
-				$el.addClass(self.minWSelector.split('.')[1] + values.minW);
+			if ((values.minW > 0 && !values.maxW) && (elementWidth >= values.minW)) {
+				elements[i].classList.add(self.minWSelector.split('.')[1] + values.minW);
 			}
 			// max and min width
-			if ((values.maxW > 0 && values.minW > 0) && (elWidth < values.maxW && elWidth >= values.minW)) {
-				$el.addClass(self.maxWSelector.split('.')[1] + values.maxW);
-				$el.addClass(self.minWSelector.split('.')[1] + values.minW);
+			if ((values.maxW > 0 && values.minW > 0) && (elementWidth < values.maxW && elementWidth >= values.minW)) {
+				elements[i].classList.add(self.maxWSelector.split('.')[1] + values.maxW);
+				elements[i].classList.add(self.minWSelector.split('.')[1] + values.minW);
 			}
 			// max height
-			if ((values.maxH > 0 && !values.minH) && (elHeight < values.maxH)) {
-				$el.addClass(self.maxHSelector.split('.')[1] + values.maxH);
+			if ((values.maxH > 0 && !values.minH) && (elementHeight < values.maxH)) {
+				elements[i].classList.add(self.maxHSelector.split('.')[1] + values.maxH);
 			}
 			// min height
-			if ((values.minH > 0 && !values.maxH) && (elHeight > values.minH)) {
-				$el.addClass(self.minHSelector.split('.')[1] + values.minH);
+			if ((values.minH > 0 && !values.maxH) && (elementHeight > values.minH)) {
+				elements[i].classList.add(self.minHSelector.split('.')[1] + values.minH);
 			}
 			// max and min height
-			if ((values.maxH > 0 && values.minH > 0) && (elHeight < values.maxH && elHeight > values.minH)) {
-				$el.addClass(self.maxHSelector.split('.')[1] + values.maxH);
-				$el.addClass(self.minHSelector.split('.')[1] + values.minH);
+			if ((values.maxH > 0 && values.minH > 0) && (elementHeight < values.maxH && elementHeight > values.minH)) {
+				elements[i].classList.add(self.maxHSelector.split('.')[1] + values.maxH);
+				elements[i].classList.add(self.minHSelector.split('.')[1] + values.minH);
 			}
-		});
+		}
 	};
 
-
 	this.hideLoadingView = function () {
-		$('html').removeClass('megapony-loading');
+		document.querySelector('html').classList.remove('megapony-loading');
 	};
 }
 
 (function () {
 	"use strict";
 
-	$(document).ready(function () {
+	DomReady.ready(function() {
 		var elQ = new ElementQueries(),
 			mpObjects = new MegaponyObjects();
 
