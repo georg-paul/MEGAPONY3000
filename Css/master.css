@@ -449,11 +449,6 @@ img {
   display: inline-block;
   vertical-align: middle; }
 
-.megapony-rwd-table-container.megapony-max-width-640 .rwd-table {
-  display: none; }
-.megapony-rwd-table-container.megapony-min-width-640 .stacktable {
-  display: none; }
-
 .megapony-video {
   min-width: 400px;
   min-width: 25rem; }
@@ -651,6 +646,537 @@ sub {
     vertical-align: middle; }
   .megapony-object-valign-middle .right > * {
     float: right; }
+
+.l-integration-tests .test-results {
+  width: 30px;
+  height: 70px; }
+  .l-integration-tests .test-results.success {
+    background-color: green; }
+  .l-integration-tests .test-results.failure {
+    background-color: red; }
+.l-integration-tests .max-width-target {
+  color: black; }
+.l-integration-tests .max-width-target.megapony-max-width-800 {
+  color: red; }
+.l-integration-tests .min-width-target {
+  color: black; }
+.l-integration-tests .min-width-target.megapony-min-width-800 {
+  color: red; }
+
+body.megapony-max-width-600 .l-banner {
+  padding-bottom: 20px;
+  padding-bottom: 1.25rem;
+  padding-top: 20px;
+  padding-top: 1.25rem; }
+
+.content-ul {
+  list-style: outside disc;
+  margin-left: 20px;
+  margin-left: 1.25rem; }
+  .content-ul li {
+    margin-bottom: 0px;
+    margin-bottom: 0rem; }
+
+.content-ol {
+  list-style: outside decimal;
+  margin-left: 25px;
+  margin-left: 1.5625rem; }
+  .content-ol li {
+    margin-bottom: 0px;
+    margin-bottom: 0rem; }
+
+.l-banner {
+  background: #2E3230;
+  padding-top: 30px;
+  padding-top: 1.875rem;
+  padding-bottom: 30px;
+  padding-bottom: 1.875rem; }
+  .l-banner > .megapony-object-halign .left {
+    margin-right: 20px;
+    margin-right: 1.25rem; }
+  .l-banner > .megapony-object-halign.megapony-max-width-480 h1 {
+    font-size: 24px;
+    font-size: 1.5rem; }
+  .l-banner h1 {
+    color: #fff;
+    text-transform: uppercase;
+    margin-bottom: 0;
+    line-height: 1; }
+  .l-banner #main-nav {
+    position: static; }
+    .l-banner #main-nav.breakpoint-small .toggle {
+      right: 30px;
+      right: 1.875rem;
+      background: #fff; }
+      .l-banner #main-nav.breakpoint-small .toggle:before, .l-banner #main-nav.breakpoint-small .toggle:after {
+        border: 2px solid #2E3230; }
+    .l-banner #main-nav > ul > li {
+      min-width: 160px;
+      min-width: 10rem; }
+      .l-banner #main-nav > ul > li:last-child {
+        margin-right: 0; }
+      .l-banner #main-nav > ul > li > a {
+        text-align: center;
+        padding-top: 15px;
+        padding-top: 0.9375rem;
+        padding-bottom: 15px;
+        padding-bottom: 0.9375rem;
+        padding-left: 28px;
+        padding-left: 1.75rem;
+        padding-right: 28px;
+        padding-right: 1.75rem; }
+    .l-banner #main-nav li {
+      background-color: rgba(255, 255, 255, 0.08); }
+      .l-banner #main-nav li a {
+        text-decoration: none;
+        color: #fff; }
+      .l-banner #main-nav li ul li {
+        background-color: #3E4240;
+        border-top: 1px solid #333; }
+        .l-banner #main-nav li ul li a {
+          padding-top: 10px;
+          padding-top: 0.625rem;
+          padding-bottom: 10px;
+          padding-bottom: 0.625rem;
+          padding-left: 15px;
+          padding-left: 0.9375rem;
+          padding-right: 15px;
+          padding-right: 0.9375rem; }
+  .l-banner #meta-nav li {
+    margin-right: 10px;
+    margin-right: 0.625rem;
+    padding-top: 5px;
+    padding-top: 0.3125rem;
+    padding-bottom: 5px;
+    padding-bottom: 0.3125rem;
+    padding-left: 10px;
+    padding-left: 0.625rem;
+    padding-right: 10px;
+    padding-right: 0.625rem;
+    background-color: rgba(255, 255, 255, 0.03); }
+    .l-banner #meta-nav li:last-child {
+      margin-right: 0; }
+    .l-banner #meta-nav li a {
+      color: #fff; }
+  .l-banner .no-side-by-side #main-nav:not(.breakpoint-small) {
+    margin-top: 20px;
+    margin-top: 1.25rem; }
+
+.l-element-queries pre.prettyprint {
+  margin: 0 0 20px 0; }
+.l-element-queries .example {
+  margin-top: 40px;
+  margin-top: 2.5rem;
+  margin-bottom: 30px;
+  margin-bottom: 1.875rem; }
+  .l-element-queries .example h3 {
+    margin-bottom: 25px;
+    margin-bottom: 1.5625rem; }
+.l-element-queries .demo-text.megapony-max-width-360 {
+  color: red; }
+.l-element-queries .demo-text.megapony-max-width-280 {
+  color: blue; }
+
+.l-footnote {
+  font-size: 14px;
+  font-size: 0.875rem;
+  background: #2E3230;
+  margin-top: 100px;
+  margin-top: 6.25rem;
+  padding-top: 15px;
+  padding-top: 0.9375rem;
+  padding-bottom: 15px;
+  padding-bottom: 0.9375rem; }
+  .l-footnote p {
+    color: #fff;
+    margin: 0; }
+
+.l-intro {
+  background: #eee;
+  padding-top: 35px;
+  padding-top: 2.1875rem;
+  padding-bottom: 35px;
+  padding-bottom: 2.1875rem; }
+  .l-intro .leader {
+    margin-bottom: 0; }
+    .l-intro .leader.megapony-min-width-1100.megapony-max-width-1200 {
+      color: red; }
+    .l-intro .leader.megapony-max-width-1150 {
+      font-size: 26px;
+      font-size: 1.625rem;
+      line-height: 34px;
+      line-height: 2.125rem; }
+
+.l-hero {
+  padding-top: 40px;
+  padding-top: 2.5rem;
+  padding-bottom: 40px;
+  padding-bottom: 2.5rem;
+  margin-bottom: 40px;
+  margin-bottom: 2.5rem;
+  background: #f5f5f5; }
+  .l-hero .intro-text {
+    padding-top: 80px;
+    padding-top: 5rem;
+    padding-left: 45px;
+    padding-left: 2.8125rem; }
+  .l-hero.megapony-max-width-768 [class*="megapony-object-columns-"] {
+    margin-left: 0 !important;
+    margin-right: 0 !important; }
+    .l-hero.megapony-max-width-768 [class*="megapony-object-columns-"] [class*="megapony-object-column"] {
+      width: 100%;
+      padding-left: 0 !important;
+      padding-right: 0 !important; }
+  .l-hero.megapony-max-width-768 .megapony-object-column .intro-text {
+    padding-left: 0; }
+
+.l-features .l-section {
+  padding-top: 60px;
+  padding-top: 3.75rem;
+  padding-bottom: 60px;
+  padding-bottom: 3.75rem;
+  border-bottom: 1px solid #ddd; }
+
+.l-cssobjects h3 {
+  margin-top: 40px;
+  margin-top: 2.5rem; }
+.l-cssobjects #demo-object-hnav {
+  position: relative;
+  padding-top: 10px;
+  padding-top: 0.625rem;
+  padding-bottom: 10px;
+  padding-bottom: 0.625rem;
+  padding-left: 15px;
+  padding-left: 0.9375rem;
+  padding-right: 15px;
+  padding-right: 0.9375rem;
+  background: #f5f5f5;
+  min-height: 27px;
+  min-height: 1.6875rem;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box; }
+  .l-cssobjects #demo-object-hnav li {
+    padding-left: 25px;
+    padding-left: 1.5625rem;
+    padding-right: 25px;
+    padding-right: 1.5625rem;
+    margin-right: 0; }
+    .l-cssobjects #demo-object-hnav li:first-child {
+      padding-left: 0; }
+    .l-cssobjects #demo-object-hnav li:last-child {
+      border-right: 0 none; }
+  .l-cssobjects #demo-object-hnav.breakpoint-small > ul > li > a {
+    background: #fff;
+    padding-top: 8px;
+    padding-top: 0.5rem;
+    padding-bottom: 8px;
+    padding-bottom: 0.5rem;
+    padding-left: 12px;
+    padding-left: 0.75rem;
+    padding-right: 12px;
+    padding-right: 0.75rem; }
+.l-cssobjects .megapony-object-media .img {
+  margin-right: 20px;
+  margin-right: 1.25rem; }
+.l-cssobjects .megapony-object-media .leader {
+  margin-bottom: 5px;
+  margin-bottom: 0.3125rem; }
+
+.l-columns [class*="megapony-object-columns-"] {
+  margin-bottom: 30px;
+  margin-bottom: 1.875rem; }
+
+.l-video [class*="megapony-object-columns-"] {
+  margin-bottom: 50px;
+  margin-bottom: 3.125rem; }
+.l-video .leader {
+  margin-bottom: 15px;
+  margin-bottom: 0.9375rem; }
+
+p, pre, blockquote, ul, ol, dl, figure, table, fieldset, .css-object {
+  margin-bottom: 32px;
+  margin-bottom: 2rem; }
+
+h1, h2, h3, h4, h5 {
+  line-height: 1.1em;
+  margin: 0; }
+
+h1 {
+  font-weight: 700;
+  font-size: 42px;
+  font-size: 2.625rem;
+  margin-bottom: 0.5em; }
+
+h2 {
+  font-size: 28px;
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  margin-bottom: 1rem; }
+
+h3 {
+  font-size: 18px;
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  margin-bottom: 0.5rem; }
+
+h4 {
+  font-size: 18px;
+  font-size: 1.125rem;
+  font-weight: 400;
+  margin-bottom: 8px;
+  margin-bottom: 0.5rem; }
+
+h5 {
+  font-size: 16px;
+  font-size: 1rem;
+  font-weight: 400;
+  margin-bottom: 8px;
+  margin-bottom: 0.5rem; }
+
+.leader {
+  font-family: Georgia, serif;
+  font-size: 28px;
+  font-size: 1.75rem;
+  line-height: 36px;
+  line-height: 2.25rem;
+  margin-bottom: 1.5em; }
+
+a {
+  color: #438fc1; }
+  a:visited {
+    color: #438fc1; }
+  a:link, a:visited {
+    text-decoration: none; }
+  a:hover, a:focus, a:active {
+    text-decoration: underline; }
+
+code {
+  white-space: normal;
+  font-weight: bold;
+  color: #000; }
+
+table {
+  width: 100%; }
+  table th {
+    background: #eee;
+    text-align: left;
+    padding: 7px 8px; }
+  table td {
+    text-align: left;
+    padding: 5px 8px; }
+  table tr:nth-child(odd) td {
+    background: #f5f5f5; }
+
+.megapony-rwd-table-container.megapony-max-width-640 .rwd-table {
+  display: none; }
+.megapony-rwd-table-container.megapony-min-width-640 .stacktable {
+  display: none; }
+
+/* ==========================================================================
+   Forms
+   ========================================================================== */
+/**
+ * Correct margin displayed oddly in IE 6/7.
+ */
+form {
+  margin: 0; }
+
+/**
+ * Define consistent border, margin, and padding.
+ */
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em; }
+
+/**
+ * 1. Correct color not being inherited in IE 6/7/8/9.
+ * 2. Correct text not wrapping in Firefox 3.
+ * 3. Correct alignment displayed oddly in IE 6/7.
+ */
+legend {
+  border: 0;
+  /* 1 */
+  padding: 0;
+  white-space: normal;
+  /* 2 */
+  *margin-left: -7px;
+  /* 3 */ }
+
+/**
+ * 1. Correct font size not being inherited in all browsers.
+ * 2. Address margins set differently in IE 6/7, Firefox 3+, Safari 5,
+ *    and Chrome.
+ * 3. Improve appearance and consistency in all browsers.
+ */
+button,
+input,
+select,
+textarea {
+  font-size: 100%;
+  /* 1 */
+  margin: 0;
+  /* 2 */
+  vertical-align: baseline;
+  /* 3 */
+  *vertical-align: middle;
+  /* 3 */ }
+
+/**
+ * Address Firefox 3+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+button,
+input {
+  line-height: normal; }
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Chrome, Safari 5+, and IE 6+.
+ * Correct `select` style inheritance in Firefox 4+ and Opera.
+ */
+button,
+select {
+  text-transform: none; }
+
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ * 4. Remove inner spacing in IE 7 without affecting normal text inputs.
+ *    Known issue: inner spacing remains in IE 6.
+ */
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  /* 2 */
+  cursor: pointer;
+  /* 3 */
+  *overflow: visible;
+  /* 4 */ }
+
+/**
+ * Re-set default cursor for disabled elements.
+ */
+button[disabled],
+html input[disabled] {
+  cursor: default; }
+
+/**
+ * 1. Address box sizing set to content-box in IE 8/9.
+ * 2. Remove excess padding in IE 8/9.
+ * 3. Remove excess padding in IE 7.
+ *    Known issue: excess padding remains in IE 6.
+ */
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+  *height: 13px;
+  /* 3 */
+  *width: 13px;
+  /* 3 */ }
+
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari 5 and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari 5 and Chrome
+ *    (include `-moz` to future-proof).
+ */
+input[type="search"] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  /* 2 */
+  box-sizing: content-box; }
+
+/**
+ * Remove inner padding and search cancel button in Safari 5 and Chrome
+ * on OS X.
+ */
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none; }
+
+/**
+ * Remove inner padding and border in Firefox 3+.
+ */
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0; }
+
+/**
+ * 1. Remove default vertical scrollbar in IE 6/7/8/9.
+ * 2. Improve readability and alignment in all browsers.
+ */
+textarea {
+  overflow: auto;
+  /* 1 */
+  vertical-align: top;
+  /* 2 */ }
+
+button,
+input,
+select,
+textarea {
+  font-family: Arial, sans-serif; }
+
+input[type="text"], input[type="email"], input[type="date"], textarea, select {
+  background: #fff;
+  border: 1px solid #c8ccd0;
+  width: 240px;
+  width: 15rem;
+  padding-top: 8px;
+  padding-top: 0.5rem;
+  padding-bottom: 8px;
+  padding-bottom: 0.5rem;
+  padding-left: 5px;
+  padding-left: 0.3125rem;
+  padding-right: 5px;
+  padding-right: 0.3125rem; }
+
+.csc-default {
+  margin-bottom: 40px;
+  margin-bottom: 2.5rem; }
+
+DIV.csc-textpic .csc-textpic-caption {
+  padding-top: 7px;
+  padding-top: 0.4375rem;
+  font-size: 14px;
+  font-size: 0.875rem;
+  color: #9ba2a7;
+  font-style: italic;
+  text-align: center; }
+DIV.csc-textpic.megapony-max-width-640 .csc-textpic-imagewrap {
+  margin-right: 0 !important;
+  margin-left: 0 !important; }
+  DIV.csc-textpic.megapony-max-width-640 .csc-textpic-imagewrap img {
+    max-width: 100% !important;
+    height: auto;
+    display: inline; }
+DIV.csc-textpic.megapony-max-width-640 .csc-textpic-text {
+  margin-left: 0 !important;
+  margin-right: 0 !important; }
+DIV.csc-textpic.megapony-max-width-640 DIV.csc-textpic-imagecolumn {
+  float: none; }
+DIV.csc-textpic.megapony-max-width-640 .csc-textpic-imagewrap {
+  float: none; }
+  DIV.csc-textpic.megapony-max-width-640 .csc-textpic-imagewrap .csc-textpic-image {
+    display: block; }
+    DIV.csc-textpic.megapony-max-width-640 .csc-textpic-imagewrap .csc-textpic-image .csc-textpic-caption {
+      display: block; }
 
 /* Magnific Popup CSS */
 .mfp-bg {
@@ -1054,529 +1580,3 @@ img.mfp-img {
   top: 0;
   right: 0;
   padding-top: 0; }
-
-.l-integration-tests .test-results {
-  width: 30px;
-  height: 70px; }
-  .l-integration-tests .test-results.success {
-    background-color: green; }
-  .l-integration-tests .test-results.failure {
-    background-color: red; }
-.l-integration-tests .max-width-target {
-  color: black; }
-.l-integration-tests .max-width-target.megapony-max-width-800 {
-  color: red; }
-.l-integration-tests .min-width-target {
-  color: black; }
-.l-integration-tests .min-width-target.megapony-min-width-800 {
-  color: red; }
-
-body.megapony-max-width-600 .l-banner {
-  padding-bottom: 20px;
-  padding-bottom: 1.25rem;
-  padding-top: 20px;
-  padding-top: 1.25rem; }
-
-.content-ul {
-  list-style: outside disc;
-  margin-left: 20px;
-  margin-left: 1.25rem; }
-  .content-ul li {
-    margin-bottom: 0px;
-    margin-bottom: 0rem; }
-
-.content-ol {
-  list-style: outside decimal;
-  margin-left: 25px;
-  margin-left: 1.5625rem; }
-  .content-ol li {
-    margin-bottom: 0px;
-    margin-bottom: 0rem; }
-
-.l-banner {
-  background: #2E3230;
-  padding-top: 30px;
-  padding-top: 1.875rem;
-  padding-bottom: 30px;
-  padding-bottom: 1.875rem; }
-  .l-banner > .megapony-object-halign .left {
-    margin-right: 20px;
-    margin-right: 1.25rem; }
-  .l-banner > .megapony-object-halign.megapony-max-width-480 h1 {
-    font-size: 24px;
-    font-size: 1.5rem; }
-  .l-banner h1 {
-    color: #fff;
-    text-transform: uppercase;
-    margin-bottom: 0;
-    line-height: 1; }
-  .l-banner #main-nav {
-    position: static; }
-    .l-banner #main-nav.breakpoint-small .toggle {
-      right: 30px;
-      right: 1.875rem;
-      background: #fff; }
-      .l-banner #main-nav.breakpoint-small .toggle:before, .l-banner #main-nav.breakpoint-small .toggle:after {
-        border: 2px solid #2E3230; }
-    .l-banner #main-nav > ul > li {
-      min-width: 160px;
-      min-width: 10rem; }
-      .l-banner #main-nav > ul > li:last-child {
-        margin-right: 0; }
-      .l-banner #main-nav > ul > li > a {
-        text-align: center;
-        padding-top: 15px;
-        padding-top: 0.9375rem;
-        padding-bottom: 15px;
-        padding-bottom: 0.9375rem;
-        padding-left: 28px;
-        padding-left: 1.75rem;
-        padding-right: 28px;
-        padding-right: 1.75rem; }
-    .l-banner #main-nav li {
-      background-color: rgba(255, 255, 255, 0.08); }
-      .l-banner #main-nav li a {
-        text-decoration: none;
-        color: #fff; }
-      .l-banner #main-nav li ul li {
-        background-color: #3E4240;
-        border-top: 1px solid #333; }
-        .l-banner #main-nav li ul li a {
-          padding-top: 10px;
-          padding-top: 0.625rem;
-          padding-bottom: 10px;
-          padding-bottom: 0.625rem;
-          padding-left: 15px;
-          padding-left: 0.9375rem;
-          padding-right: 15px;
-          padding-right: 0.9375rem; }
-  .l-banner #meta-nav li {
-    margin-right: 10px;
-    margin-right: 0.625rem;
-    padding-top: 5px;
-    padding-top: 0.3125rem;
-    padding-bottom: 5px;
-    padding-bottom: 0.3125rem;
-    padding-left: 10px;
-    padding-left: 0.625rem;
-    padding-right: 10px;
-    padding-right: 0.625rem;
-    background-color: rgba(255, 255, 255, 0.03); }
-    .l-banner #meta-nav li:last-child {
-      margin-right: 0; }
-    .l-banner #meta-nav li a {
-      color: #fff; }
-  .l-banner .no-side-by-side #main-nav:not(.breakpoint-small) {
-    margin-top: 20px;
-    margin-top: 1.25rem; }
-
-.l-element-queries pre.prettyprint {
-  margin: 0 0 20px 0; }
-.l-element-queries .example {
-  margin-top: 40px;
-  margin-top: 2.5rem;
-  margin-bottom: 30px;
-  margin-bottom: 1.875rem; }
-  .l-element-queries .example h3 {
-    margin-bottom: 25px;
-    margin-bottom: 1.5625rem; }
-.l-element-queries .demo-text.megapony-max-width-360 {
-  color: red; }
-.l-element-queries .demo-text.megapony-max-width-280 {
-  color: blue; }
-
-.l-footnote {
-  font-size: 14px;
-  font-size: 0.875rem;
-  background: #2E3230;
-  margin-top: 100px;
-  margin-top: 6.25rem;
-  padding-top: 15px;
-  padding-top: 0.9375rem;
-  padding-bottom: 15px;
-  padding-bottom: 0.9375rem; }
-  .l-footnote p {
-    color: #fff;
-    margin: 0; }
-
-.l-intro {
-  background: #eee;
-  padding-top: 35px;
-  padding-top: 2.1875rem;
-  padding-bottom: 35px;
-  padding-bottom: 2.1875rem; }
-  .l-intro .leader {
-    margin-bottom: 0; }
-    .l-intro .leader.megapony-min-width-1100.megapony-max-width-1200 {
-      color: red; }
-    .l-intro .leader.megapony-max-width-1150 {
-      font-size: 26px;
-      font-size: 1.625rem;
-      line-height: 34px;
-      line-height: 2.125rem; }
-
-.l-hero {
-  padding-top: 40px;
-  padding-top: 2.5rem;
-  padding-bottom: 40px;
-  padding-bottom: 2.5rem;
-  margin-bottom: 40px;
-  margin-bottom: 2.5rem;
-  background: #f5f5f5; }
-  .l-hero .intro-text {
-    padding-top: 80px;
-    padding-top: 5rem;
-    padding-left: 45px;
-    padding-left: 2.8125rem; }
-  .l-hero.megapony-max-width-768 [class*="megapony-object-columns-"] {
-    margin-left: 0 !important;
-    margin-right: 0 !important; }
-    .l-hero.megapony-max-width-768 [class*="megapony-object-columns-"] [class*="megapony-object-column"] {
-      width: 100%;
-      padding-left: 0 !important;
-      padding-right: 0 !important; }
-  .l-hero.megapony-max-width-768 .megapony-object-column .intro-text {
-    padding-left: 0; }
-
-.l-features .l-section {
-  padding-top: 60px;
-  padding-top: 3.75rem;
-  padding-bottom: 60px;
-  padding-bottom: 3.75rem;
-  border-bottom: 1px solid #ddd; }
-
-.l-cssobjects h3 {
-  margin-top: 40px;
-  margin-top: 2.5rem; }
-.l-cssobjects #demo-object-hnav {
-  position: relative;
-  padding-top: 10px;
-  padding-top: 0.625rem;
-  padding-bottom: 10px;
-  padding-bottom: 0.625rem;
-  padding-left: 15px;
-  padding-left: 0.9375rem;
-  padding-right: 15px;
-  padding-right: 0.9375rem;
-  background: #f5f5f5;
-  min-height: 27px;
-  min-height: 1.6875rem;
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -ms-box-sizing: border-box; }
-  .l-cssobjects #demo-object-hnav li {
-    padding-left: 25px;
-    padding-left: 1.5625rem;
-    padding-right: 25px;
-    padding-right: 1.5625rem;
-    margin-right: 0; }
-    .l-cssobjects #demo-object-hnav li:first-child {
-      padding-left: 0; }
-    .l-cssobjects #demo-object-hnav li:last-child {
-      border-right: 0 none; }
-  .l-cssobjects #demo-object-hnav.breakpoint-small > ul > li > a {
-    background: #fff;
-    padding-top: 8px;
-    padding-top: 0.5rem;
-    padding-bottom: 8px;
-    padding-bottom: 0.5rem;
-    padding-left: 12px;
-    padding-left: 0.75rem;
-    padding-right: 12px;
-    padding-right: 0.75rem; }
-.l-cssobjects .megapony-object-media .img {
-  margin-right: 20px;
-  margin-right: 1.25rem; }
-.l-cssobjects .megapony-object-media .leader {
-  margin-bottom: 5px;
-  margin-bottom: 0.3125rem; }
-
-.l-columns [class*="megapony-object-columns-"] {
-  margin-bottom: 30px;
-  margin-bottom: 1.875rem; }
-
-.l-video [class*="megapony-object-columns-"] {
-  margin-bottom: 50px;
-  margin-bottom: 3.125rem; }
-.l-video .leader {
-  margin-bottom: 15px;
-  margin-bottom: 0.9375rem; }
-
-p, pre, blockquote, ul, ol, dl, figure, table, fieldset, .css-object {
-  margin-bottom: 32px;
-  margin-bottom: 2rem; }
-
-h1, h2, h3, h4, h5 {
-  line-height: 1.1em;
-  margin: 0; }
-
-h1 {
-  font-weight: 700;
-  font-size: 42px;
-  font-size: 2.625rem;
-  margin-bottom: 0.5em; }
-
-h2 {
-  font-size: 28px;
-  font-size: 1.75rem;
-  font-weight: 700;
-  margin-bottom: 16px;
-  margin-bottom: 1rem; }
-
-h3 {
-  font-size: 18px;
-  font-size: 1.125rem;
-  font-weight: 700;
-  margin-bottom: 8px;
-  margin-bottom: 0.5rem; }
-
-h4 {
-  font-size: 18px;
-  font-size: 1.125rem;
-  font-weight: 400;
-  margin-bottom: 8px;
-  margin-bottom: 0.5rem; }
-
-h5 {
-  font-size: 16px;
-  font-size: 1rem;
-  font-weight: 400;
-  margin-bottom: 8px;
-  margin-bottom: 0.5rem; }
-
-.leader {
-  font-family: Georgia, serif;
-  font-size: 28px;
-  font-size: 1.75rem;
-  line-height: 36px;
-  line-height: 2.25rem;
-  margin-bottom: 1.5em; }
-
-a {
-  color: #438fc1; }
-  a:visited {
-    color: #438fc1; }
-  a:link, a:visited {
-    text-decoration: none; }
-  a:hover, a:focus, a:active {
-    text-decoration: underline; }
-
-code {
-  white-space: normal;
-  font-weight: bold;
-  color: #000; }
-
-table {
-  width: 100%; }
-  table th {
-    background: #eee;
-    text-align: left;
-    padding: 7px 8px; }
-  table td {
-    text-align: left;
-    padding: 5px 8px; }
-  table tr:nth-child(odd) td {
-    background: #f5f5f5; }
-
-/* ==========================================================================
-   Forms
-   ========================================================================== */
-/**
- * Correct margin displayed oddly in IE 6/7.
- */
-form {
-  margin: 0; }
-
-/**
- * Define consistent border, margin, and padding.
- */
-fieldset {
-  border: 1px solid #c0c0c0;
-  margin: 0 2px;
-  padding: 0.35em 0.625em 0.75em; }
-
-/**
- * 1. Correct color not being inherited in IE 6/7/8/9.
- * 2. Correct text not wrapping in Firefox 3.
- * 3. Correct alignment displayed oddly in IE 6/7.
- */
-legend {
-  border: 0;
-  /* 1 */
-  padding: 0;
-  white-space: normal;
-  /* 2 */
-  *margin-left: -7px;
-  /* 3 */ }
-
-/**
- * 1. Correct font size not being inherited in all browsers.
- * 2. Address margins set differently in IE 6/7, Firefox 3+, Safari 5,
- *    and Chrome.
- * 3. Improve appearance and consistency in all browsers.
- */
-button,
-input,
-select,
-textarea {
-  font-size: 100%;
-  /* 1 */
-  margin: 0;
-  /* 2 */
-  vertical-align: baseline;
-  /* 3 */
-  *vertical-align: middle;
-  /* 3 */ }
-
-/**
- * Address Firefox 3+ setting `line-height` on `input` using `!important` in
- * the UA stylesheet.
- */
-button,
-input {
-  line-height: normal; }
-
-/**
- * Address inconsistent `text-transform` inheritance for `button` and `select`.
- * All other form control elements do not inherit `text-transform` values.
- * Correct `button` style inheritance in Chrome, Safari 5+, and IE 6+.
- * Correct `select` style inheritance in Firefox 4+ and Opera.
- */
-button,
-select {
-  text-transform: none; }
-
-/**
- * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
- *    and `video` controls.
- * 2. Correct inability to style clickable `input` types in iOS.
- * 3. Improve usability and consistency of cursor style between image-type
- *    `input` and others.
- * 4. Remove inner spacing in IE 7 without affecting normal text inputs.
- *    Known issue: inner spacing remains in IE 6.
- */
-button,
-html input[type="button"],
-input[type="reset"],
-input[type="submit"] {
-  -webkit-appearance: button;
-  /* 2 */
-  cursor: pointer;
-  /* 3 */
-  *overflow: visible;
-  /* 4 */ }
-
-/**
- * Re-set default cursor for disabled elements.
- */
-button[disabled],
-html input[disabled] {
-  cursor: default; }
-
-/**
- * 1. Address box sizing set to content-box in IE 8/9.
- * 2. Remove excess padding in IE 8/9.
- * 3. Remove excess padding in IE 7.
- *    Known issue: excess padding remains in IE 6.
- */
-input[type="checkbox"],
-input[type="radio"] {
-  box-sizing: border-box;
-  /* 1 */
-  padding: 0;
-  /* 2 */
-  *height: 13px;
-  /* 3 */
-  *width: 13px;
-  /* 3 */ }
-
-/**
- * 1. Address `appearance` set to `searchfield` in Safari 5 and Chrome.
- * 2. Address `box-sizing` set to `border-box` in Safari 5 and Chrome
- *    (include `-moz` to future-proof).
- */
-input[type="search"] {
-  -webkit-appearance: textfield;
-  /* 1 */
-  -moz-box-sizing: content-box;
-  -webkit-box-sizing: content-box;
-  /* 2 */
-  box-sizing: content-box; }
-
-/**
- * Remove inner padding and search cancel button in Safari 5 and Chrome
- * on OS X.
- */
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-decoration {
-  -webkit-appearance: none; }
-
-/**
- * Remove inner padding and border in Firefox 3+.
- */
-button::-moz-focus-inner,
-input::-moz-focus-inner {
-  border: 0;
-  padding: 0; }
-
-/**
- * 1. Remove default vertical scrollbar in IE 6/7/8/9.
- * 2. Improve readability and alignment in all browsers.
- */
-textarea {
-  overflow: auto;
-  /* 1 */
-  vertical-align: top;
-  /* 2 */ }
-
-button,
-input,
-select,
-textarea {
-  font-family: Arial, sans-serif; }
-
-input[type="text"], input[type="email"], input[type="date"], textarea, select {
-  background: #fff;
-  border: 1px solid #c8ccd0;
-  width: 240px;
-  width: 15rem;
-  padding-top: 8px;
-  padding-top: 0.5rem;
-  padding-bottom: 8px;
-  padding-bottom: 0.5rem;
-  padding-left: 5px;
-  padding-left: 0.3125rem;
-  padding-right: 5px;
-  padding-right: 0.3125rem; }
-
-.csc-default {
-  margin-bottom: 40px;
-  margin-bottom: 2.5rem; }
-
-DIV.csc-textpic .csc-textpic-caption {
-  padding-top: 7px;
-  padding-top: 0.4375rem;
-  font-size: 14px;
-  font-size: 0.875rem;
-  color: #9ba2a7;
-  font-style: italic;
-  text-align: center; }
-DIV.csc-textpic.megapony-max-width-640 .csc-textpic-imagewrap {
-  margin-right: 0 !important;
-  margin-left: 0 !important; }
-  DIV.csc-textpic.megapony-max-width-640 .csc-textpic-imagewrap img {
-    max-width: 100% !important;
-    height: auto;
-    display: inline; }
-DIV.csc-textpic.megapony-max-width-640 .csc-textpic-text {
-  margin-left: 0 !important;
-  margin-right: 0 !important; }
-DIV.csc-textpic.megapony-max-width-640 DIV.csc-textpic-imagecolumn {
-  float: none; }
-DIV.csc-textpic.megapony-max-width-640 .csc-textpic-imagewrap {
-  float: none; }
-  DIV.csc-textpic.megapony-max-width-640 .csc-textpic-imagewrap .csc-textpic-image {
-    display: block; }
-    DIV.csc-textpic.megapony-max-width-640 .csc-textpic-imagewrap .csc-textpic-image .csc-textpic-caption {
-      display: block; }

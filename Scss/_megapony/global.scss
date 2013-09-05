@@ -65,15 +65,6 @@ img {
 	vertical-align: middle;
 }
 
-.megapony-rwd-table-container {
-	&.megapony-max-width-#{$responsive-table-breakpoint} {
-		.rwd-table { display: none; }
-	}
-	&.megapony-min-width-#{$responsive-table-breakpoint} {
-		.stacktable { display: none; }
-	}
-}
-
 .megapony-video {
 	@include rem(min-width, $video-min-width);
 }

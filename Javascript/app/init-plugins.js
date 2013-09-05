@@ -32,15 +32,9 @@ function InitPlugins() {
 	var self = this;
 
 	this.init = function () {
-		if (megapony3000.enableResponsiveTables) {
-			self.initResponsiveTables();
-		}
-		if (megapony3000.enableLightbox) {
-			self.initLightbox();
-		}
-		if (megapony3000.enableResponsiveVideos) {
-			self.initFitVids();
-		}
+		self.initResponsiveTables();
+		self.initLightbox();
+		self.initFitVids();
 	};
 
 	this.initResponsiveTables = function () {

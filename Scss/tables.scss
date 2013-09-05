@@ -13,3 +13,12 @@ table {
 		background: #f5f5f5;
 	}
 }
+
+.megapony-rwd-table-container {
+	&.megapony-max-width-#{$responsive-table-breakpoint} {
+		.rwd-table { display: none; }
+	}
+	&.megapony-min-width-#{$responsive-table-breakpoint} {
+		.stacktable { display: none; }
+	}
+}
