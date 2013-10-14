@@ -174,17 +174,3 @@ function ElementQueries() {
 		document.querySelector('html').classList.remove('megapony-loading');
 	};
 }
-
-(function () {
-	"use strict";
-
-	DomReady.ready(function() {
-		var elQ = new ElementQueries(),
-			mpObjects = new MegaponyObjects();
-
-		elQ.init();
-		mpObjects.init();
-		elQ.hideLoadingView();
-	});
-
-}());
