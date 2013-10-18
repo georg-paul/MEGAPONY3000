@@ -145,7 +145,7 @@
 	}
 
 	&.no-side-by-side {
-		&.megapony-object-valign-middle { display: block; }
+		&.megapony-object-hvalign { display: block; }
 		.left, .center, .right {
 			float: none;
 			margin: 0;
@@ -158,8 +158,8 @@
 	}
 }
 
-// halign object
-.megapony-object-valign-middle {
+// horizontal and vertical align
+.megapony-object-hvalign {
 	text-align: left;
 	display: table;
 	width: 100%;

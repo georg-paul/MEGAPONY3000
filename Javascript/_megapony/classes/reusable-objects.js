@@ -31,34 +31,34 @@ function MegaponyObjects() {
 
 	var self = this;
 
+	self.utilities = new Utilities();
+
 	this.init = function () {
-		self.checkForCollision();
+		var megaponyObjects = document.querySelectorAll('[class*=megapony-object]'),
+			megaponyObjectsLength = megaponyObjects.length,
+			i = 0;
+
+		for (i = 0; i < megaponyObjectsLength; i += 1) {
+			self.callMegaponyObjectHandling(megaponyObjects[i]);
+		}
 	};
 
-	this.checkForCollision = function () {
-		$('[class*="megapony-object"]').each(function () {
-			var $megaponyObj = $(this),
-				classNames = $megaponyObj.attr('class').split(/\s+/),
-				objType = '',
-				i = 0;
+	this.callMegaponyObjectHandling = function (megaponyObj) {
+		var classNames = megaponyObj.className.split(/\s+/),
+			objType = '',
+			i = 0;
 
-			for (i = 0; i < classNames.length; i += 1) {
-				objType = classNames[i].split('megapony-object-')[1];
-				if (objType === 'halign' || objType === 'valign-middle') {
-					self.halign($megaponyObj);
-				} else if (objType === 'media') {
-					self.media($megaponyObj);
-				} else if (objType === 'hnav') {
-					self.hnav($megaponyObj);
-				} else if (objType === 'vnav') {
-					self.vnav($megaponyObj);
-				}
+		for (i = 0; i < classNames.length; i += 1) {
+			objType = classNames[i].split('megapony-object-')[1];
+			if (objType === 'halign' || objType === 'hvalign' || objType === 'media' || objType === 'hnav' || objType === 'vnav') {
+				self[objType](megaponyObj);
 			}
-		});
+		}
 	};
 
-	this.halign = function ($megaponyObj) {
-		var totalChildrenWidth = 0,
+	this.halign = function (temp) {
+		var $megaponyObj = $(temp),
+			totalChildrenWidth = 0,
 			availableWidth = $megaponyObj.width();
 
 		$megaponyObj.find('> .left, > .center, > .right').each(function () {
@@ -76,8 +76,13 @@ function MegaponyObjects() {
 		}
 	};
 
-	this.media = function ($megaponyObj) {
-		var $media = ($megaponyObj.find('.img').length) ? $megaponyObj.find('.img') : $megaponyObj.find('.video'),
+	this.hvalign = function (temp) {
+		self.halign(temp);
+	};
+
+	this.media = function (temp) {
+		var $megaponyObj = $(temp),
+			$media = ($megaponyObj.find('.img').length) ? $megaponyObj.find('.img') : $megaponyObj.find('.video'),
 			mediaImage = new Image(),
 			imageSrc = ($media.find('img').length) ? $media.find('img').attr('src') : $media.attr('src'),
 			mediaObjectIsHidden = false;
@@ -98,8 +103,9 @@ function MegaponyObjects() {
 		}
 	};
 
-	this.hnav = function ($megaponyObj) {
-		var $rootUL = $megaponyObj.find('> ul'),
+	this.hnav = function (temp) {
+		var $megaponyObj = $(temp),
+			$rootUL = $megaponyObj.find('> ul'),
 			totalWidth = 0,
 			clickEventType = (document.ontouchstart !== null) ? 'click' : 'touchstart';
 
@@ -123,8 +129,9 @@ function MegaponyObjects() {
 		});
 	};
 
-	this.vnav = function ($megaponyObj) {
-		var $rootUl = $megaponyObj.find('> ul'),
+	this.vnav = function (temp) {
+		var $megaponyObj = $(temp),
+			$rootUl = $megaponyObj.find('> ul'),
 			$active = $rootUl.find('> li.active');
 
 		if (!$active.length) {
