@@ -44,14 +44,18 @@ function MegaponyObjects() {
 
 			for (i = 0; i < classNames.length; i += 1) {
 				objType = classNames[i].split('megapony-object-')[1];
-				if (objType === 'halign' || objType === 'valign-middle') {
-					self.halign($megaponyObj);
-				} else if (objType === 'media') {
-					self.media($megaponyObj);
-				} else if (objType === 'hnav') {
-					self.hnav($megaponyObj);
-				} else if (objType === 'vnav') {
-					self.vnav($megaponyObj);
+				if (objType !== undefined) {
+					if (objType === 'halign' || objType === 'valign-middle') {
+						self.halign($megaponyObj);
+					} else if (objType === 'media') {
+						self.media($megaponyObj);
+					} else if (objType === 'hnav') {
+						self.hnav($megaponyObj);
+					} else if (objType === 'vnav') {
+						self.vnav($megaponyObj);
+					} else if (objType.indexOf('columns-') !== -1) {
+						self.columns($megaponyObj);
+					}
 				}
 			}
 		});
@@ -139,5 +143,21 @@ function MegaponyObjects() {
 				$(this).toggleClass('open');
 			}
 		});
+	};
+
+	this.columns = function ($megaponyObj) {
+		if (self.areColumnsStacked($megaponyObj)) {
+			$megaponyObj.find('[data-move-down], [data-move-up]').each(function () {
+				var $elementToMove = $(this),
+					columnIndex = $elementToMove.closest('.megapony-object-column').index() + 1,
+					targetColumn = ($elementToMove.attr('data-move-down') !== undefined) ? columnIndex + parseInt($elementToMove.attr('data-move-down'), 10) : columnIndex - parseInt($elementToMove.attr('data-move-up'), 10);
+
+				$elementToMove.appendTo($megaponyObj.find('> :nth-child(' + targetColumn + ')'));
+			});
+		}
+	};
+
+	this.areColumnsStacked = function ($megaponyObj) {
+		return !!($megaponyObj.width() === $megaponyObj.find('> .megapony-object-column:first').width());
 	};
 }

@@ -214,6 +214,9 @@
 	[class*="megapony-object-columns-"] {
 		@include rem(margin-bottom, 30);
 	}
+	.switch-position-demo.megapony-max-width-600 {
+		@include single-column;
+	}
 }
 
 .l-video {

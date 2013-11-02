@@ -222,6 +222,13 @@ body.megapony-max-width-600 .l-banner {
 .l-columns [class*="megapony-object-columns-"] {
   margin-bottom: 30px;
   margin-bottom: 1.875rem; }
+.l-columns .switch-position-demo.megapony-max-width-600 [class*="megapony-object-columns-"] {
+  margin-left: 0 !important;
+  margin-right: 0 !important; }
+  .l-columns .switch-position-demo.megapony-max-width-600 [class*="megapony-object-columns-"] [class*="megapony-object-column"] {
+    width: 100%;
+    padding-left: 0 !important;
+    padding-right: 0 !important; }
 
 .l-video [class*="megapony-object-columns-"] {
   margin-bottom: 50px;
