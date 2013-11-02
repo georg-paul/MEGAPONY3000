@@ -646,6 +646,22 @@ sub {
     vertical-align: middle; }
   .megapony-object-valign-middle .right > * {
     float: right; }
+  .megapony-object-valign-middle.full-width .left, .megapony-object-valign-middle.full-width .center, .megapony-object-valign-middle.full-width .right {
+    width: 100%;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box; }
+  .megapony-object-valign-middle.no-side-by-side {
+    display: block; }
+    .megapony-object-valign-middle.no-side-by-side .left, .megapony-object-valign-middle.no-side-by-side .center, .megapony-object-valign-middle.no-side-by-side .right {
+      display: block;
+      width: auto !important;
+      max-width: 100% !important; }
+    .megapony-object-valign-middle.no-side-by-side .left {
+      margin-right: 0 !important; }
+    .megapony-object-valign-middle.no-side-by-side .right {
+      margin-left: 0 !important; }
 
 .l-integration-tests .test-results {
   width: 30px;

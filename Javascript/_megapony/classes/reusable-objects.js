@@ -65,6 +65,10 @@ function MegaponyObjects() {
 		var totalChildrenWidth = 0,
 			availableWidth = $megaponyObj.width();
 
+		if ($megaponyObj.hasClass('full-width')) {
+			return;
+		}
+
 		$megaponyObj.find('> .left, > .center, > .right').each(function () {
 			totalChildrenWidth += $(this).outerWidth(true);
 		});

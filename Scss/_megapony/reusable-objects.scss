@@ -169,4 +169,22 @@
 		vertical-align: middle;
 	}
 	.right > * { float: right; }
+
+	&.full-width {
+		.left, .center, .right {
+			width: 100%;
+			@include box-sizing(border-box);
+		}
+	}
+
+	&.no-side-by-side {
+		display: block;
+		.left, .center, .right {
+			display: block;
+			width: auto !important;
+			max-width: 100% !important;
+		}
+		.left { margin-right: 0 !important; }
+		.right { margin-left: 0 !important; }
+	}
 }

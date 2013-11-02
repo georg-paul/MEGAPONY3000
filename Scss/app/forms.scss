@@ -168,7 +168,8 @@ textarea {
 input[type="text"], input[type="email"], input[type="date"], textarea, select {
 	background: #fff;
 	border: 1px solid #c8ccd0;
-	@include rem(width, 240);
+	width: 100%;
+	@include box-sizing(border-box);
 	@include rem(padding-top, 8);
 	@include rem(padding-bottom, 8);
 	@include rem(padding-left, 5);
