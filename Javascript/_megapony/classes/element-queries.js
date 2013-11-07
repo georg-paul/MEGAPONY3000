@@ -88,11 +88,36 @@ function ElementQueries() {
 						maxH: self.getMaxHeight(selectorText),
 						minH: self.getMinHeight(selectorText)
 					},
-					targetSelector = selectorText.split(self.maxWSelector)[0].split(self.minWSelector)[0].split(self.maxHSelector)[0].split(self.minHSelector)[0];
+					targetSelectorArray = selectorText.split(','),
+					targetSelectorArrayLength = targetSelectorArray.length,
+					storedTargetSelector = '';
 
-				self.applyElementQueries(document.querySelectorAll(targetSelector), values);
+				if (targetSelectorArrayLength > 1) {
+					// multiple expressions (.foo .bar, .foo2 .bar 2, .lorem-ipsum)
+					for (var x = 0; x < targetSelectorArrayLength; x++) {
+						if (self.isTargetSelectorUnique(storedTargetSelector, self.getTargetSelector(targetSelectorArray[x]))) {
+							if (self.getTargetSelector(targetSelectorArray[x]) !== '') {
+								self.applyElementQueries(document.querySelectorAll(self.getTargetSelector(targetSelectorArray[x])), values);
+							}
+						}
+						storedTargetSelector = self.getTargetSelector(targetSelectorArray[x]);
+					}
+				} else {
+					// single expression (.foo .bar)
+					if (self.getTargetSelector(targetSelectorArray[0]) !== '') {
+						self.applyElementQueries(document.querySelectorAll(self.getTargetSelector(targetSelectorArray[0])), values);
+					}
+				}
 			}
 		}
+	};
+
+	this.getTargetSelector = function (selectorText) {
+		return (selectorText.split(self.maxWSelector)[0].split(self.minWSelector)[0].split(self.maxHSelector)[0].split(self.minHSelector)[0].trim());
+	};
+
+	this.isTargetSelectorUnique = function (oldValue, newValue) {
+		return !!((newValue !== oldValue));
 	};
 
 	this.selectorContainsElementQuery = function (selectorText) {
