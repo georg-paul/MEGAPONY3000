@@ -93,7 +93,7 @@ function ElementQueries() {
 				if (targetSelectorArrayLength > 1) {
 					// multiple expressions (.foo .bar, .foo2 .bar 2, .lorem-ipsum)
 					for (var x = 0; x < targetSelectorArrayLength; x++) {
-						if (self.isTargetSelectorUnique(storedTargetSelector, self.getTargetSelector(targetSelectorArray[x]))) {
+						if (storedTargetSelector !== self.getTargetSelector(targetSelectorArray[x])) {
 							if (self.getTargetSelector(targetSelectorArray[x]) !== '') {
 								self.applyElementQueries(document.querySelectorAll(self.getTargetSelector(targetSelectorArray[x])), values);
 							}
@@ -121,10 +121,6 @@ function ElementQueries() {
 		} else {
 			return selectorText;
 		}
-	};
-
-	this.isTargetSelectorUnique = function (oldValue, newValue) {
-		return !!((newValue !== oldValue));
 	};
 
 	this.selectorContainsElementQuery = function (selectorText) {
