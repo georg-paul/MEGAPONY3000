@@ -30,6 +30,8 @@ function ElementQueries() {
 
 	var self = this;
 
+	var megaponySelectorRegExp = new RegExp(/\.(megapony)\-(max|min)\-(width|height)\-(\d*)/);
+
 	self.maxWSelector = '.megapony-max-width-';
 	self.minWSelector = '.megapony-min-width-';
 	self.maxHSelector = '.megapony-max-height-';
@@ -79,7 +81,7 @@ function ElementQueries() {
 		for (var i = 0; i < elementsArray.length; i++) {
 			selectorText = (elementsArray[i] !== undefined) ? (elementsArray[i]) : '';
 
-			if (self.selectorContainsElementQuery(selectorText)) {
+			if (megaponySelectorRegExp.test(selectorText)) {
 				var values = {
 						maxW: self.getMaxWidth(selectorText),
 						minW: self.getMinWidth(selectorText),
@@ -111,8 +113,7 @@ function ElementQueries() {
 	};
 
 	this.getTargetSelector = function (selectorText) {
-		var megaponySelectorRegExp = new RegExp(/\.(megapony)\-(max|min)\-(width|height)\-(\d*)/),
-			selectorPosition = selectorText.match(megaponySelectorRegExp);
+		var selectorPosition = selectorText.match(megaponySelectorRegExp);
 
 		selectorText = selectorText.replace(megaponySelectorRegExp, '');
 
@@ -121,10 +122,6 @@ function ElementQueries() {
 		} else {
 			return selectorText;
 		}
-	};
-
-	this.selectorContainsElementQuery = function (selectorText) {
-		return !!(selectorText.indexOf(self.maxWSelector) !== -1 || selectorText.indexOf(self.minWSelector) !== -1 || selectorText.indexOf(self.maxHSelector) !== -1 || selectorText.indexOf(self.minHSelector) !== -1);
 	};
 
 	this.getMaxWidth = function (selectorText) {
