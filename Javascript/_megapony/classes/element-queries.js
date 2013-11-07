@@ -145,29 +145,19 @@ function ElementQueries() {
 			elementHeight = elements[i].offsetHeight;
 
 			// max width
-			if ((values.maxW > 0 && !values.minW) && (elementWidth < values.maxW)) {
+			if ((values.maxW > 0) && (elementWidth < values.maxW)) {
 				elements[i].classList.add(self.maxWSelector.split('.')[1] + values.maxW);
 			}
 			// min width
-			if ((values.minW > 0 && !values.maxW) && (elementWidth >= values.minW)) {
-				elements[i].classList.add(self.minWSelector.split('.')[1] + values.minW);
-			}
-			// max and min width
-			if ((values.maxW > 0 && values.minW > 0) && (elementWidth < values.maxW && elementWidth >= values.minW)) {
-				elements[i].classList.add(self.maxWSelector.split('.')[1] + values.maxW);
+			if ((values.minW > 0) && (elementWidth >= values.minW)) {
 				elements[i].classList.add(self.minWSelector.split('.')[1] + values.minW);
 			}
 			// max height
-			if ((values.maxH > 0 && !values.minH) && (elementHeight < values.maxH)) {
+			if ((values.maxH > 0) && (elementHeight < values.maxH)) {
 				elements[i].classList.add(self.maxHSelector.split('.')[1] + values.maxH);
 			}
 			// min height
-			if ((values.minH > 0 && !values.maxH) && (elementHeight > values.minH)) {
-				elements[i].classList.add(self.minHSelector.split('.')[1] + values.minH);
-			}
-			// max and min height
-			if ((values.maxH > 0 && values.minH > 0) && (elementHeight < values.maxH && elementHeight > values.minH)) {
-				elements[i].classList.add(self.maxHSelector.split('.')[1] + values.maxH);
+			if ((values.minH > 0) && (elementHeight > values.minH)) {
 				elements[i].classList.add(self.minHSelector.split('.')[1] + values.minH);
 			}
 		}

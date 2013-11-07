@@ -19,3 +19,99 @@ test('getLengthFromSelector returns the correct length', function () {
 	equal(subject.getLengthFromSelector('.megapony-max-width-', '.news-list .megapony-object-column.megapony-min-width-410:nth-child(1) + .megapony-object-column'), false);
 	equal(subject.getLengthFromSelector('.megapony-max-width-', '.news-list .megapony-object-column.megapony-max-width-410:nth-child(1) + .megapony-object-column'), 410);
 });
+
+test('applyElementQueries applies max-width class', function() {
+	var elements = [
+		{
+			offsetWidth : 100,
+			classList : {
+				add : function(cssClass) {
+					equal(cssClass, 'megapony-max-width-200')
+				}
+			}
+		}
+	]
+
+	var subject = new ElementQueries();
+	subject.applyElementQueries(elements, {maxW: 200})
+});
+
+test('applyElementQueries applies min-width class', function() {
+	var elements = [
+		{
+			offsetWidth : 300,
+			classList : {
+				add : function(cssClass) {
+					equal(cssClass, 'megapony-min-width-200')
+				}
+			}
+		}
+	]
+
+	var subject = new ElementQueries();
+	subject.applyElementQueries(elements, {minW: 200})
+});
+
+test('applyElementQueries applies min-height class', function() {
+	var elements = [
+		{
+			offsetHeight : 300,
+			classList : {
+				add : function(cssClass) {
+					equal(cssClass, 'megapony-min-height-200')
+				}
+			}
+		}
+	]
+
+	var subject = new ElementQueries();
+	subject.applyElementQueries(elements, {minH: 200})
+});
+
+test('applyElementQueries applies max-height class', function() {
+	var elements = [
+		{
+			offsetHeight : 100,
+			classList : {
+				add : function(cssClass) {
+					equal(cssClass, 'megapony-max-height-200')
+				}
+			}
+		}
+	]
+
+	var subject = new ElementQueries();
+	subject.applyElementQueries(elements, {maxH: 200})
+});
+
+test('applyElementQueries applies max-width && min-width class', function() {
+	var elements = [
+		{
+			offsetWidth : 100,
+			classList : {
+				add : function(cssClass) {
+					ok(cssClass == 'megapony-max-width-200' || cssClass == 'megapony-min-width-50')
+				}
+			}
+		}
+	]
+
+	var subject = new ElementQueries();
+	subject.applyElementQueries(elements, {maxW: 200, minW: 50})
+});
+
+test('applyElementQueries applies max-height && min-height class', function() {
+	var elements = [
+		{
+			offsetHeight : 100,
+			classList : {
+				add : function(cssClass) {
+					ok(cssClass == 'megapony-max-height-200' || cssClass == 'megapony-min-height-50')
+				}
+			}
+		}
+	]
+
+	var subject = new ElementQueries();
+	subject.applyElementQueries(elements, {maxH: 200, minH: 50})
+});
