@@ -154,10 +154,10 @@ function ElementQueries() {
 	};
 
 	this.getMinHeight = function (selectorText) {
-		var indexOfText = selectorText.indexOf(self.maxHSelector),
-			maxHeight = parseInt(selectorText.slice(indexOfText + self.maxHSelector.length, indexOfText + self.maxHSelector.length + 4), 10);
+		var indexOfText = selectorText.indexOf(self.minHSelector),
+			minHeight = parseInt(selectorText.slice(indexOfText + self.minHSelector.length, indexOfText + self.minHSelector.length + 4), 10);
 
-		return (maxHeight > 0) ? maxHeight : false;
+		return (minHeight > 0) ? minHeight : false;
 	};
 
 	this.applyElementQueries = function (elements, values) {
