@@ -8,26 +8,14 @@ test('getTargetSelector returns the correct target', function() {
 	equal(fixture.getTargetSelector('.megapony-max-width-480#extended-header .megapony-delimiter .facts'), '#extended-header');
 });
 
-test('getMaxWidth returns the max-width', function() {
+test('getLengthFromSelector returns the correct length', function () {
 	var subject = new ElementQueries();
-	equal(subject.getMaxWidth('.news-list .megapony-object-column.megapony-max-width-410:nth-child(1) + .megapony-object-column'), 410);
-	equal(subject.getMaxWidth('.news-list .megapony-object-column.megapony-min-width-410:nth-child(1) + .megapony-object-column'), false);
-});
-
-test('getMinWidth returns the min-width', function() {
-	var subject = new ElementQueries();
-	equal(subject.getMinWidth('.news-list .megapony-object-column.megapony-max-width-410:nth-child(1) + .megapony-object-column'), false);
-	equal(subject.getMinWidth('.news-list .megapony-object-column.megapony-min-width-410:nth-child(1) + .megapony-object-column'), 410);
-});
-
-test('getMaxHeight returns the max-height', function() {
-	var subject = new ElementQueries();
-	equal(subject.getMaxHeight('.news-list .megapony-object-column.megapony-max-height-410:nth-child(1) + .megapony-object-column'), 410);
-	equal(subject.getMaxHeight('.news-list .megapony-object-column.megapony-min-height-410:nth-child(1) + .megapony-object-column'), false);
-});
-
-test('getMinHeight returns the min-height', function() {
-	var subject = new ElementQueries();
-	equal(subject.getMinHeight('.news-list .megapony-object-column.megapony-max-height-410:nth-child(1) + .megapony-object-column'), false);
-	equal(subject.getMinHeight('.news-list .megapony-object-column.megapony-min-height-410:nth-child(1) + .megapony-object-column'), 410);
+	equal(subject.getLengthFromSelector('.megapony-min-height-', '.news-list .megapony-object-column.megapony-max-height-410:nth-child(1) + .megapony-object-column'), false);
+	equal(subject.getLengthFromSelector('.megapony-min-height-', '.news-list .megapony-object-column.megapony-min-height-410:nth-child(1) + .megapony-object-column'), 410);
+	equal(subject.getLengthFromSelector('.megapony-max-height-', '.news-list .megapony-object-column.megapony-max-height-410:nth-child(1) + .megapony-object-column'), 410);
+	equal(subject.getLengthFromSelector('.megapony-max-height-', '.news-list .megapony-object-column.megapony-min-height-410:nth-child(1) + .megapony-object-column'), false);
+	equal(subject.getLengthFromSelector('.megapony-min-width-', '.news-list .megapony-object-column.megapony-max-width-410:nth-child(1) + .megapony-object-column'), false);
+	equal(subject.getLengthFromSelector('.megapony-min-width-', '.news-list .megapony-object-column.megapony-min-width-410:nth-child(1) + .megapony-object-column'), 410);
+	equal(subject.getLengthFromSelector('.megapony-max-width-', '.news-list .megapony-object-column.megapony-min-width-410:nth-child(1) + .megapony-object-column'), false);
+	equal(subject.getLengthFromSelector('.megapony-max-width-', '.news-list .megapony-object-column.megapony-max-width-410:nth-child(1) + .megapony-object-column'), 410);
 });

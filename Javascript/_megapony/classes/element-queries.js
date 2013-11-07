@@ -83,10 +83,10 @@ function ElementQueries() {
 
 			if (megaponySelectorRegExp.test(selectorText)) {
 				var values = {
-						maxW: self.getMaxWidth(selectorText),
-						minW: self.getMinWidth(selectorText),
-						maxH: self.getMaxHeight(selectorText),
-						minH: self.getMinHeight(selectorText)
+						maxW: self.getLengthFromSelector(self.maxWSelector, selectorText),
+						minW: self.getLengthFromSelector(self.minWSelector, selectorText),
+						maxH: self.getLengthFromSelector(self.maxHSelector, selectorText),
+						minH: self.getLengthFromSelector(self.minHSelector, selectorText)
 					},
 					targetSelectorArray = selectorText.split(','),
 					targetSelectorArrayLength = targetSelectorArray.length,
@@ -124,33 +124,11 @@ function ElementQueries() {
 		}
 	};
 
-	this.getMaxWidth = function (selectorText) {
-		var indexOfText = selectorText.indexOf(self.maxWSelector),
-			maxWidth = parseInt(selectorText.slice(indexOfText + self.maxWSelector.length, indexOfText + self.maxWSelector.length + 4), 10);
+	this.getLengthFromSelector = function (selector, selectorText) {
+		var indexOfText = selectorText.indexOf(selector),
+			maxWidth = parseInt(selectorText.slice(indexOfText + selector.length, indexOfText + selector.length + 4), 10);
 
 		return (maxWidth > 0) ? maxWidth : false;
-	};
-
-	this.getMinWidth = function (selectorText) {
-		var indexOfText = selectorText.indexOf(self.minWSelector),
-			minWidth = parseInt(selectorText.slice(indexOfText + self.minWSelector.length, indexOfText + self.minWSelector.length + 4), 10);
-
-		return (minWidth > 0) ? minWidth : false;
-
-	};
-
-	this.getMaxHeight = function (selectorText) {
-		var indexOfText = selectorText.indexOf(self.maxHSelector),
-			maxHeight = parseInt(selectorText.slice(indexOfText + self.maxHSelector.length, indexOfText + self.maxHSelector.length + 4), 10);
-
-		return (maxHeight > 0) ? maxHeight : false;
-	};
-
-	this.getMinHeight = function (selectorText) {
-		var indexOfText = selectorText.indexOf(self.minHSelector),
-			minHeight = parseInt(selectorText.slice(indexOfText + self.minHSelector.length, indexOfText + self.minHSelector.length + 4), 10);
-
-		return (minHeight > 0) ? minHeight : false;
 	};
 
 	this.applyElementQueries = function (elements, values) {
