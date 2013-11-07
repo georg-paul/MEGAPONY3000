@@ -13,5 +13,5 @@ module.exports = function(grunt) {
     });
 
     // Task to run tests
-    grunt.registerTask('test', 'qunit');
+    grunt.registerTask('test', ['jshint', 'qunit']);
 };
