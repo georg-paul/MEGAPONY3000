@@ -45,7 +45,6 @@ function ElementQueries() {
 			megaponyStylesheets = self.getMegaponyStyleSheets(),
 			crossRules,
 			crossRulesLength,
-			cssNormalizer,
 			rule = '';
 
 		megaponyStylesheets.forEach(function (stylesheet) {
@@ -53,8 +52,7 @@ function ElementQueries() {
 			crossRulesLength = crossRules.length;
 
 			for (var x = 0; x < crossRulesLength; x++) {
-				cssNormalizer = new CssSelectorNormalizer();
-				rule = cssNormalizer.normalize(crossRules[x].selectorText);
+				rule = crossRules[x].selectorText;
 				selectorTextString += rule + ';';
 			}
 			self.checkSelectorsForElementQuery(selectorTextString);
@@ -113,7 +111,16 @@ function ElementQueries() {
 	};
 
 	this.getTargetSelector = function (selectorText) {
-		return (selectorText.split(self.maxWSelector)[0].split(self.minWSelector)[0].split(self.maxHSelector)[0].split(self.minHSelector)[0].trim());
+		var megaponySelectorRegExp = new RegExp(/\.(megapony)\-(max|min)\-(width|height)\-(\d*)/),
+			selectorPosition = selectorText.match(megaponySelectorRegExp);
+
+		selectorText = selectorText.replace(megaponySelectorRegExp, '');
+
+		if (selectorText.indexOf(" ", selectorPosition.index) != -1) {
+			return selectorText.substring(0, selectorText.indexOf(" ", selectorPosition.index));
+		} else {
+			return selectorText;
+		}
 	};
 
 	this.isTargetSelectorUnique = function (oldValue, newValue) {
