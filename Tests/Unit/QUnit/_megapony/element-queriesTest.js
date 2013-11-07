@@ -115,3 +115,21 @@ test('applyElementQueries applies max-height && min-height class', function() {
 	var subject = new ElementQueries();
 	subject.applyElementQueries(elements, {maxH: 200, minH: 50})
 });
+
+test('getMegaponyStyleSheets returns all stylesheets with media=megapony', function() {
+	var stylesheets = [
+			{
+				title: 'megapony'
+			},
+			{
+				title: ''
+			},
+			{
+				title: 'megapony'
+			}
+		];
+
+	var subject = new ElementQueries();
+
+	equal(subject.getMegaponyStyleSheets(stylesheets).length, 2);
+});

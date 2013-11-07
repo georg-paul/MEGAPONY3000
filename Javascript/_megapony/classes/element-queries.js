@@ -44,7 +44,7 @@ function ElementQueries() {
 
 	this.parseStylesheets = function () {
 		var selectorTextString = '',
-			megaponyStylesheets = self.getMegaponyStyleSheets(),
+			megaponyStylesheets = self.getMegaponyStyleSheets(document.styleSheets),
 			crossRules,
 			crossRulesLength,
 			rule = '';
@@ -61,9 +61,8 @@ function ElementQueries() {
 		});
 	};
 
-	this.getMegaponyStyleSheets = function () {
+	this.getMegaponyStyleSheets = function (stylesheets) {
 		var megaponyStylesheets = [],
-			stylesheets = document.styleSheets,
 			stylesheetsLength = stylesheets.length;
 
 		for (var i = 0; i < stylesheetsLength; i++) {
