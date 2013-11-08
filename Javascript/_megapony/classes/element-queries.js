@@ -30,6 +30,8 @@ function ElementQueries() {
 
 	var self = this;
 
+	var megaponySelectorRegExp = new RegExp(/\.(megapony)\-(max|min)\-(width|height)\-(\d*)/);
+
 	self.maxWSelector = '.megapony-max-width-';
 	self.minWSelector = '.megapony-min-width-';
 	self.maxHSelector = '.megapony-max-height-';
@@ -42,7 +44,7 @@ function ElementQueries() {
 
 	this.parseStylesheets = function () {
 		var selectorTextString = '',
-			megaponyStylesheets = self.getMegaponyStyleSheets(),
+			megaponyStylesheets = self.getMegaponyStyleSheets(document.styleSheets),
 			crossRules,
 			crossRulesLength,
 			rule = '';
@@ -59,9 +61,8 @@ function ElementQueries() {
 		});
 	};
 
-	this.getMegaponyStyleSheets = function () {
+	this.getMegaponyStyleSheets = function (stylesheets) {
 		var megaponyStylesheets = [],
-			stylesheets = document.styleSheets,
 			stylesheetsLength = stylesheets.length;
 
 		for (var i = 0; i < stylesheetsLength; i++) {
@@ -79,12 +80,12 @@ function ElementQueries() {
 		for (var i = 0; i < elementsArray.length; i++) {
 			selectorText = (elementsArray[i] !== undefined) ? (elementsArray[i]) : '';
 
-			if (self.selectorContainsElementQuery(selectorText)) {
+			if (megaponySelectorRegExp.test(selectorText)) {
 				var values = {
-						maxW: self.getMaxWidth(selectorText),
-						minW: self.getMinWidth(selectorText),
-						maxH: self.getMaxHeight(selectorText),
-						minH: self.getMinHeight(selectorText)
+						maxW: self.getLengthFromSelector(self.maxWSelector, selectorText),
+						minW: self.getLengthFromSelector(self.minWSelector, selectorText),
+						maxH: self.getLengthFromSelector(self.maxHSelector, selectorText),
+						minH: self.getLengthFromSelector(self.minHSelector, selectorText)
 					},
 					targetSelectorArray = selectorText.split(','),
 					targetSelectorArrayLength = targetSelectorArray.length,
@@ -93,7 +94,7 @@ function ElementQueries() {
 				if (targetSelectorArrayLength > 1) {
 					// multiple expressions (.foo .bar, .foo2 .bar 2, .lorem-ipsum)
 					for (var x = 0; x < targetSelectorArrayLength; x++) {
-						if (self.isTargetSelectorUnique(storedTargetSelector, self.getTargetSelector(targetSelectorArray[x]))) {
+						if (storedTargetSelector !== self.getTargetSelector(targetSelectorArray[x])) {
 							if (self.getTargetSelector(targetSelectorArray[x]) !== '') {
 								self.applyElementQueries(document.querySelectorAll(self.getTargetSelector(targetSelectorArray[x])), values);
 							}
@@ -111,8 +112,7 @@ function ElementQueries() {
 	};
 
 	this.getTargetSelector = function (selectorText) {
-		var megaponySelectorRegExp = new RegExp(/\.(megapony)\-(max|min)\-(width|height)\-(\d*)/),
-			selectorPosition = selectorText.match(megaponySelectorRegExp);
+		var selectorPosition = selectorText.match(megaponySelectorRegExp);
 
 		selectorText = selectorText.replace(megaponySelectorRegExp, '');
 
@@ -123,41 +123,11 @@ function ElementQueries() {
 		}
 	};
 
-	this.isTargetSelectorUnique = function (oldValue, newValue) {
-		return !!((newValue !== oldValue));
-	};
-
-	this.selectorContainsElementQuery = function (selectorText) {
-		return !!(selectorText.indexOf(self.maxWSelector) !== -1 || selectorText.indexOf(self.minWSelector) !== -1 || selectorText.indexOf(self.maxHSelector) !== -1 || selectorText.indexOf(self.minHSelector) !== -1);
-	};
-
-	this.getMaxWidth = function (selectorText) {
-		var indexOfText = selectorText.indexOf(self.maxWSelector),
-			maxWidth = parseInt(selectorText.slice(indexOfText + self.maxWSelector.length, indexOfText + self.maxWSelector.length + 4), 10);
+	this.getLengthFromSelector = function (selector, selectorText) {
+		var indexOfText = selectorText.indexOf(selector),
+			maxWidth = parseInt(selectorText.slice(indexOfText + selector.length, indexOfText + selector.length + 4), 10);
 
 		return (maxWidth > 0) ? maxWidth : false;
-	};
-
-	this.getMinWidth = function (selectorText) {
-		var indexOfText = selectorText.indexOf(self.minWSelector),
-			minWidth = parseInt(selectorText.slice(indexOfText + self.minWSelector.length, indexOfText + self.minWSelector.length + 4), 10);
-
-		return (minWidth > 0) ? minWidth : false;
-
-	};
-
-	this.getMaxHeight = function (selectorText) {
-		var indexOfText = selectorText.indexOf(self.maxHSelector),
-			maxHeight = parseInt(selectorText.slice(indexOfText + self.maxHSelector.length, indexOfText + self.maxHSelector.length + 4), 10);
-
-		return (maxHeight > 0) ? maxHeight : false;
-	};
-
-	this.getMinHeight = function (selectorText) {
-		var indexOfText = selectorText.indexOf(self.maxHSelector),
-			maxHeight = parseInt(selectorText.slice(indexOfText + self.maxHSelector.length, indexOfText + self.maxHSelector.length + 4), 10);
-
-		return (maxHeight > 0) ? maxHeight : false;
 	};
 
 	this.applyElementQueries = function (elements, values) {
@@ -174,29 +144,19 @@ function ElementQueries() {
 			elementHeight = elements[i].offsetHeight;
 
 			// max width
-			if ((values.maxW > 0 && !values.minW) && (elementWidth < values.maxW)) {
+			if ((values.maxW > 0) && (elementWidth < values.maxW)) {
 				elements[i].classList.add(self.maxWSelector.split('.')[1] + values.maxW);
 			}
 			// min width
-			if ((values.minW > 0 && !values.maxW) && (elementWidth >= values.minW)) {
-				elements[i].classList.add(self.minWSelector.split('.')[1] + values.minW);
-			}
-			// max and min width
-			if ((values.maxW > 0 && values.minW > 0) && (elementWidth < values.maxW && elementWidth >= values.minW)) {
-				elements[i].classList.add(self.maxWSelector.split('.')[1] + values.maxW);
+			if ((values.minW > 0) && (elementWidth >= values.minW)) {
 				elements[i].classList.add(self.minWSelector.split('.')[1] + values.minW);
 			}
 			// max height
-			if ((values.maxH > 0 && !values.minH) && (elementHeight < values.maxH)) {
+			if ((values.maxH > 0) && (elementHeight < values.maxH)) {
 				elements[i].classList.add(self.maxHSelector.split('.')[1] + values.maxH);
 			}
 			// min height
-			if ((values.minH > 0 && !values.maxH) && (elementHeight > values.minH)) {
-				elements[i].classList.add(self.minHSelector.split('.')[1] + values.minH);
-			}
-			// max and min height
-			if ((values.maxH > 0 && values.minH > 0) && (elementHeight < values.maxH && elementHeight > values.minH)) {
-				elements[i].classList.add(self.maxHSelector.split('.')[1] + values.maxH);
+			if ((values.minH > 0) && (elementHeight > values.minH)) {
 				elements[i].classList.add(self.minHSelector.split('.')[1] + values.minH);
 			}
 		}

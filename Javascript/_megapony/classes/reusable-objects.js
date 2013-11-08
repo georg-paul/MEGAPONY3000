@@ -162,6 +162,6 @@ function MegaponyObjects() {
 	};
 
 	this.areColumnsStacked = function ($megaponyObj) {
-		return !!($megaponyObj.width() === $megaponyObj.find('> .megapony-object-column:first').width());
+		return ($megaponyObj.width() === $megaponyObj.find('> .megapony-object-column:first').width());
 	};
 }
