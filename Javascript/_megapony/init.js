@@ -34,7 +34,7 @@
 
 		elQ.init();
 		mpObjects.init();
-		elQ.hideLoadingView();
+		document.querySelector('html').classList.remove('megapony-loading');
 	});
 
 }());

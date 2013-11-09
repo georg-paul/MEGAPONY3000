@@ -150,8 +150,4 @@ function ElementQueries() {
 			}
 		}
 	};
-
-	this.hideLoadingView = function () {
-		document.querySelector('html').classList.remove('megapony-loading');
-	};
 }
