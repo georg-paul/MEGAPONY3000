@@ -112,8 +112,8 @@ function ElementQueries() {
 
 		selectorText = selectorText.replace(megaponySelectorRegExp, '');
 
-		if (selectorText.indexOf(" ", selectorPosition.index) != -1) {
-			return selectorText.substring(0, selectorText.indexOf(" ", selectorPosition.index));
+		if (selectorText.indexOf(' ', selectorPosition.index) !== -1) {
+			return selectorText.substring(0, selectorText.indexOf(' ', selectorPosition.index));
 		} else {
 			return selectorText;
 		}
