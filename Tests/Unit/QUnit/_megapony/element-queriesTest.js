@@ -6,6 +6,7 @@ test('getTargetSelector returns the correct target', function () {
 	equal(fixture.getTargetSelector('.news-list .megapony-object-column.megapony-max-width-410:nth-child(1) + .megapony-object-column'), '.news-list .megapony-object-column:nth-child(1)');
 	equal(fixture.getTargetSelector('.megapony-rwd-table-container.megapony-max-width-400 .rwd-table'), '.megapony-rwd-table-container');
 	equal(fixture.getTargetSelector('.megapony-max-width-480#extended-header .megapony-delimiter .facts'), '#extended-header');
+	equal(fixture.getTargetSelector('.l-element-queries .demo-text.megapony-max-width-400.megapony-min-width-100'), '.l-element-queries .demo-text');
 });
 
 test('getLengthFromSelector returns the correct length', function () {

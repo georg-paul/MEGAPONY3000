@@ -107,7 +107,7 @@ body.megapony-max-width-600 .l-banner {
   .l-element-queries .example h3 {
     margin-bottom: 25px;
     margin-bottom: 1.5625rem; }
-.l-element-queries .demo-text.megapony-max-width-360 {
+.l-element-queries .demo-text.megapony-max-width-999.megapony-min-width-400 {
   color: red; }
 .l-element-queries .demo-text.megapony-max-width-280 {
   color: blue; }

@@ -29,7 +29,7 @@ function ElementQueries() {
 	"use strict";
 
 	var self = this,
-		megaponySelectorRegExp = new RegExp(/\.(megapony)\-(max|min)\-(width|height)\-(\d*)/),
+		megaponySelectorRegExp = new RegExp(/\.(megapony)\-(max|min)\-(width|height)\-(\d*)/g),
 		maxWSelector = 'megapony-max-width-',
 		minWSelector = 'megapony-min-width-',
 		maxHSelector = 'megapony-max-height-',
@@ -76,7 +76,7 @@ function ElementQueries() {
 
 		for (var i = 0; i < elementsLength; i++) {
 			selectorText = (elements[i] !== undefined) ? (elements[i]) : '';
-			if (megaponySelectorRegExp.test(selectorText)) {
+			if (selectorText.match(megaponySelectorRegExp) !== null) {
 				self.selectorContainsElementQueries(selectorText);
 			}
 		}
@@ -105,12 +105,12 @@ function ElementQueries() {
 	};
 
 	this.getTargetSelector = function (selectorText) {
-		var selectorPosition = selectorText.match(megaponySelectorRegExp);
+		var selectorPosition = selectorText.search(megaponySelectorRegExp);
 
 		selectorText = selectorText.replace(megaponySelectorRegExp, '');
 
-		if (selectorText.indexOf(' ', selectorPosition.index) !== -1) {
-			return selectorText.substring(0, selectorText.indexOf(' ', selectorPosition.index));
+		if (selectorText.indexOf(' ', selectorPosition) !== -1) {
+			return selectorText.substring(0, selectorText.indexOf(' ', selectorPosition));
 		} else {
 			return selectorText;
 		}
@@ -136,17 +136,25 @@ function ElementQueries() {
 			elementWidth = elements[i].offsetWidth;
 			elementHeight = elements[i].offsetHeight;
 
-			if ((values.maxW > 0) && (elementWidth < values.maxW)) {
+			if ((values.maxW > 0 && !values.minW) && (elementWidth < values.maxW)) {
 				elements[i].classList.add(maxWSelector + values.maxW); // max width
 			}
-			if ((values.minW > 0) && (elementWidth >= values.minW)) {
+			if ((values.minW > 0 && !values.maxW) && (elementWidth >= values.minW)) {
 				elements[i].classList.add(minWSelector + values.minW); // min width
 			}
-			if ((values.maxH > 0) && (elementHeight < values.maxH)) {
+			if ((values.maxW > 0 && values.minW > 0) && (elementWidth < values.maxW && elementWidth >= values.minW)) {
+				elements[i].classList.add(maxWSelector + values.maxW); // max and min width used in combination
+				elements[i].classList.add(minWSelector + values.minW);
+			}
+			if ((values.maxH > 0 && !values.minH) && (elementHeight < values.maxH)) {
 				elements[i].classList.add(maxHSelector + values.maxH); // max height
 			}
-			if ((values.minH > 0) && (elementHeight > values.minH)) {
+			if ((values.minH > 0 && !values.maxH) && (elementHeight > values.minH)) {
 				elements[i].classList.add(minHSelector + values.minH); // min height
+			}
+			if ((values.maxH > 0 && values.minH > 0) && (elementHeight < values.maxH && elementHeight > values.minH)) {
+				elements[i].classList.add(maxHSelector + values.maxH);// max and min height used in combination
+				elements[i].classList.add(minHSelector + values.minH);
 			}
 		}
 	};

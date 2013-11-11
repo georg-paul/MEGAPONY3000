@@ -191,7 +191,7 @@
 							<div class="megapony-object-columns-2-7-5">
 								<div class="megapony-object-column" >
 <pre class="prettyprint lang-css">
-.demo-text.megapony-max-width-360 {
+.demo-text.megapony-max-width-999.megapony-min-width-400 {
 	color: red;
 }
 .demo-text.megapony-max-width-280 {
@@ -200,12 +200,10 @@
 </pre>
 								</div>
 								<div class="megapony-object-column">
-									<p class="demo-text">This paragraph will be red if it's width is smaller than 360 px and green if it is smaller than 280 px and the paragraph will have the default color for every width above. <strong>Important: A reload is needed after resizing. See important notice in <a href="README.md">README.md</a></strong></p>
+									<p class="demo-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.</p>
 								</div>
 							</div>
-							<p class="demo-text">This paragraph will be also red if it's width is smaller than 360 px and green if it is smaller than 280 px. <strong>It's width is the jumping point</strong> . The width of the paragraph. <strong>NOT the screen width</strong>.
-								The available width of the element in the context matters. Compare this p-tag with the p-tag top right. The react differently because the are in another context with different space available. You only have to use the classes <strong>megapony-max-width-123</strong>
-								or <strong>megapony-min-width-456</strong> in your stylesheets. The classes are applied by the framework automatically. Every linked stylesheet with a title attribute value of "megapony" will be parsed. Not with AJAX and regex, just with simple DOM access <code>document.styleSheets</code>.</p>
+							<p class="demo-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.</p>
 						</div>
 					</section>
 
@@ -441,37 +439,6 @@
 							</div>
 						</div>
 					</section>
-
-					<section class="l-section l-integration-tests">
-						<h1 id="integration-tests">Integration Tests</h1>
-						<div id="test-max-width">
-							<div class="megapony-object-media">
-								<div class="img">
-									<div class="test-results"></div>
-								</div>
-								<div class="bd">
-									<h3>Element Query max-width</h3>
-									<div class="max-width-target">
-										<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.</p>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div id="test-min-width">
-							<div class="megapony-object-media">
-								<div class="img">
-									<div class="test-results"></div>
-								</div>
-								<div class="bd">
-									<h3>Element Query min-width</h3>
-									<div class="min-width-target">
-										<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.</p>
-									</div>
-								</div>
-							</div>
-						</div>
-					</section>
 				</div>
 			</section>
 			<footer class="l-footnote">
@@ -498,9 +465,6 @@
 		<script src="Javascript/app/contributed/jquery.fitvids.js"></script>
 		<script src="Javascript/app/contributed/jquery.magnific-popup.js"></script>
         <script src="Javascript/app/init-plugins.js"></script>
-
-		<!-- Integration Tests, do not include in production -->
-		<script src="Tests/Integration/_megapony/element-queriesTest.js"></script>
 
 		<!-- prettify demo code -->
 		<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?lang=css&skin=sunburst"></script>
