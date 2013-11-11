@@ -16,11 +16,6 @@ Important Notices
 * There are issues with the access of document.styleSheets and cssRules (for example in Chrome/Windows) when the framework is running in local filesystem
 
 
-Special thanks to
--------------------------
-* The jQuery guys, Chris Coyier (fitVids), Dmitry Semenov (magnific popup), John Polacek (stacktable), Philipp Bergsmann (CssSelectorNormalizer)
-
-
 License
 -------------------------
 Copyright &copy; Georg Paul (g.paul@opendo.at)
