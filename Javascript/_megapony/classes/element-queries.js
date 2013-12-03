@@ -43,10 +43,12 @@ function ElementQueries() {
 		var selectorTextString = '',
 			crossRules,
 			crossRulesLength,
-			rule = '';
+			rule = '',
+			megaponyStylesheets = self.getMegaponyStyleSheets(document.styleSheets),
+			stylesheetsLength = megaponyStylesheets.length;
 
-		self.getMegaponyStyleSheets(document.styleSheets).forEach(function (stylesheet) {
-			crossRules = stylesheet.rules || stylesheet.cssRules;
+		for (var i = 0; i < stylesheetsLength; i++) {
+			crossRules = megaponyStylesheets[i].rules || megaponyStylesheets[i].cssRules;
 			crossRulesLength = crossRules.length;
 
 			for (var x = 0; x < crossRulesLength; x++) {
@@ -54,7 +56,7 @@ function ElementQueries() {
 				selectorTextString += rule + ';';
 			}
 			self.checkSelectorsForElementQuery(selectorTextString);
-		});
+		}
 	};
 
 	this.getMegaponyStyleSheets = function (stylesheets) {
