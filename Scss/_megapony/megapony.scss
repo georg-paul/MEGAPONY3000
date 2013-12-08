@@ -1,7 +1,7 @@
-@import "_config.scss";
+@import "_default-config.scss";
+@import "_custom-config.scss";
 @import "_mixins.scss";
 @import "reset.scss";
 @import "grid.scss";
 @import "global.scss";
 @import "reusable-objects.scss";
-@import "integration-tests.scss"; // do not include in production

@@ -2,7 +2,6 @@
 <html lang="en" class="javascript-is-disabled megapony-loading">
 	<head>
 		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 		<title>MEGAPONY3000</title>
 
@@ -12,19 +11,18 @@
 		<link rel="stylesheet" href="Css/_megapony/megapony.css" title="megapony">
         <link rel="stylesheet" href="Css/app/app.css" title="megapony">
 
-        <script src="Javascript/_megapony/_config.js"></script>
-        <script src="Javascript/_megapony/classes/feature-detection.js"></script>
-        <script src="Javascript/_megapony/contributed/polyfills/html5shiv.js"></script>
-		<script src="Javascript/_megapony/contributed/polyfills/domready.js"></script>
-		<script src="Javascript/_megapony/contributed/polyfills/minimal-classList-shim.js"></script>
+        <script>
+            document.getElementsByTagName('html')[0].className =
+            document.getElementsByTagName('html')[0].className.replace(/(?:^|\s)javascript-is-disabled(?!\S)/g, 'javascript-is-enabled');
+        </script>
 	</head>
 	<body>
 		<div id="page">
 			<header class="l-banner megapony-object-halign-container">
 				<div class="megapony-delimiter megapony-object-halign">
-					<h1 class="left">Megapony3000</h1>
+					<h1 class="left logo">Megapony3000</h1>
                     <nav class="megapony-object-hnav right" id="main-nav">
-						<span class="toggle"></span>
+						<button class="toggle">Toggle</button>
                         <ul>
                             <li>
                                 <a href="#">Nav item</a>
@@ -63,7 +61,7 @@
 
 						<h3>.megapony-object-hnav</h3>
 						<nav class="megapony-object-hnav" id="demo-object-hnav">
-							<span class="toggle"></span>
+                            <button class="toggle">Toggle</button>
 							<ul>
 								<li><a href="#">Nav item</a></li>
 								<li><a href="#">Nav item</a></li>
@@ -75,14 +73,37 @@
 							</ul>
 						</nav>
 
-						<h3>.megapony-object-media (contributed)</h3>
+                        <h3>.megapony-object-vnav</h3>
+                        <nav class="megapony-object-vnav" id="demo-object-vnav">
+                            <button class="toggle">Toggle</button>
+                            <ul>
+                                <li class="active">
+                                    <a href="#">Nav item</a>
+                                    <ul>
+                                        <li><a href="#">Nested item</a></li>
+                                        <li><a href="#">Nested item</a></li>
+                                        <li><a href="#">Nested item</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">Nav item</a>
+                                    <ul>
+                                        <li><a href="#">Nested item</a></li>
+                                        <li><a href="#">Nested item</a></li>
+                                        <li><a href="#">Nested item</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">Nav item</a></li>
+                            </ul>
+                        </nav>
+
+						<h3>.megapony-object-media</h3>
 						<div class="megapony-object-media">
 							<a class="img" href="#">
-								<img src="http://placehold.it/200x200" />
+								<img src="http://placehold.it/200x200" alt="" />
 							</a>
 							<div class="bd">
-								<p class="leader">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  </p>
 							</div>
 						</div>
 
@@ -188,21 +209,6 @@
 
 						<div class="example">
 							<h3>Simple example</h3>
-							<div class="megapony-object-columns-2-7-5">
-								<div class="megapony-object-column" >
-<pre class="prettyprint lang-css">
-.demo-text.megapony-max-width-999.megapony-min-width-400 {
-	color: red;
-}
-.demo-text.megapony-max-width-280 {
-	color: blue;
-}
-</pre>
-								</div>
-								<div class="megapony-object-column">
-									<p class="demo-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.</p>
-								</div>
-							</div>
 							<p class="demo-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.</p>
 						</div>
 					</section>
@@ -306,19 +312,11 @@
                                             <h3>Content Element 1</h3>
                                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                                         </div>
-                                        <div class="content-element">
-                                            <h3>Content Element 2</h3>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                        </div>
                                     </div>
                                 </div>
                                 <div class="megapony-object-column" >
                                     <div class="content-element">
-                                        <h3>Content Element 3</h3>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                    </div>
-                                    <div class="content-element">
-                                        <h3>Content Element 4</h3>
+                                        <h3>Content Element 2</h3>
                                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                                     </div>
                                 </div>
@@ -327,117 +325,11 @@
                                         <div class="content-element">
                                             <h3>Most import content (would be at the bottom when columns are stacked)</h3>
                                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-					</section>
-
-					<section class="l-section l-tables megapony-rwd-table-container">
-						<h1 id="tables">Tables</h1>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
-						<table class="rwd-table">
-							<thead>
-							<tr>
-								<th scope="col">Column heading 1</th>
-								<th scope="col">Column heading 2</th>
-								<th scope="col">Column heading 3</th>
-							</tr>
-							</thead>
-							<tbody>
-							<tr>
-								<td>Lorem ipsum dolor sit amet</td>
-								<td>Lorem ipsum dolor sit amet</td>
-								<td>Lorem ipsum dolor sit amet</td>
-							</tr>
-							<tr>
-								<td>Lorem ipsum dolor sit amet</td>
-								<td>Lorem ipsum dolor sit amet</td>
-								<td>Lorem ipsum dolor sit amet</td>
-							</tr>
-							<tr>
-								<td>Lorem ipsum dolor sit amet</td>
-								<td>Lorem ipsum dolor sit amet</td>
-								<td>Lorem ipsum dolor sit amet</td>
-							</tr>
-							<tr>
-								<td>Lorem ipsum dolor sit amet</td>
-								<td>Lorem ipsum dolor sit amet</td>
-								<td>Lorem ipsum dolor sit amet</td>
-							</tr>
-							<tr>
-								<td>Lorem ipsum dolor sit amet</td>
-								<td>Lorem ipsum dolor sit amet</td>
-								<td>Lorem ipsum dolor sit amet</td>
-							</tr>
-							<tr>
-								<td>Lorem ipsum dolor sit amet</td>
-								<td>Lorem ipsum dolor sit amet</td>
-								<td>Lorem ipsum dolor sit amet</td>
-							</tr>
-							<tr>
-								<td>Lorem ipsum dolor sit amet</td>
-								<td>Lorem ipsum dolor sit amet</td>
-								<td>Lorem ipsum dolor sit amet</td>
-							</tr>
-							<tr>
-								<td>Lorem ipsum dolor sit amet</td>
-								<td>Lorem ipsum dolor sit amet</td>
-								<td>Lorem ipsum dolor sit amet</td>
-							</tr>
-							<tr>
-								<td>Lorem ipsum dolor sit amet</td>
-								<td>Lorem ipsum dolor sit amet</td>
-								<td>Lorem ipsum dolor sit amet</td>
-							</tr>
-							<tr>
-								<td>Lorem ipsum dolor sit amet</td>
-								<td>Lorem ipsum dolor sit amet</td>
-								<td>Lorem ipsum dolor sit amet</td>
-							</tr>
-							<tr>
-								<td>Lorem ipsum dolor sit amet</td>
-								<td>Lorem ipsum dolor sit amet</td>
-								<td>Lorem ipsum dolor sit amet</td>
-							</tr>
-							<tr>
-								<td>Lorem ipsum dolor sit amet</td>
-								<td>Lorem ipsum dolor sit amet</td>
-								<td>Lorem ipsum dolor sit amet</td>
-							</tr>
-							</tbody>
-						</table>
-					</section>
-
-					<section class="l-section l-lightbox">
-						<h1 id="lightbox">Lightbox</h1>
-						<div class="megapony-object-media">
-							<a class="img right lightbox-image" href="Images/app/bear-big.jpg">
-								<img src="Images/app/bear-small.jpg" alt="Funny bear" width="220" height="258" />
-							</a>
-							<div class="bd">
-								<p class="leader">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-							</div>
-						</div>
-					</section>
-
-					<section class="l-section l-video">
-						<h1 id="video">Responsive Videos</h1>
-						<div class="megapony-object-media">
-							<div class="video">
-								<div class="megapony-video">
-									<iframe width="640" height="360" src="http://www.youtube.com/embed/Xh9710gjiII?rel=0" frameborder="0" allowfullscreen></iframe>
-								</div>
-							</div>
-							<div class="bd in-text">
-								<h3>Youtube Video inside of a megapony-media-object</h3>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-							</div>
-						</div>
 					</section>
 				</div>
 			</section>
@@ -452,21 +344,11 @@
 				</div>
 			</footer>
 		</div>
-		<div class="megapony-loading"></div>
 
-		<!-- megapony requirements -->
-		<script src="Javascript/_megapony/contributed/jquery-1.8.3.min.js"></script>
-		<script src="Javascript/_megapony/classes/reusable-objects.js"></script>
-        <script src="Javascript/_megapony/classes/element-queries.js"></script>
-		<script src="Javascript/_megapony/init.js"></script>
-
-		<!-- application -->
-		<script src="Javascript/app/contributed/jquery.stacktable.js"></script>
-		<script src="Javascript/app/contributed/jquery.fitvids.js"></script>
-		<script src="Javascript/app/contributed/jquery.magnific-popup.js"></script>
-        <script src="Javascript/app/init-plugins.js"></script>
-
-		<!-- prettify demo code -->
-		<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?lang=css&skin=sunburst"></script>
+        <!-- megapony requirements -->
+		<div class="megapony-loading"><div class="spinner"></div></div>
+		<script src="Javascript/contributed/zepto/zepto.min.js"></script>
+        <script src="Javascript/contributed/zepto/modules/selector.js"></script>
+        <script src="Javascript/megapony.js"></script>
 	</body>
 </html>

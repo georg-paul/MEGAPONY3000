@@ -8,7 +8,7 @@ module.exports = function(grunt) {
 			files: ['Tests/Unit/QUnit/index.html']
 		},
 		jshint: {
-			all: ['Javascript/_megapony/classes/*.js']
+			all: ['Javascript/megapony.js']
 		}
     });
 

@@ -1,4 +1,5 @@
 /*jslint browser: true, nomen: false, devel: true*/
+/*global $ */
 
 /*
  Copyright (c) 2013 Georg Paul
@@ -24,6 +25,151 @@
  OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
+
+function MegaponyObjects() {
+	"use strict";
+
+	var self = this;
+
+	this.init = function () {
+		self.checkForCollision();
+	};
+
+	this.checkForCollision = function () {
+		$('[class*="megapony-object"]').each(function () {
+			var $megaponyObj = $(this),
+				classNames = $megaponyObj.attr('class').split(/\s+/),
+				objType = '',
+				i = 0;
+
+			for (i = 0; i < classNames.length; i += 1) {
+				objType = classNames[i].split('megapony-object-')[1];
+				if (objType !== undefined) {
+					if (objType === 'halign' || objType === 'valign-middle') {
+						self.halign($megaponyObj);
+					} else if (objType === 'media') {
+						self.media($megaponyObj);
+					} else if (objType === 'hnav') {
+						self.hnav($megaponyObj);
+					} else if (objType === 'vnav') {
+						self.vnav($megaponyObj);
+					} else if (objType.indexOf('columns-') !== -1) {
+						self.columns($megaponyObj);
+					}
+				}
+			}
+		});
+	};
+
+	this.halign = function ($megaponyObj) {
+		var totalChildrenWidth = 0,
+			availableWidth = $megaponyObj.width() - parseInt($megaponyObj.css('padding-left'), 10) - parseInt($megaponyObj.css('padding-right'), 10),
+			halignChild;
+
+		if ($megaponyObj.hasClass('full-width')) {
+			return;
+		}
+
+		$megaponyObj.children().each(function () {
+			halignChild = $(this);
+			totalChildrenWidth += halignChild.width();
+			totalChildrenWidth += parseInt(halignChild.css('margin-left'), 10);
+			totalChildrenWidth += parseInt(halignChild.css('margin-right'), 10);
+		});
+
+		if (totalChildrenWidth > availableWidth) {
+			$megaponyObj.addClass('no-side-by-side');
+			$megaponyObj.closest('.megapony-object-halign-container').addClass('children-no-side-by-side');
+		} else if (totalChildrenWidth + 50 > availableWidth) {
+			$megaponyObj.addClass('nearly-no-side-by-side side-by-side');
+			$megaponyObj.closest('.megapony-object-halign-container').addClass('children-nearly-no-side-by-side');
+		} else {
+			$megaponyObj.addClass('side-by-side');
+		}
+	};
+
+	this.media = function ($megaponyObj) {
+		var $media = ($megaponyObj.find('.img').length) ? $megaponyObj.find('.img') : $megaponyObj.find('.video'),
+			mediaImage = new Image(),
+			imageSrc = ($media.find('img').length) ? $media.find('img').attr('src') : $media.attr('src'),
+			mediaObjectIsHidden = false,
+			$bd = $megaponyObj.children('.bd'),
+			mediaTextMinWidth = ($bd.css('min-width') !== undefined) ? parseInt($bd.css('min-width'), 10) : 0;
+
+		if ($media.hasClass('img')) {
+			mediaImage.onload = function () {
+				mediaObjectIsHidden = ($megaponyObj.width() <= 0);
+				if (!mediaObjectIsHidden && ($megaponyObj.width() < this.width + parseInt($media.css('margin-left'), 10) + parseInt($media.css('margin-right'), 10) + mediaTextMinWidth)) {
+					$megaponyObj.addClass('no-side-by-side');
+				}
+				$media.css('max-width', this.width);
+			};
+			mediaImage.src =  imageSrc;
+		} else {
+			if ($megaponyObj.width() < $media.width() + parseInt($media.css('margin-left'), 10) + parseInt($media.css('margin-right'), 10) + mediaTextMinWidth) {
+				$megaponyObj.addClass('no-side-by-side');
+			}
+		}
+	};
+
+	this.hnav = function ($megaponyObj) {
+		var $rootUL = $megaponyObj.find('> ul'),
+			totalWidth = 0,
+			clickEventType = (document.ontouchstart !== null) ? 'click' : 'touchstart',
+			$listItem;
+
+		$rootUL.find('> li').each(function () {
+			$listItem = $(this);
+			totalWidth += $listItem.width() + parseInt($listItem.css('margin-left'), 10) + parseInt($listItem.css('margin-right'), 10);
+		});
+
+		// rounding bug?!
+		if (totalWidth > $rootUL.width() - parseInt($rootUL.css('padding-left'), 10) - parseInt($rootUL.css('padding-right'), 10) + 3) {
+			$megaponyObj.addClass('breakpoint-small');
+			$megaponyObj.closest('.megapony-object-hnav-container').addClass('hnav-breakpoint-small');
+		}
+
+		if (!$megaponyObj.hasClass('no-dropdown')) {
+			$megaponyObj.addClass('dropdown');
+		}
+
+		$megaponyObj.find('.toggle').bind(clickEventType, function () {
+			$rootUL.toggle();
+			$(this).toggleClass('open');
+		});
+	};
+
+	this.vnav = function ($megaponyObj) {
+		$megaponyObj.find('.toggle').bind('click', function () {
+			$megaponyObj.children('ul').toggle();
+		});
+	};
+
+	this.columns = function ($megaponyObj) {
+		if (self.areColumnsStacked($megaponyObj)) {
+			$megaponyObj.find('[data-move-down]').each(function () {
+				var $elementToMove = $(this),
+					columnIndex = $elementToMove.closest('.megapony-object-column').index() + 1,
+					targetColumn = columnIndex + parseInt($elementToMove.attr('data-move-down'), 10);
+
+				$elementToMove.appendTo($megaponyObj.children(':nth-child(' + targetColumn + ')'));
+			});
+			$megaponyObj.find('[data-move-up]').each(function () {
+				var $elementToMove = $(this),
+					columnIndex = $elementToMove.closest('.megapony-object-column').index() + 1,
+					targetColumn = columnIndex - parseInt($elementToMove.attr('data-move-up'), 10);
+
+				$elementToMove.appendTo($megaponyObj.children(':nth-child(' + targetColumn + ')'));
+			});
+		}
+	};
+
+	this.areColumnsStacked = function ($megaponyObj) {
+		return ($megaponyObj.width() === $megaponyObj.children('.megapony-object-column').first().width());
+	};
+}
+
+
 
 function ElementQueries() {
 	"use strict";
@@ -159,3 +305,18 @@ function ElementQueries() {
 		}
 	};
 }
+
+
+(function () {
+	"use strict";
+
+	$(document).ready(function ($) {
+		var elQ = new ElementQueries(),
+			mpObjects = new MegaponyObjects();
+
+		elQ.init();
+		mpObjects.init();
+		document.querySelector('html').classList.remove('megapony-loading'); // Hide loading animation
+	});
+
+}());

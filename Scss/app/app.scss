@@ -1,13 +1,290 @@
-// megapony config and mixins
 @import "../_megapony/_mixins.scss";
-@import "../_megapony/_config.scss";
+@import "../_megapony/_default-config.scss";
+@import "../_megapony/_custom-config.scss";
+@import "_app-variables.scss";
 
-// app includes
-@import "mixins.scss";
-@import "global.scss";
-@import "layout.scss";
-@import "typo.scss";
-@import "tables.scss";
-@import "forms.scss";
-@import "typo3-cms.scss";
-@import "magnific-popup.scss";
+
+body {
+	background: $body-bg;
+	color: $body-text;
+	font-family: $body-font;
+}
+
+.megapony-object-media {
+	.img {
+		@include rem(margin-right, 20);
+	}
+	.bd {
+		@include rem(min-width, 300);
+	}
+	&.no-side-by-side {
+		.img {
+			@include rem(margin-bottom, 15);
+		}
+	}
+}
+
+// Typography
+p, pre, blockquote, ul, ol, dl, figure, table, fieldset, .css-object {
+	@include rem(margin-bottom, $text-flow-margin);
+}
+
+h1, h2, h3, h4, h5 {
+	line-height: 1.1em;
+	margin: 0;
+}
+
+h1 {
+	font-weight: 700;
+	@include rem(font-size, nth($headline-sizes, 1));
+	@if $headline-default-margins {
+		margin-bottom: 0.5em;
+	}
+}
+
+h2 {
+	@include rem(font-size, nth($headline-sizes, 2));
+	font-weight: 700;
+	@if $headline-default-margins {
+		@include rem(margin-bottom, $base-font-size);
+	}
+}
+
+h3 {
+	@include rem(font-size, nth($headline-sizes, 3));
+	font-weight: 700;
+	@if $headline-default-margins {
+		@include rem(margin-bottom, $base-font-size/2);
+	}
+}
+
+h4 {
+	@include rem(font-size, nth($headline-sizes, 4));
+	font-weight: 400;
+	@if $headline-default-margins {
+		@include rem(margin-bottom, $base-font-size/2);
+	}
+}
+
+h5 {
+	@include rem(font-size, nth($headline-sizes, 5));
+	font-weight: 400;
+	@if $headline-default-margins {
+		@include rem(margin-bottom, $base-font-size/2);
+	}
+}
+
+.leader {
+	font-family: $leader-font;
+	@include rem(font-size, 28);
+	@include rem(line-height, 36);
+	margin-bottom: 1.5em;
+}
+
+a {
+	color: $link-color;
+	&:visited {
+		color: $link-color-visited;
+	}
+	&:link, &:visited {
+		text-decoration: none;
+	}
+	&:hover, &:focus, &:active {
+		text-decoration: underline;
+	}
+}
+
+ul, ol {
+	list-style: none;
+}
+
+sup {
+	position: relative;
+	font-size: 68%;
+	bottom: 0.5em;
+}
+
+sub {
+	position: relative;
+	font-size: 68%;
+	top: 0.5em;
+}
+
+code {
+	white-space: normal;
+	font-weight: bold;
+	color: #000;
+}
+
+
+.l-banner {
+	@include rem(padding-top, 50);
+	@include rem(padding-bottom, 50);
+	> .megapony-object-halign {
+		&.megapony-max-width-480 {
+			h1 {
+				@include rem(font-size, 24);
+			}
+		}
+	}
+	.logo {
+		text-transform: uppercase;
+		margin-bottom: 0;
+		line-height: 1;
+		@include rem(margin-right, 50);
+		@include rem(font-size, 42);
+	}
+	#main-nav {
+		position: static;
+		> ul > li {
+			@include rem(min-width, 160);
+			@include rem(margin-right, 10);
+			&:last-child {
+				margin-right: 0;
+			}
+			> a {
+				text-align: center;
+				@include rem(padding-top, 12);
+				@include rem(padding-bottom, 12);
+				@include rem(padding-left, 26);
+				@include rem(padding-right, 26);
+			}
+		}
+		li {
+			background-color: #F5F5F5;
+			a {
+				text-decoration: none;
+			}
+			ul {
+				li {
+					background-color: #F5F5F5;
+					border-top: 1px solid #eee;
+					a {
+						@include rem(padding-top, 8);
+						@include rem(padding-bottom, 8);
+						@include rem(padding-left, 15);
+						@include rem(padding-right, 15);
+					}
+				}
+			}
+		}
+	}
+	.no-side-by-side {
+		#main-nav:not(.breakpoint-small) {
+			@include rem(margin-top, 20);
+		}
+	}
+}
+
+.l-element-queries {
+	.example {
+		h3 {
+			@include rem(margin-bottom, 25);
+		}
+		@include rem(margin-top, 40);
+		@include rem(margin-bottom, 30);
+	}
+
+	// simple example
+	.demo-text.megapony-max-width-999.megapony-min-width-400 {
+		color: red;
+	}
+	.demo-text.megapony-max-width-280 {
+		color: blue
+	}
+}
+
+.l-footnote {
+	@include rem(font-size, 14);
+	background: #2E3230;
+	@include rem(margin-top, 100);
+	@include rem(padding-top, 15);
+	@include rem(padding-bottom, 15);
+	p {
+		color: #fff;
+		margin: 0;
+	}
+}
+
+.l-intro {
+	background: #f5f5f5;
+	@include rem(padding-top, 45);
+	@include rem(padding-bottom, 45);
+	.leader {
+		margin-bottom: 0;
+		&.megapony-min-width-1100.megapony-max-width-1200 {
+			color: red;
+		}
+		&.megapony-max-width-1150 {
+			@include rem(font-size, 26);
+			@include rem(line-height, 38);
+		}
+	}
+}
+
+.l-features {
+	.l-section {
+		@include rem(padding-top, 70);
+		@include rem(padding-bottom, 70);
+		border-bottom: 1px solid #ddd;
+	}
+}
+
+.l-cssobjects {
+	h3 {
+		@include rem(margin-top, 40);
+	}
+	#demo-object-vnav {
+		.toggle { display: none; }
+		ul > li > ul {
+			margin-left: 20px;
+		}
+		&.megapony-max-width-400 {
+			@include vnav-dropdown;
+		}
+	}
+	#demo-object-valign-middle {
+		input[type="text"] {
+			width: 300px;
+			margin-right: 15px;
+		}
+		&.no-side-by-side {
+			input[type="text"] { margin-bottom: 10px; }
+		}
+	}
+}
+
+.l-columns {
+	[class*="megapony-object-columns-"] {
+		@include rem(margin-bottom, 30);
+	}
+	.switch-position-demo.megapony-max-width-600 {
+		@include single-column;
+	}
+}
+
+// Table styles
+table {
+	width: 100%;
+	th {
+		background: #eee;
+		text-align: left;
+		padding: 7px 8px;
+	}
+	td {
+		text-align: left;
+		padding: 5px 8px;
+	}
+	tr:nth-child(odd) td {
+		background: #f5f5f5;
+	}
+}
+
+.megapony-rwd-table-container {
+	&.megapony-max-width-#{$responsive-table-breakpoint} {
+		.rwd-table { display: none; }
+	}
+	&.megapony-min-width-#{$responsive-table-breakpoint} {
+		.stacktable { display: none; }
+	}
+}

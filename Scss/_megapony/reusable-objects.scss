@@ -29,12 +29,6 @@
 			height: 100%;
 			list-style: none;
 			line-height: 1em;
-			@if $default-styling-hnav {
-				@include rem(margin-right, $hnav-margin);
-				&:last-child {
-					margin-right: 0;
-				}
-			}
 			> a {
 
 			}
@@ -48,6 +42,7 @@
 	&.breakpoint-small {
 		@include hnav-small;
 	}
+	.toggle { display: none; }
 }
 
 // hlist object
@@ -61,12 +56,6 @@
 			height: 100%;
 			list-style: none;
 			line-height: 1em;
-			@if $default-styling-hlist {
-				@include rem(margin-right, $hlist-margin);
-				&:last-child {
-					margin-right: 0;
-				}
-			}
 		}
 	}
 }
@@ -80,7 +69,6 @@
 	zoom: 1;
 	.img, .video {
 		float: left;
-		@include rem(margin-right, $media-object-margin);
 		overflow: hidden;
 		img {
 			display: block;
@@ -88,7 +76,6 @@
 		&.right {
 			float: right;
 			margin-right: 0;
-			@include rem(margin-left, $media-object-margin);
 		}
 	}
 	.bd {
@@ -103,9 +90,11 @@
 		.img, .video {
 			float: none;
 			display: inline-block;
-			@include rem(margin-bottom, $media-object-margin);
-			margin-left: 0;
-			margin-right: 0;
+			margin-left: 0 !important;
+			margin-right: 0 !important;
+		}
+		.bd {
+			min-width: 0 !important;
 		}
 		.video {
 			width: 100%;
@@ -133,15 +122,9 @@
 	}
 	.left {
 		float: left;
-		@if $default-styling-halign {
-			@include rem(margin-right, $halign-margin/2);
-		}
 	}
 	.right {
 		float: right;
-		@if $default-styling-halign {
-			@include rem(margin-left, $halign-margin/2);
-		}
 	}
 
 	&.no-side-by-side {

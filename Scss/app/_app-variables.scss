@@ -1,0 +1,39 @@
+$headline-sizes: 36, 28, 18, 18, $base-font-size;
+$headline-default-margins: true;
+
+// COLORS
+$link-color: #438fc1;
+$link-color-visited: #438fc1;
+$body-bg: #fff;
+$body-text: #3b3b3b;
+
+// FONT FAMILIES
+$body-font: Arial, sans-serif;
+$leader-font: Georgia, serif;
+
+// lightbox
+$mfg-bg-color: #000;
+$mfg-bg-opactiy: 0.8;
+$mfg-close-color: #fff;
+
+// TYPO3 CMS specific
+$csc-default-margin: 40;
+$textpic-caption-size: 14;
+$textpic-caption-color: #9ba2a7;
+$textpic-caption-font-style: italic;
+$textpic-caption-align: center;
+
+
+// MISC
+$text-flow-margin: $base-font-size * 2;
+$responsive-table-breakpoint: 640;
+
+$ul-bullet-position: outside;
+$ul-bullet-type: disc;
+$ul-margin-left: 20;
+$ul-li-margin-bottom: 0;
+
+$ol-bullet-position: outside;
+$ol-bullet-type: decimal;
+$ol-margin-left: 25;
+$ol-li-margin-bottom: 0;

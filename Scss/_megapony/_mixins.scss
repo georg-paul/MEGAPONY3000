@@ -1,3 +1,12 @@
+@mixin rem($property, $value) {
+	#{$property}: $value + 0px;
+	#{$property}: 1 / $base-font-size * $value + 0rem;
+}
+
+@function em($target, $context: $base-font-size) {
+	@return 1 / $context * $target + 0em;
+}
+
 @mixin clear-after {
 	&:after {
 		content: ".";
@@ -13,29 +22,6 @@
 	-moz-box-sizing: $type;
 	-webkit-box-sizing: $type;
 	-ms-box-sizing: $type;
-}
-
-@mixin collapse-margins($total-margin) {
-	margin-bottom: $total-margin;
-	+ * {
-		margin-top: 0;
-	}
-}
-
-@mixin clear-common-last-child-styles {
-	border-bottom: 0 none;
-	margin-bottom: 0;
-	padding-bottom: 0;;
-}
-
-@mixin reset-styles {
-	float: none;
-	display: inherit;
-	width: auto;
-	list-style: none;
-	margin: 0;
-	padding: 0;
-	border: 0 none;
 }
 
 @mixin hnav-small {
@@ -60,71 +46,22 @@
 		}
 	}
 	.toggle {
-		position: absolute;
 		display: inline-block;
 		cursor: pointer;
-		right: 0;
-		top: 0;
-		width: 38px;
-		height: 27px;
-		background: $link-color;
-		background: #2E3230;
-		&:before, &:after {
-			border: 2px solid #fff;
-			content: '';
-			left: 30%;
-			position: absolute;
-			right: 30%;
-			top: 30%;
-		}
-		&:after {
-			top: 60%;
-		}
 	}
 }
 
 
 @mixin vnav-dropdown {
+	.toggle {
+		display: inline-block;
+		cursor: pointer;
+	}
 	ul {
-		position: relative;
-		padding-top: 40px;
-		&.no-active-item {
-			padding-top: 0;
-		}
-		li {
-			position: relative;
-			display: none;
-			width: 100%;
-			&.active {
-				display: block;
-				position: absolute;
-				top: 0;
-			}
-		}
+		display: none;
 	}
 }
 
-@mixin word-break {
-	-ms-word-break: break-all;
-	word-break: break-all;
-
-	/* Non standard for webkit */
-	word-break: break-word;
-
-	-webkit-hyphens: auto;
-	-moz-hyphens: auto;
-	hyphens: auto;
-}
-
-
-@mixin rem($property, $value) {
-	#{$property}: $value + 0px;
-	#{$property}: 1 / $base-font-size * $value + 0rem;
-}
-
-@function em($target, $context: $base-font-size) {
-	@return 1 / $context * $target + 0em;
-}
 
 @mixin single-column {
 	[class*="megapony-object-columns-"] {
